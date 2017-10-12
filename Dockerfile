@@ -20,6 +20,7 @@ RUN set -x \
  && mkdir -p /var/www/html \
 
  # install ces-about page
+ # ADD HERE LINK TO DYNAMIC ABOUT PAGE !
  && curl -Lsk https://github.com/cloudogu/ces-about/releases/download/v${CES_ABOUT_VERSION}/ces-about-v${CES_ABOUT_VERSION}.tar.gz | gunzip | tar -xv -C /var/www/html \
 
  # install warp menu
