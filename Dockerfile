@@ -20,6 +20,7 @@ RUN set -x \
 
  # install ces-about page
  && curl -Lsk https://github.com/cloudogu/ces-about/releases/download/v${CES_ABOUT_VERSION}/ces-about-v${CES_ABOUT_VERSION}.tar.gz | gunzip | tar -xv -C /var/www/html \
+ && sed -i 's@base href=".*"@base href="/info/"@' /var/www/html/info/index.html \
 
  # install warp menu
  && curl -Lsk https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip -o /tmp/warp.zip \
