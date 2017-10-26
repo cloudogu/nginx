@@ -3,7 +3,7 @@ MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
 ENV CES_CONFD_VERSION=0.2.0 \
     WARP_MENU_VERSION=0.4.2 \
-    CES_ABOUT_VERSION=0.1.0 \
+    CES_ABOUT_VERSION=0.2.0 \
     CES_THEME_VERSION=f7fdeb77bc7f7b51588628bacaf7532ddac464bb
 
 RUN set -x \
