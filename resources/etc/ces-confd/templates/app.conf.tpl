@@ -7,7 +7,6 @@ server {
   proxy_set_header X-Forwarded-Proto https;
   proxy_set_header X-Real-IP $remote_addr;
   proxy_set_header X-Scheme $scheme;
-  proxy_set_header X-Real-IP $remote_addr;
 
   # proxy keep alive settings
   # https://github.com/cloudogu/ecosystem/issues/298
