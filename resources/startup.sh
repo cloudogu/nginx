@@ -9,16 +9,16 @@ echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
 
-# include fqdn in ssl.conf
-FQDN=$(doguctl config --global fqdn)
-render_template "/etc/nginx/include.d/ssl.conf.tpl" > "/etc/nginx/include.d/ssl.conf"
+# render ssl configuration to include the correct fqdn
+doguctl template /etc/nginx/include.d/ssl.conf.tpl /etc/nginx/include.d/ssl.conf
 
-echo "[nginx] configure default redirect ..."
 # include default_dogu in default-dogu.conf
-if ! DEFAULT_DOGU=$(doguctl config --global default_dogu); then
-  DEFAULT_DOGU="cockpit"
-fi
-render_template "/etc/nginx/include.d/default-dogu.conf.tpl" > "/etc/nginx/include.d/default-dogu.conf"
+echo "[nginx] configure default redirect ..."
+doguctl template /etc/nginx/include.d/default-dogu.conf.tpl /etc/nginx/include.d/default-dogu.conf
+
+# render main configuration to include log_level
+echo "[nginx] configure logging ..."
+doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 
 ces-confd -e "http://$(cat /etc/ces/node_master):4001" &
 echo "[nginx] ces-confd is listening for changes on etcd..."

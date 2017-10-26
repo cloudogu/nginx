@@ -1,7 +1,7 @@
 user  nginx;
 worker_processes  2;
 
-error_log  /var/log/nginx/error.log warn;
+error_log  /var/log/nginx/error.log {{ .Config.GetOrDefault "log_level" "warn" }};
 pid        /var/run/nginx.pid;
 
 events {
@@ -23,15 +23,16 @@ http {
   default_type  application/octet-stream;
 
   # logging
+  {{ if not (.Config.Exists "disable_access_log") }}
   log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                     '$status $body_bytes_sent "$http_referer" '
                     '"$http_user_agent" "$http_x_forwarded_for"';
   access_log  /var/log/nginx/access.log  main;
+  {{end}}
 
 	##
 	# Gzip Settings
 	##
-
 	gzip on;
 	gzip_disable "msie6";
 
