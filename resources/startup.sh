@@ -22,7 +22,7 @@ doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 
 # render analytics template
 echo "[nginx] rendering analytics template ..."
-doguctl template /etc/nginx/include.d/analytics.conf.tpl /etc/nginx/include.d/analytics.conf
+doguctl template /etc/nginx/include.d/warp_analytics.conf.tpl /etc/nginx/include.d/warp_analytics.conf;
 
 ces-confd -e "http://$(cat /etc/ces/node_master):4001" &
 echo "[nginx] ces-confd is listening for changes on etcd..."

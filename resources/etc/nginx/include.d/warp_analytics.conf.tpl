@@ -18,6 +18,12 @@ if ($http_x_requested_with ~ XMLHttpRequest) {
 	set $warp '</body>';
 }
 
+# Include google analytics scripts if a tracking id is set
+{{ if .Config.Exists "trackingID" }}
+set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "trackingID" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "trackingID" }}"); </script>';
+set $warp '$analytics $warp';
+{{ end }}
+
 # replace </body> with $warp for html pages
 sub_filter '</body>' $warp;
 sub_filter_once on;

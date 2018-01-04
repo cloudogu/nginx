@@ -19,9 +19,8 @@ server {
 
   include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/info.conf;
-  include /etc/nginx/include.d/warp.conf;
+  include /etc/nginx/include.d/warp_analytics.conf;
   include /etc/nginx/include.d/default-dogu.conf;
-  include /etc/nginx/include.d/analytics.conf;
 
   # services
 {{range .}}
