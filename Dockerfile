@@ -1,7 +1,7 @@
 FROM registry.cloudogu.com/official/base:3.6-1
 MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
-ENV CES_CONFD_VERSION=0.2.0 \
+ENV CES_CONFD_VERSION=0.2.1 \
     WARP_MENU_VERSION=0.4.2 \
     CES_ABOUT_VERSION=0.2.0 \
     CES_THEME_VERSION=f7fdeb77bc7f7b51588628bacaf7532ddac464bb
