@@ -20,6 +20,10 @@ doguctl template /etc/nginx/include.d/default-dogu.conf.tpl /etc/nginx/include.d
 echo "[nginx] configure logging ..."
 doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 
+# render analytics template
+echo "[nginx] rendering subfilters template ..."
+doguctl template /etc/nginx/include.d/subfilters.conf.tpl /etc/nginx/include.d/subfilters.conf;
+
 ces-confd -e "http://$(cat /etc/ces/node_master):4001" &
 echo "[nginx] ces-confd is listening for changes on etcd..."
 
