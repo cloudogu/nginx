@@ -19,9 +19,11 @@ if ($http_x_requested_with ~ XMLHttpRequest) {
 }
 
 # Include google analytics scripts if a tracking id is set
-{{ if .Config.Exists "trackingID" }}
-set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "trackingID" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "trackingID" }}"); </script>';
-set $warp '$analytics $warp';
+{{ if .Config.Exists "googleTrackingID" }}
+if ($allowed_method = 1){
+	set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "googleTrackingID" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "googleTrackingID" }}"); </script>';
+	set $warp '$analytics $warp';
+}
 {{ end }}
 
 # replace </body> with $warp for html pages
