@@ -21,6 +21,10 @@
     "Name": "disable_access_log",
     "Description": "Disable logging of incoming requests",
     "Optional": true
+  }, {
+    "Name": "google_tracking_id",
+    "Description": "Google Analytics Tracking ID",
+    "Optional": true
   }],
   "ExposedPorts": [{
     "Type": "tcp",

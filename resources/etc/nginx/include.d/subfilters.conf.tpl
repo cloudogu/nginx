@@ -2,8 +2,8 @@
 set $scripts '<script type="text/javascript" async="true">(function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script></body>';
 
 # Include google analytics scripts if a tracking id is set
-{{ if .Config.Exists "googleTrackingID" }}
-set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "googleTrackingID" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "googleTrackingID" }}"); </script>';
+{{ if .Config.Exists "google_tracking_id" }}
+set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "google_tracking_id" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "google_tracking_id" }}"); </script>';
 set $scripts '$analytics $scripts';
 {{ end }}
 
