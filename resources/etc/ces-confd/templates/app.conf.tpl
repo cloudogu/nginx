@@ -21,6 +21,7 @@ server {
   include /etc/nginx/include.d/info.conf;
   include /etc/nginx/include.d/subfilters.conf;
   include /etc/nginx/include.d/default-dogu.conf;
+  include /etc/nginx/include.d/robots.conf;
 
   # services
 {{range .}}

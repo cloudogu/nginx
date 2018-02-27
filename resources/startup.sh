@@ -3,8 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-source /etc/ces/functions.sh
-
 echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
