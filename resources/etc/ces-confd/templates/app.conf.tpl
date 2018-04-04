@@ -1,5 +1,13 @@
 server {
   include /etc/nginx/include.d/ssl.conf;
+  include /etc/nginx/include.d/errors.conf;
+  include /etc/nginx/include.d/robots.conf;
+
+{{if .Maintenance}}
+  location / {
+    return 503;
+  }
+{{else}}
 
   # default proxy settings
   proxy_set_header Host $http_host;
@@ -17,17 +25,17 @@ server {
   # disable gzip encoding for proxy applications
   proxy_set_header Accept-Encoding identity;
 
-  include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/info.conf;
   include /etc/nginx/include.d/subfilters.conf;
-  include /etc/nginx/include.d/default-dogu.conf;
-  include /etc/nginx/include.d/robots.conf;
+  include /etc/nginx/include.d/default-dogu.conf;  
 
   # services
-{{range .}}
+{{range .Services}}
   location /{{.Name}} {
     proxy_pass {{.URL}};
   }
 {{end}}
   # end of services
+
+{{end}}
 }
