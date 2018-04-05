@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>{{.Title}}</title>
@@ -14,15 +15,18 @@
 </head>
 <body>
 <div class="logo">
-    <img src="/errors/images/logo/blib-white-320px.png">
+    <img src="/errors/images/logo/logo-white-320px.png">
 </div>
-<div class="informationbox col-md-offset-6 col-md-6">
+<div class="informationbox col-md-offset-6 col-md-5">
        <div class="jumbotron sizing">
-          <h1 style="color: #E43B53 !important;">{{.Title}}</h1>
-          <div>{{.Text}}</div>
+          <h1>{{.Title}}</h1>
+             <div>{{.Text}}</div>
        </div>
 </div>
+
 <div class="background">
     <img src="/errors/images/clockwork.png">
 </div>
 </body>
+
+</html>
