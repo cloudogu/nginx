@@ -4,7 +4,7 @@ MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 ENV CES_CONFD_VERSION=0.3.0 \
     WARP_MENU_VERSION=0.4.2 \
     CES_ABOUT_VERSION=0.2.0 \
-    CES_THEME_VERSION=76038723c277792bcc130f02f3290350f69ef3da
+    CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622
 
 RUN set -x \
  # install required packages
