@@ -3,7 +3,7 @@ set $scripts '<script type="text/javascript" async="true">(function(){var s = do
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
-set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "google_tracking_id" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "google_tracking_id" }}"); </script>';
+set $analytics '<!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Config.Get "google_tracking_id" }}"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag("js", new Date());   gtag("config", "{{ .Config.Get "google_tracking_id" }}", { "anonymize_ip": true }); </script>';
 set $scripts '$analytics $scripts';
 {{ end }}
 
