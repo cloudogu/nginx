@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.7-3
+FROM registry.cloudogu.com/official/base:3.7-4
 LABEL maintainer="sebastian.sdorra@cloudogu.com"
 
 ENV CES_CONFD_VERSION=0.3.1 \
