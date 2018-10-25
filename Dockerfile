@@ -1,3 +1,4 @@
+# Note that this is a legacy multistage build. See also Dockerfile.build
 FROM registry.cloudogu.com/official/base:3.7-4
 LABEL maintainer="sebastian.sdorra@cloudogu.com"
 
