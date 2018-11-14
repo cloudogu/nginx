@@ -22,6 +22,9 @@ http {
   include       /etc/nginx/include.d/mime.types;
   default_type  application/octet-stream;
 
+  # Limit download size
+  proxy_max_temp_file_size 4096m;
+
   # logging
   {{ if not (.Config.Exists "disable_access_log") }}
   log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
