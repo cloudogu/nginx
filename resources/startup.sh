@@ -22,8 +22,13 @@ doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 echo "[nginx] rendering subfilters template ..."
 doguctl template /etc/nginx/include.d/subfilters.conf.tpl /etc/nginx/include.d/subfilters.conf;
 
-ces-confd -e "http://$(cat /etc/ces/node_master):4001" &
-echo "[nginx] ces-confd is listening for changes on etcd..."
+if [[ $(echo $1) = "true" ]]; then
+  echo "[nginx] started in maintenance mode"
+  mv /etc/ces-confd/static/maintenance_mode.conf /etc/nginx/conf.d/app.conf
+else
+  ces-confd -e "http://$(cat /etc/ces/node_master):4001" &
+  echo "[nginx] ces-confd is listening for changes on etcd..."
+fi
 
 # Start nginx
 echo "[nginx] starting nginx service..."

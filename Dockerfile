@@ -5,7 +5,8 @@ LABEL maintainer="sebastian.sdorra@cloudogu.com"
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=0.4.3 \
     CES_ABOUT_VERSION=0.2.1 \
-    CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622
+    CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622 \
+    CES_MAINTENANCE_MODE=false
 
 RUN set -x \
  # install required packages
@@ -48,7 +49,7 @@ VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 WORKDIR /etc/nginx
 
 # Define default command.
-CMD ["/startup.sh"]
+ENTRYPOINT /startup.sh "$CES_MAINTENANCE_MODE"
 
 # Expose ports.
 EXPOSE 80
