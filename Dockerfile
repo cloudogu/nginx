@@ -40,7 +40,6 @@ RUN set -x \
 COPY dist/nginx /usr/sbin/nginx
 COPY resources /
 
-
 # Define mountable directories.
 # TODO check if any of the volumes are required
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
@@ -49,7 +48,7 @@ VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 WORKDIR /etc/nginx
 
 # Define default command.
-ENTRYPOINT /startup.sh "$CES_MAINTENANCE_MODE"
+ENTRYPOINT ["/startup.sh"]
 
 # Expose ports.
 EXPOSE 80
