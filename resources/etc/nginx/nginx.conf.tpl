@@ -23,7 +23,7 @@ http {
   default_type  application/octet-stream;
 
   # Limit download size
-  proxy_max_temp_file_size 4096m;
+  proxy_max_temp_file_size 32768m;
 
   # logging
   {{ if not (.Config.Exists "disable_access_log") }}
