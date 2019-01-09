@@ -22,7 +22,7 @@ http {
   include       /etc/nginx/include.d/mime.types;
   default_type  application/octet-stream;
 
-  # Limit download size
+  # Limit download size to 32gb
   proxy_max_temp_file_size 32768m;
 
   # logging
