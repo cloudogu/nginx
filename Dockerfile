@@ -1,3 +1,21 @@
+FROM registry.cloudogu.com/official/base:3.7-4 as builder
+MAINTAINER Michael Behlendorf <michael.behlendorf@cloudogu.com>
+
+# dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
+
+ENV NGINX_VERSION 1.13.11
+
+COPY build /
+RUN set -x \
+    && apk --update add openssl-dev pcre-dev zlib-dev wget build-base \
+    && mkdir /build \
+    && cd /build \
+    && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+    && tar -zxvf nginx-${NGINX_VERSION}.tar.gz \
+    && cd /build/nginx-${NGINX_VERSION} \
+    && /build.sh \
+    && rm -rf /var/cache/apk/* /build
+
 # Note that this is a legacy multistage build. See also Dockerfile.build
 FROM registry.cloudogu.com/official/base:3.7-4
 LABEL maintainer="sebastian.sdorra@cloudogu.com"
@@ -37,7 +55,7 @@ RUN set -x \
  && rm -rf /var/cache/apk/*
 
 # copy files
-COPY dist/nginx /usr/sbin/nginx
+COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY resources /
 
 # Define mountable directories.
