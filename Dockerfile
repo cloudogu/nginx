@@ -1,5 +1,5 @@
-FROM registry.cloudogu.com/official/base:3.7-4 as builder
-MAINTAINER Michael Behlendorf <michael.behlendorf@cloudogu.com>
+FROM registry.cloudogu.com/official/base:3.9.4-1 as builder
+LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
@@ -16,8 +16,8 @@ RUN set -x \
     && /build.sh \
     && rm -rf /var/cache/apk/* /build
 
-# Note that this is a legacy multistage build. See also Dockerfile.build
-FROM registry.cloudogu.com/official/base:3.7-4
+
+FROM registry.cloudogu.com/official/base:3.9.4-1
 LABEL maintainer="sebastian.sdorra@cloudogu.com"
 
 ENV CES_CONFD_VERSION=0.3.1 \
