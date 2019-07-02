@@ -3,7 +3,7 @@ LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.13.11
+ENV NGINX_VERSION 1.17.1
 
 COPY build /
 RUN set -x \
