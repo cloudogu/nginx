@@ -59,7 +59,7 @@ COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY resources /
 
 # Define mountable directories.
-# TODO check if any of the volumes are required
+# volumes used to avoid writing to containers writable layer https://docs.docker.com/storage/
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
