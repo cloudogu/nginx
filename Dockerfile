@@ -1,6 +1,26 @@
-# Note that this is a legacy multistage build. See also Dockerfile.build
-FROM registry.cloudogu.com/official/base:3.7-4
-LABEL maintainer="sebastian.sdorra@cloudogu.com"
+FROM registry.cloudogu.com/official/base:3.9.4-1 as builder
+LABEL maintainer="michael.behlendorf@cloudogu.com"
+
+# dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
+
+ENV NGINX_VERSION 1.17.1
+
+COPY build /
+RUN set -x \
+    && apk --update add openssl-dev pcre-dev zlib-dev wget build-base \
+    && mkdir /build \
+    && cd /build \
+    && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+    && tar -zxvf nginx-${NGINX_VERSION}.tar.gz \
+    && cd /build/nginx-${NGINX_VERSION} \
+    && /build.sh \
+    && rm -rf /var/cache/apk/* /build
+
+
+FROM registry.cloudogu.com/official/base:3.9.4-1
+LABEL maintainer="sebastian.sdorra@cloudogu.com" \
+      name="official/nginx" \
+      version="1.13.11-8"
 
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=0.4.3 \
@@ -37,11 +57,11 @@ RUN set -x \
  && rm -rf /var/cache/apk/*
 
 # copy files
-COPY dist/nginx /usr/sbin/nginx
+COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY resources /
 
 # Define mountable directories.
-# TODO check if any of the volumes are required
+# volumes used to avoid writing to containers writable layer https://docs.docker.com/storage/
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
