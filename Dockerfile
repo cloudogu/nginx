@@ -20,7 +20,7 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.9.4-1
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       name="official/nginx" \
-      version="1.17.1-1"
+      version="1.17.1-2"
 
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=0.4.3 \
