@@ -30,6 +30,11 @@
       "Name": "google_tracking_id",
       "Description": "Google Analytics Tracking ID",
       "Optional": true
+    },
+    {
+      "Name": "ssl_protocols",
+      "Description": "Allowed SSL protocols for nginx to communicate.",
+      "Optional": true
     }
   ],
   "ExposedPorts": [
