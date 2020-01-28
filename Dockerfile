@@ -3,7 +3,7 @@ LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.17.1
+ENV NGINX_VERSION 1.17.8
 
 COPY build /
 RUN set -x \
@@ -20,7 +20,7 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       name="official/nginx" \
-      version="1.17.1-2"
+      version="1.17.8-1"
 
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=0.4.3 \
