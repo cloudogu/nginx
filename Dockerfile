@@ -67,6 +67,8 @@ VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 # Define working directory.
 WORKDIR /etc/nginx
 
+HEALTHCHECK CMD doguctl healthy nginx || exit 1
+
 # Define default command.
 ENTRYPOINT ["/startup.sh"]
 
