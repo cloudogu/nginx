@@ -20,10 +20,10 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       name="official/nginx" \
-      version="1.17.8-1"
+      version="1.17.8-2"
 
 ENV CES_CONFD_VERSION=0.3.1 \
-    WARP_MENU_VERSION=0.4.3 \
+    WARP_MENU_VERSION=1.0.1 \
     CES_ABOUT_VERSION=0.2.2 \
     CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622 \
     CES_MAINTENANCE_MODE=false
@@ -66,6 +66,8 @@ VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
 WORKDIR /etc/nginx
+
+HEALTHCHECK CMD doguctl healthy nginx || exit 1
 
 # Define default command.
 ENTRYPOINT ["/startup.sh"]
