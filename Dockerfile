@@ -23,7 +23,7 @@ LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       version="1.17.8-1"
 
 ENV CES_CONFD_VERSION=0.3.1 \
-    WARP_MENU_VERSION=0.4.3 \
+    WARP_MENU_VERSION=1.0.1 \
     CES_ABOUT_VERSION=0.2.2 \
     CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622 \
     CES_MAINTENANCE_MODE=false
