@@ -7,24 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.17.8-4] - 2020-05-26
+### Changed
+- update warp menu to v1.0.3
+
 ## [1.17.8-3] - 2020-05-20
-## Changed
+### Changed
 - update warp menu to v1.0.2
 
 ## [1.17.8-2] - 2020-05-12
 
-## Changed
+### Changed
 - update warp menu to v1.0.1
 
 ## [1.17.8-1] - 2020-01-29
 
-## Changed
+### Changed
 - Available ciphers
 
-## Removed
+### Removed
 - Support for TLS 1.0 & 1.1
 
 
 ## v0.0.1 - v1.17.1-2 / previous versions
 
-Up till version v1.17.1-2 there was no changelog. Please see the [release page](https://github.com/cloudogu/nginx/releases) 
+Up till version v1.17.1-2 there was no changelog. Please see the [release page](https://github.com/cloudogu/nginx/releases)
