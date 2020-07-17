@@ -25,7 +25,7 @@ LABEL maintainer="sebastian.sdorra@cloudogu.com" \
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=1.0.2 \
     CES_ABOUT_VERSION=0.2.2 \
-    CES_THEME_VERSION=d7a0865917f25d3dbf78777d81d96aaab845f622 \
+    CES_THEME_VERSION=0d20c1b1d5518af475cddb33713e58ebf57f5599 \
     CES_MAINTENANCE_MODE=false
 
 RUN set -x \
