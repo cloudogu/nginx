@@ -1,2 +1,0 @@
-# Do not copy modular makefiles into container
-build/make**

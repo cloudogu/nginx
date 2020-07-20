@@ -5,7 +5,7 @@ LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 ENV NGINX_VERSION 1.17.8
 
-COPY build /
+COPY nginx-build /
 RUN set -x \
     && apk --update add openssl-dev pcre-dev zlib-dev wget build-base \
     && mkdir /build \
