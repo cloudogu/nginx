@@ -7,12 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.17.8-4] - 2020-05-26
+## [v1.17.8-5] - 2020-07-20
+
 ### Changed
+
+- Update styles so HTTP error pages have all the same text color.
+
+## [1.17.8-4] - 2020-05-26
+
+### Changed
+
 - update warp menu to v1.0.3
 
 ## [1.17.8-3] - 2020-05-20
+
 ### Changed
+
 - update warp menu to v1.0.2
 
 ## [1.17.8-2] - 2020-05-12
