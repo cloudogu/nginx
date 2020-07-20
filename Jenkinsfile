@@ -45,6 +45,22 @@ node('vagrant') {
                 ecoSystem.verify("/dogu")
             }
 
+            if (gitflow.isReleaseBranch()) {
+                String releaseVersion = git.getSimpleBranchName();
+
+                stage('Finish Release') {
+                    gitflow.finishRelease(releaseVersion)
+                }
+
+                stage('Push Dogu to registry') {
+                    ecoSystem.push("/dogu")
+                }
+
+                stage ('Add Github-Release'){
+                    github.createReleaseWithChangelog(releaseVersion, changelog)
+                }
+            }
+
         } finally {
             stage('Clean') {
                 ecoSystem.destroy()
