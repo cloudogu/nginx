@@ -1,6 +1,7 @@
 #!groovy
-@Library(['github.com/cloudogu/dogu-build-lib@414bdfd']) _
+@Library(['github.com/cloudogu/dogu-build-lib@v1.1.0', 'github.com/cloudogu/ces-build-lib@1.44.2']) _
 import com.cloudogu.ces.dogubuildlib.*
+import com.cloudogu.ces.cesbuildlib.*
 
 node('vagrant') {
 
@@ -13,6 +14,12 @@ node('vagrant') {
         ])
 
         EcoSystem ecoSystem = new EcoSystem(this, "gcloud-ces-operations-internal-packer", "jenkins-gcloud-ces-operations-internal")
+        Git git = new Git(this, "cesmarvin")
+        git.committerName = 'cesmarvin'
+        git.committerEmail = 'cesmarvin@cloudogu.com'
+        GitFlow gitflow = new GitFlow(this, git)
+        GitHub github = new GitHub(this, git)
+        Changelog changelog = new Changelog(this)
 
         stage('Checkout') {
             checkout scm
@@ -43,6 +50,22 @@ node('vagrant') {
 
             stage('Verify') {
                 ecoSystem.verify("/dogu")
+            }
+
+            if (gitflow.isReleaseBranch()) {
+                String releaseVersion = git.getSimpleBranchName();
+
+                stage('Finish Release') {
+                    gitflow.finishRelease(releaseVersion)
+                }
+
+                stage('Push Dogu to registry') {
+                    ecoSystem.push("/dogu")
+                }
+
+                stage ('Add Github-Release'){
+                    github.createReleaseWithChangelog(releaseVersion, changelog)
+                }
             }
 
         } finally {
