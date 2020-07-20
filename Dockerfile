@@ -19,8 +19,8 @@ RUN set -x \
 
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
-      name="official/nginx" \
-      version="1.17.8-4"
+      NAME="official/nginx" \
+      VERSION="1.17.8-5"
 
 ENV CES_CONFD_VERSION=0.3.1 \
     WARP_MENU_VERSION=1.0.3 \
