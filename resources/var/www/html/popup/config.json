@@ -1,0 +1,26 @@
+{
+  "popups": [
+    {
+      "id": "warning",
+      "title": "Bitte gehe zum Usermgt",
+      "text": "Lege einen Benutzer im Usermgt an und nicht hier.",
+      "buttons": [
+        {
+          "name": "ok",
+          "text": "ok",
+          "action": "SUBMIT"
+        },
+        {
+          "name": "cancel",
+          "text": "cancel",
+          "action": "CANCEL"
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+
+    }
+  ]
+}

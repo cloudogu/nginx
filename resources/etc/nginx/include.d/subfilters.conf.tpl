@@ -1,5 +1,5 @@
 # warp menu
-set $scripts '<script type="text/javascript" async="true">(function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script></body>';
+set $scripts '<script type="text/javascript" async="true">(function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script>';
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
@@ -25,10 +25,33 @@ if ($http_x_requested_with ~ XMLHttpRequest) {
 }
 
 # replace </body> with $scripts for html pages
-sub_filter '</body>' $scripts;
-sub_filter_once on;
+#sub_filter '</body>' $scripts;
+#sub_filter_once on;
 
 # warp menu
 location /warp {
 	root /var/www/html;
 }
+
+# popup menu
+location /popup {
+root /var/www/html;
+}
+
+set $scriptsactual $scripts;
+
+# sonar menu
+#location /sonar {
+#   set $scriptsactual '<script type="text/javascript" async="true">(function(){var a = document.createElement("script");a.type = "text/javascript";a.async = true;a.src = "/popup/popup_spa.js";var y = document.getElementsByTagName("script")[0];y.parentNode.insertBefore(a, y);})();</script> $scripts';
+#}
+
+# redmine menu
+#location /redmine {
+#   set $scriptsactual '<script type="text/javascript" async="true">(function(){var a = document.createElement("script");a.type = "text/javascript";a.async = true;a.src = "/popup/popup_normal.js";var y = document.getElementsByTagName("script")[0];y.parentNode.insertBefore(a, y);})();</script> $scripts';
+#}
+
+set $scriptsactual '$scriptsactual </body>';
+
+# replace </body> with $scripts for html pages
+sub_filter '</body>' $scriptsactual;
+sub_filter_once on;
