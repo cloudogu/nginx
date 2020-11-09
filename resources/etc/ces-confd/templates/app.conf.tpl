@@ -27,11 +27,21 @@ server {
 
   include /etc/nginx/include.d/info.conf;
   include /etc/nginx/include.d/subfilters.conf;
-  include /etc/nginx/include.d/default-dogu.conf;  
+  include /etc/nginx/include.d/default-dogu.conf;
+
+  set $scrspa '<script type="text/javascript" async="true">(function(){var a = document.createElement("script");a.type = "text/javascript";a.async = true;a.src = "/popup/popup_spa.js";var y = document.getElementsByTagName("script")[0];y.parentNode.insertBefore(a, y);})();</script> $scripts';
+  set $scrnor '<script type="text/javascript" async="true">(function(){var a = document.createElement("script");a.type = "text/javascript";a.async = true;a.src = "/popup/popup_spa.js";var y = document.getElementsByTagName("script")[0];y.parentNode.insertBefore(a, y);})();</script> $scripts';
 
   # services
 {{range .Services}}
   location /{{.Name}} {
+    {{ if eq .Name "sonar" }}
+    set $scr $scrspa;
+    {{ else }}
+    set $scr $scrnor;
+    {{ end }}
+    sub_filter '</body>' $scr;
+    sub_filter_once on;
     proxy_pass {{.URL}};
   }
 {{end}}

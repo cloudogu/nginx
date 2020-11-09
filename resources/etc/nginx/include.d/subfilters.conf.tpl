@@ -43,6 +43,7 @@ set $scriptsactual $scripts;
 # sonar menu
 #location /sonar {
 #   set $scriptsactual '<script type="text/javascript" async="true">(function(){var a = document.createElement("script");a.type = "text/javascript";a.async = true;a.src = "/popup/popup_spa.js";var y = document.getElementsByTagName("script")[0];y.parentNode.insertBefore(a, y);})();</script> $scripts';
+#    proxy_pass /sonar
 #}
 
 # redmine menu
