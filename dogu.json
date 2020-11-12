@@ -30,6 +30,20 @@
       "Name": "google_tracking_id",
       "Description": "Google Analytics Tracking ID",
       "Optional": true
+    },
+    {
+      "Name": "html_content_url",
+      "Description": "URL path to reach all custom html content pages. Default value when unset: static",
+      "Optional": true
+    }
+  ],
+  "Volumes": [
+    {
+      "Name": "customhtml",
+      "Path": "/var/www/customhtml",
+      "Owner": "1000",
+      "Group": "1000",
+      "NeedsBackup": true
     }
   ],
   "ExposedPorts": [
