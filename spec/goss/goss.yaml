@@ -46,8 +46,8 @@ file:
     filetype: file
   /var/www/customhtml:
     exists: true
-    owner: root
-    group: root
+    owner: nginx
+    group: nginx
     filetype: directory
 port:
   tcp:80:

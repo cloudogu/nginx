@@ -36,7 +36,7 @@ It is possible to deliver HTML content pages via the nginx dogu and navigate to 
    </body>
 </html>
 ```
-1) Save the HTML site as `privacy-policies.html` in the volume `/var/lib/ces/nginx/volumes/customsite/`. Note: You can store all your HTML files in this volume. After restarting the nginx dogu the website should be accessible via `fqdm/static/privacy-policies.html`.
+1) Save the HTML site as `privacy-policies.html` in the volume `/var/lib/ces/nginx/volumes/customsite/`. Note: You can store all your HTML files in this volume. After restarting the nginx dogu the website should be accessible via `fqdn/static/privacy-policies.html`.
 2) For every link we want to show in the warpmenu we need to create an etcdctl key in the form of `etcdctl /config/nginx/externals/<websitename>`. For our example page, we create the following key: `etcdctl /config/nginx/externals/privacy_policies`. The value for the key needs to be a JSON object containing the following information:
 ```
 {
