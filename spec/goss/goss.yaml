@@ -44,6 +44,11 @@ file:
     owner: root
     group: root
     filetype: file
+  /var/www/customhtml:
+    exists: true
+    owner: nginx
+    group: nginx
+    filetype: directory
 port:
   tcp:80:
     listening: true

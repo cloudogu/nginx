@@ -14,6 +14,10 @@ doguctl template /etc/nginx/include.d/ssl.conf.tpl /etc/nginx/include.d/ssl.conf
 echo "[nginx] configure default redirect ..."
 doguctl template /etc/nginx/include.d/default-dogu.conf.tpl /etc/nginx/include.d/default-dogu.conf
 
+# configure the access to static html content
+echo "[nginx] configure custom content pages ..."
+doguctl template /etc/nginx/include.d/customhtml.conf.tpl /etc/nginx/include.d/customhtml.conf
+
 # render main configuration to include log_level
 echo "[nginx] configure logging ..."
 doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
