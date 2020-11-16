@@ -23,3 +23,49 @@ cesapp install official/nginx
 cesapp start nginx
 ```
 
+## Custom Content Page Delivery
+It is possible to deliver HTML content pages via the nginx dogu and navigate to them sucessfully with the warp menu in the Cloudogu EcoSystem. In the following, we explain the necessary steps to get your HTML content accessible. For this example, we use the following simplifed HTML website:
+```
+<html>
+   <head>
+      <title>Privacy Policy</title>
+   </head>
+   <body>
+     <h1>Private Data We Receive And Collect</h1>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+   </body>
+</html>
+```
+1) Save the HTML site as `privacy-policies.html` in the volume `/var/lib/ces/nginx/volumes/customhtml/`. Note: You can store all your HTML files in this volume. After restarting the nginx dogu the website should be accessible via `fqdn/static/privacy-policies.html`.
+2) For every link we want to show in the warpmenu we need to create an etcdctl key in the form of `etcdctl /config/nginx/externals/<websitename>`. For our example page, we create the following key: `/config/nginx/externals/privacy_policies`. The value for the key needs to be a JSON object containing the following information:
+```
+{
+   "DisplayName":"Privacy Policies", 
+   "Description":"Contains information about the privacy policies enforced by our company",
+   "Category":"Information",
+   "URL":"/static/privacy_policies.html"
+}
+```
+The entry `DisplayName` is the label shown in the warp menu. The `Category` is the label for the group of links. All entries of the same category are grouped together in the warp menu. The `URL` contains the relative path to your HTML file. The default url prefix is `static`. This prefix can be changed to any value with the configuration entry `/config/nginx/html_content_url`. For example, setting the configuration entry `/config/nginx/html_content_url` to `cloudogu` and changing the value of `"URL":"/static/privacy_policies.html"` to `"URL":"/cloudogu/privacy_policies.html"` makes all our HTML pages available via `fqdm/cloudogu/<websitename>`.
+
+3) Restarting the nginx dogus is sufficent to make our sites accessible and linked in the warp menu.
+
+### Custom Content Delivery with Blueprints
+A blueprint can be helpful to group the necessary configurations that has do be done. The following blueprint contains the minimal amount of configurations to host HTML files via `fqdn/exampleprefix/<websitename.html>`:
+```
+{
+   "blueprintApi":"v1",
+   "blueprintId":"<%= @blueprint_id -%>",
+   "cesappVersion":"2.20.0",
+   "registryConfig":{
+      "nginx":{
+         "externals":{
+            "privacy_policies":"{\"DisplayName\": \"Privacy Policies\",\"Description\": \"Empty\",\"Category\": \"Information\",\"URL\": \"/exampleprefix/privacy-policy.html\"}",
+            "terms":"{\"DisplayName\": \"Terms & Conditions\",\"Description\": \"Empty\",\"Category\": \"Information\",\"URL\": \"/exampleprefix/terms-conditions.html\"}"
+         },
+         "html_content_url":"exampleprefix"
+      }
+   }
+}
+```
+Put your HTML files in `/var/lib/ces/nginx/volumes/customsite/` and upgrade your ecosystem with the blueprint (`cesapp upgrade blueprint <blueprintfilename>`). The files should now be available under `fqdn/exampleprefix/privacy-policy.html`,  `fqdn/exampleprefix/terms-conditions.html`, or their respective links in the warpmenu.

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Ability to deliver custom content pages. (#26)
+- SHA256 checks for all manual downloads in the dockerfile
+
+### Changed
+
+- Update of the base image to v3.11.6-3 
+- Update warp-menu version to v1.0.4
+
 ## [v1.17.8-5] - 2020-07-20
 
 ### Changed
