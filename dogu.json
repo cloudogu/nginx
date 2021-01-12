@@ -1,6 +1,6 @@
 {
   "Name": "official/nginx",
-  "Version": "1.17.8-6",
+  "Version": "1.17.8-7",
   "DisplayName": "Nginx",
   "Description": "Nginx WebServer.",
   "Logo": "https://cloudogu.com/images/dogus/nginx.png",
@@ -35,6 +35,22 @@
       "Name": "html_content_url",
       "Description": "URL path to reach all custom html content pages. Default value when unset: static",
       "Optional": true
+    },
+    {
+      "Name": "container_config/memory_limit",
+      "Description": "Limits the container's memory usage. Use a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). We recommend to have at least allocated 20m for additional tools (ces-confd) running inside the container.",
+      "Optional": true,
+      "Validation": {
+        "Type": "BINARY_MEASUREMENT"
+      }
+    },
+    {
+      "Name": "container_config/swap_limit",
+      "Description": "Limits the container's swap memory usage. Use zero or a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). 0 will disable swapping.",
+      "Optional": true,
+      "Validation": {
+        "Type": "BINARY_MEASUREMENT"
+      }
     }
   ],
   "Volumes": [
