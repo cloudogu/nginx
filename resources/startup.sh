@@ -27,7 +27,7 @@ echo "[nginx] rendering subfilters template ..."
 doguctl template /etc/nginx/include.d/subfilters.conf.tpl /etc/nginx/include.d/subfilters.conf;
 
 echo "[nginx] rendering ces-confd config ..."
-doguctl template /etc/nginx/ces-confd/config.yaml.tpl /etc/nginx/ces-confd/config.yaml;
+doguctl template /etc/ces-confd/config.yaml.tpl /etc/ces-confd/config.yaml;
 
 if [[ "${CES_MAINTENANCE_MODE}" = "true" ]]; then
   echo "[nginx] started in maintenance mode"

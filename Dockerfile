@@ -24,8 +24,8 @@ LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.17.8-7"
 
-ENV CES_CONFD_VERSION=0.3.1 \
-    CES_CONFD_TAR_SHA256="dbe4bdb00ca3e64ee835af61ecac7b8c5dd97295231421e1670895d16057cdc7" \
+ENV CES_CONFD_VERSION=0.4.0 \
+    CES_CONFD_TAR_SHA256="211f754b31a05332cb15ef787c421fc3a0f5fa955b89ea0976397952fcfb2287" \
     WARP_MENU_VERSION=1.0.4 \
     WARP_MENU_TAR_SHA256="a5428b2adc1973724b0da93a0e67b06d2e9566c026733e20b4e39573a6148cd1" \
     CES_ABOUT_VERSION=0.2.2 \
@@ -40,9 +40,9 @@ RUN set -x \
  # add nginx user
  && adduser nginx -D \
  # install ces-confd
- && curl -Lsk https://github.com/cloudogu/ces-confd/releases/download/v${CES_CONFD_VERSION}/ces-confd-v${CES_CONFD_VERSION}.tar.gz -o "ces-confd-v${CES_CONFD_VERSION}.tar.gz" \
- && echo "${CES_CONFD_TAR_SHA256} *ces-confd-v${CES_CONFD_VERSION}.tar.gz" | sha256sum -c - \
- && tar -xzvf ces-confd-v${CES_CONFD_VERSION}.tar.gz -O > /usr/bin/ces-confd \
+ && curl -Lsk https://github.com/cloudogu/ces-confd/releases/download/v${CES_CONFD_VERSION}/ces-confd-${CES_CONFD_VERSION}.tar.gz -o "ces-confd-${CES_CONFD_VERSION}.tar.gz" \
+ && echo "${CES_CONFD_TAR_SHA256} *ces-confd-${CES_CONFD_VERSION}.tar.gz" | sha256sum -c - \
+ && tar -xzvf ces-confd-${CES_CONFD_VERSION}.tar.gz -O > /usr/bin/ces-confd \
  && chmod +x /usr/bin/ces-confd \
  && mkdir -p /var/log/nginx \
  && mkdir -p /var/www/html \
