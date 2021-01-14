@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Starting page for unhealthy dogus #30
+
+### Changed
+- Update ces-confd to 0.4.0 #30
+
 ## [v1.17.8-7] - 2021-01-12
 ### Added
 - Added the ability to configure the memory limits with cesapp edit-config; #28

@@ -37,6 +37,12 @@
       "Optional": true
     },
     {
+      "Name": "ignore_service_health",
+      "Description": "Option to ignore the health status of all dogus. Makes it possible to access dogus even if they are unhealthy",
+      "Default": "false",
+      "Optional": true
+    },
+    {
       "Name": "container_config/memory_limit",
       "Description": "Limits the container's memory usage. Use a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). We recommend to have at least allocated 20m for additional tools (ces-confd) running inside the container.",
       "Optional": true,
