@@ -1,6 +1,6 @@
 {
   "Name": "official/nginx",
-  "Version": "1.17.8-7",
+  "Version": "1.17.8-8",
   "DisplayName": "Nginx",
   "Description": "Nginx WebServer.",
   "Logo": "https://cloudogu.com/images/dogus/nginx.png",
@@ -34,6 +34,12 @@
     {
       "Name": "html_content_url",
       "Description": "URL path to reach all custom html content pages. Default value when unset: static",
+      "Optional": true
+    },
+    {
+      "Name": "ignore_service_health",
+      "Description": "Option to ignore the health status of all dogus. Makes it possible to access dogus even if they are unhealthy",
+      "Default": "false",
       "Optional": true
     },
     {

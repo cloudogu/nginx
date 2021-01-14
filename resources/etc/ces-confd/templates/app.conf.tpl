@@ -31,11 +31,16 @@ server {
   include /etc/nginx/include.d/customhtml.conf;
 
   # services
-{{range .Services}}
-  location /{{.Name}} {
-    proxy_pass {{.URL}};
-  }
-{{end}}
+  {{range .Services}}
+    location /{{.Name}} {
+      {{if eq .HealthStatus "healthy" "" }}
+        proxy_pass {{.URL}};
+      {{else}}
+        error_page 503 /errors/starting.html;
+        return 503;
+      {{end}}
+    }
+  {{end}}
   # end of services
 
 {{end}}

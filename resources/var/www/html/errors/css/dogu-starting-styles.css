@@ -1,0 +1,99 @@
+body {
+	background-color: #1B7DAA;
+	background-image: url("../img/background-cloud.svg");
+	background-repeat: no-repeat;
+	background-position: 80% -30px;
+	background-size: 280px;
+	overflow: hidden;
+}
+
+.logo {
+	position: absolute;
+	right:30px;
+	top: 30px;
+}
+
+.logo img {
+	width: 6.5vw;
+	min-width: 60px;
+}
+
+.starting {
+	text-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+}
+.starting h1 {
+	color: #fff;
+	font-weight: 700;
+}
+
+.flyingCloud {
+		width: 100%;
+	max-height: 100vh;
+}
+.flyIn {
+	animation-duration: 5s;
+	animation-name: slidein;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	position: absolute;
+	top: -20px;
+}
+.imageContainer {
+	width: 100%;
+	max-height: 100vh;
+}
+.starting h1 {
+	margin-top:80vh;
+}
+.starting p {
+	color: #fff;
+}
+@media screen and (max-height: 400px){
+	.flyingCloud {
+	max-height: 60vh;
+}
+}
+@media screen and (min-width: 768px) {
+	body {
+		background-size: 640px;
+	}
+	.logo {
+		right:1.5vw;
+		top: 1.5vw;
+	}
+
+	.starting h1 {
+		font-size: 4vw;
+	}
+	.starting p {
+		font-size: 2rem;
+	}
+	body {
+		background-size: 480px;
+	}	
+}
+@media screen and (min-width: 992px) {
+		body {
+	background-size: 680px;
+	}
+	.starting h1 {
+		
+		margin-top: 60vh;
+		font-size: 6rem;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.starting h1 {
+		font-size: 8rem;
+	}
+}
+@keyframes slidein {
+	
+	from {
+		right: 100vw;
+	}
+
+	to {
+		right: -100vw;
+	}
+	}

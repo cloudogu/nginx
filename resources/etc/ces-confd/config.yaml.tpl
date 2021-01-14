@@ -18,6 +18,7 @@ service:
   tag: webapp
   pre-command: "/usr/sbin/nginx -t -c /etc/nginx/nginx.conf"
   post-command: "/usr/sbin/nginx -s reload -c /etc/nginx/nginx.conf"
+  ignore-health: {{ .Config.GetOrDefault "ignore_service_health" "false" }}
 
 maintenance:
   source:
