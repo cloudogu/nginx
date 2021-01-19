@@ -3,8 +3,8 @@ LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.17.8
-ENV NGINX_TAR_SHA256="97d23ecf6d5150b30e284b40e8a6f7e3bb5be6b601e373a4d013768d5a25965b"
+ENV NGINX_VERSION 1.17.10
+ENV NGINX_TAR_SHA256="a9aa73f19c352a6b166d78e2a664bb3ef1295bbe6d3cc5aa7404bd4664ab4b83"
 
 COPY nginx-build /
 RUN set -x \
