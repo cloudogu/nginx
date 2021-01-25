@@ -3,8 +3,8 @@ LABEL maintainer="michael.behlendorf@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.17.8
-ENV NGINX_TAR_SHA256="97d23ecf6d5150b30e284b40e8a6f7e3bb5be6b601e373a4d013768d5a25965b"
+ENV NGINX_VERSION 1.17.10
+ENV NGINX_TAR_SHA256="a9aa73f19c352a6b166d78e2a664bb3ef1295bbe6d3cc5aa7404bd4664ab4b83"
 
 COPY nginx-build /
 RUN set -x \
@@ -22,10 +22,10 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.17.8-8"
+      VERSION="1.17.10-1"
 
-ENV CES_CONFD_VERSION=0.4.0 \
-    CES_CONFD_TAR_SHA256="211f754b31a05332cb15ef787c421fc3a0f5fa955b89ea0976397952fcfb2287" \
+ENV CES_CONFD_VERSION=0.5.0 \
+    CES_CONFD_TAR_SHA256="0f6e6dce9e2eac40319133000b5fce873009adfb459b7cfd43bfe4ed4096518b" \
     WARP_MENU_VERSION=1.0.4 \
     WARP_MENU_TAR_SHA256="a5428b2adc1973724b0da93a0e67b06d2e9566c026733e20b4e39573a6148cd1" \
     CES_ABOUT_VERSION=0.2.2 \
