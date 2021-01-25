@@ -32,7 +32,7 @@ server {
 
   # services
   {{range .Services}}
-    location /{{.Name}} {
+    location /{{.Location}} {
       {{if eq .HealthStatus "healthy" "" }}
         proxy_pass {{.URL}};
       {{else}}
