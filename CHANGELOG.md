@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Update nginx to 1.17.10 #32
 - Instead of the name, the new service attribute 'location' is now used as the location. #34
 
 ## [v1.17.8-8] - 2021-01-14
