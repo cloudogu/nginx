@@ -20,7 +20,13 @@ server {
   # https://github.com/cloudogu/ecosystem/issues/298
   # https://stackoverflow.com/questions/28347184/upstream-timed-out-110-connection-timed-out-for-static-content
   proxy_http_version 1.1;
-  proxy_set_header Connection "";
+  
+  # nginx.conf map handles connection_upgrade http_upgrade
+  proxy_set_header Connection $connection_upgrade;
+  proxy_set_header Upgrade $http_upgrade;
+
+  proxy_read_timeout 1d;
+
 
   # disable gzip encoding for proxy applications
   proxy_set_header Accept-Encoding identity;
