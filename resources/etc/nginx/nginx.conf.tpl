@@ -25,6 +25,12 @@ http {
   # Limit download size to 32gb
   proxy_max_temp_file_size 32768m;
 
+  # if the request wants to ugrade to websocket we map the header and set the Upgrade header
+  map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+  }
+
   # logging
   {{ if not (.Config.Exists "disable_access_log") }}
   log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '

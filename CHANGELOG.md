@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Add configuration for websocket connection #36
+
 ## [v1.17.10-1] - 2021-01-25
 ### Changed
 - Update nginx to 1.17.10 #32
