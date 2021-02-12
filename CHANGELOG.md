@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.17.10-2] - 2021-02-12
+
 ## Added
 - New volume `app.conf.d` for custom configuration of additional location endpoints #38
 
