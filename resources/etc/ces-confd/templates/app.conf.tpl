@@ -2,6 +2,7 @@ server {
   include /etc/nginx/include.d/ssl.conf;
   include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/robots.conf;
+  include /etc/nginx/custom_https.d/*.conf;
 
 {{if .Maintenance}}
   location / {
