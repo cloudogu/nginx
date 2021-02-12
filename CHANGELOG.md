@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+- New volume `app.conf.d` for custom configuration of additional location endpoints #38
+
 ### Changed
 - Add configuration for websocket connection #36
 
