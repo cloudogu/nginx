@@ -68,8 +68,8 @@
       "NeedsBackup": true
     },
     {
-      "Name": "customHttpsConfig",
-      "Path": "/etc/nginx/custom_https.d",
+      "Name": "app.conf.d",
+      "Path": "/etc/nginx/app.conf.d",
       "Owner": "1000",
       "Group": "1000",
       "NeedsBackup": true
