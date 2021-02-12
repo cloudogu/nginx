@@ -1,6 +1,6 @@
 {
   "Name": "official/nginx",
-  "Version": "1.17.10-1",
+  "Version": "1.17.10-2",
   "DisplayName": "Nginx",
   "Description": "Nginx WebServer.",
   "Logo": "https://cloudogu.com/images/dogus/nginx.png",
@@ -63,6 +63,13 @@
     {
       "Name": "customhtml",
       "Path": "/var/www/customhtml",
+      "Owner": "1000",
+      "Group": "1000",
+      "NeedsBackup": true
+    },
+    {
+      "Name": "app.conf.d",
+      "Path": "/etc/nginx/app.conf.d",
       "Owner": "1000",
       "Group": "1000",
       "NeedsBackup": true
