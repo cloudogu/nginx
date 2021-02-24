@@ -22,10 +22,10 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.17.10-2"
+      VERSION="1.17.10-3"
 
-ENV CES_CONFD_VERSION=0.5.0 \
-    CES_CONFD_TAR_SHA256="0f6e6dce9e2eac40319133000b5fce873009adfb459b7cfd43bfe4ed4096518b" \
+ENV CES_CONFD_VERSION=0.5.1 \
+    CES_CONFD_TAR_SHA256="f8776bc473beeacda8ff502861906bb9ab6eeda365513290116697cc6f68eee8" \
     WARP_MENU_VERSION=1.0.4 \
     WARP_MENU_TAR_SHA256="a5428b2adc1973724b0da93a0e67b06d2e9566c026733e20b4e39573a6148cd1" \
     CES_ABOUT_VERSION=0.2.2 \
