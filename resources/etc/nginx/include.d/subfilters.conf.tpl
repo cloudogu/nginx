@@ -1,5 +1,5 @@
 # warp menu
-set $scripts '<script type="text/javascript" async="true">(function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script></body>';
+set $scripts '<script type="text/javascript">(function(){var s = document.createElement("script");s.type = "text/javascript";s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script></body>';
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
