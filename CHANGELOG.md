@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.17.10-4] - 2021-04-07
+## Fixed
+- Remove async flag in warp-menu script tag to generate valid html (#41)
+
+## Changed
+- Upgrade warp menu to version 1.1.0 (#41)
+
 ## [v1.17.10-3] - 2021-02-24
 ## Changed
 - Upgrade ces-confd to version 0.5.1
