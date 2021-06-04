@@ -73,20 +73,6 @@
       "Owner": "1000",
       "Group": "1000",
       "NeedsBackup": true
-    },
-    {
-      "Name": "html",
-      "Path": "/var/www/html",
-      "Owner": "1000",
-      "Group": "1000",
-      "NeedsBackup": true
-    },
-    {
-      "Name": "log",
-      "Path": "/var/log/nginx",
-      "Owner": "1000",
-      "Group": "1000",
-      "NeedsBackup": true
     }
   ],
   "ExposedPorts": [
