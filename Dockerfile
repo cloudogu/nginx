@@ -75,7 +75,7 @@ COPY resources /
 
 # Define mountable directories.
 # volumes used to avoid writing to containers writable layer https://docs.docker.com/storage/
-VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "var/www/customhtml"]
+VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/var/www/customhtml"]
 
 # Define working directory.
 WORKDIR /etc/nginx
