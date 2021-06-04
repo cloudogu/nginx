@@ -73,8 +73,10 @@ RUN set -x \
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY resources /
 
-# Define mountable directories.
-# volumes used to avoid writing to containers writable layer https://docs.docker.com/storage/
+# Volumes are used to avoid writing to containers writable layer https://docs.docker.com/storage/
+# Compared to the bind mounted volumes we declare in the dogu.json,
+# the volumes declared here are not mounted to the dogu if the container is destroyed/recreated,
+# e.g. after a dogu upgrade
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
