@@ -22,7 +22,7 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.10.3-2
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.17.10-5"
+      VERSION="1.17.10-6"
 
 ENV CES_CONFD_VERSION=0.5.1 \
     CES_CONFD_TAR_SHA256="f8776bc473beeacda8ff502861906bb9ab6eeda365513290116697cc6f68eee8" \
@@ -73,9 +73,11 @@ RUN set -x \
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY resources /
 
-# Define mountable directories.
-# volumes used to avoid writing to containers writable layer https://docs.docker.com/storage/
-VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "var/www/customhtml"]
+# Volumes are used to avoid writing to containers writable layer https://docs.docker.com/storage/
+# Compared to the bind mounted volumes we declare in the dogu.json,
+# the volumes declared here are not mounted to the dogu if the container is destroyed/recreated,
+# e.g. after a dogu upgrade
+VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
 WORKDIR /etc/nginx
