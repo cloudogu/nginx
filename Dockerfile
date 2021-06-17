@@ -20,7 +20,7 @@ RUN set -x \
 
 
 FROM registry.cloudogu.com/official/base:3.12.4-1
-LABEL maintainer="sebastian.sdorra@cloudogu.com" \
+LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.17.10-6"
 
