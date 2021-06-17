@@ -19,15 +19,15 @@ RUN set -x \
     && rm -rf /var/cache/apk/* /build
 
 
-FROM registry.cloudogu.com/official/base:3.10.3-2
-LABEL maintainer="sebastian.sdorra@cloudogu.com" \
+FROM registry.cloudogu.com/official/base:3.12.4-1
+LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.17.10-6"
 
 ENV CES_CONFD_VERSION=0.5.1 \
     CES_CONFD_TAR_SHA256="f8776bc473beeacda8ff502861906bb9ab6eeda365513290116697cc6f68eee8" \
-    WARP_MENU_VERSION=1.1.1 \
-    WARP_MENU_TAR_SHA256="056108982c8b6c7d2300fde180d5a4bb501ae65d6c125ecfbf1c212a955689e6" \
+    WARP_MENU_VERSION=1.2.0 \
+    WARP_MENU_TAR_SHA256="6d2a44d09077ef04ab577cc946e60d1de79ed748a16b41df709d5958f2366fda" \
     CES_ABOUT_VERSION=0.2.2 \
     CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
     CES_THEME_VERSION=0d20c1b1d5518af475cddb33713e58ebf57f5599 \
