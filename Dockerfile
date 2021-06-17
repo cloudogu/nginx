@@ -19,7 +19,7 @@ RUN set -x \
     && rm -rf /var/cache/apk/* /build
 
 
-FROM registry.cloudogu.com/official/base:3.10.3-2
+FROM registry.cloudogu.com/official/base:3.12.4-1
 LABEL maintainer="sebastian.sdorra@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.17.10-6"
