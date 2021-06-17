@@ -6,12 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [v1.17.10-7] - 2021-06-17
 ### Changed
-- Update warp-menu version to v1.2.0 (#113)
+- Update warp-menu version to v1.2.0 and add link to Cloudogu docs (#47)
 
 ## [v1.17.10-6] - 2021-06-04
 ### Changed
-- Remove duplicated volume declaration; #45
+- Remove duplicated volume declaration (#45)
 
 ## [v1.17.10-5] - 2021-04-20
 ## Changed
