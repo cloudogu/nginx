@@ -37,6 +37,18 @@ else
   echo "[nginx] ces-confd is listening for changes on etcd..."
 fi
 
+cat <<EOF >> /var/www/customhtml/add-warp.js
+const addWarp = function(){
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "/warp/warp.js";
+    var x = document.getElementsByTagName("script")[0];
+    x.parentNode.insertBefore(s, x);
+}
+
+addWarp();
+EOF
+
 # Start nginx
 echo "[nginx] starting nginx service..."
 exec /usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"
