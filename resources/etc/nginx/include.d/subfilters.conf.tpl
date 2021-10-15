@@ -1,5 +1,8 @@
 # warp menu
-set $scripts '<script type="text/javascript">(function(){var s = document.createElement("script");s.type = "text/javascript";s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s, x);})();</script></body>';
+set $scripts '<script type="text/javascript">(function(){var s = document.createElement("script");s.type = "text/javascript";s.src = "/warp/warp.js";var x = document.getElementsByTagName("script")[0];console.log(x);console.log(document.getElementsByTagName("script"));x.parentNode.insertBefore(s, x);})();</script></body>';
+
+# This header has to be removed. Otherwise it could block the warp menu
+proxy_hide_header Content-Security-Policy
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
