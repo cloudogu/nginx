@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- The script to append the warp menu to each page is now hosted instead of inline (#49)
+
 ## [v1.17.10-7] - 2021-06-17
 ### Changed
 - Update warp-menu version to v1.2.0 and add link to Cloudogu docs (#47)
