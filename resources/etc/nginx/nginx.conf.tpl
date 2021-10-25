@@ -1,7 +1,7 @@
 user  nginx;
 worker_processes  2;
 
-error_log  /var/log/nginx/error.log {{ .Config.GetOrDefault "log_level" "warn" }};
+error_log  /var/log/nginx/error.log {{ .Env.Get "LOG_LEVEL" }};
 pid        /var/run/nginx.pid;
 
 events {

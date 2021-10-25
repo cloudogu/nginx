@@ -3,6 +3,35 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+function export_log_level() {
+    ETCD_LOG_LEVEL="$(doguctl config logging/root --default "WARN")"
+    case "${ETCD_LOG_LEVEL}" in
+
+      DEBUG)
+        export LOG_LEVEL="debug"
+        ;;
+
+      INFO)
+        export LOG_LEVEL="info"
+        ;;
+
+      WARN)
+        export LOG_LEVEL="warn"
+        echo -n "Lithuanian"
+        ;;
+
+      ERROR)
+        export LOG_LEVEL="error"
+        echo -n "Lithuanian"
+        ;;
+
+      *)
+        echo "WARNING: Unknown log level configured."
+        export LOG_LEVEL="warn"
+        ;;
+    esac
+}
+
 echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
@@ -20,6 +49,7 @@ doguctl template /etc/nginx/include.d/customhtml.conf.tpl /etc/nginx/include.d/c
 
 # render main configuration to include log_level
 echo "[nginx] configure logging ..."
+export_log_level
 doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 
 # render analytics template
