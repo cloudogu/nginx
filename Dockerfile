@@ -22,7 +22,7 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.12.4-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.17.10-7"
+      VERSION="1.17.10-8"
 
 ENV CES_CONFD_VERSION=0.5.1 \
     CES_CONFD_TAR_SHA256="f8776bc473beeacda8ff502861906bb9ab6eeda365513290116697cc6f68eee8" \
