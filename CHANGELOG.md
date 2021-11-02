@@ -1,4 +1,4 @@
-# Changelog
+# Nginx Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [v1.17.10-8] - 2021-11-02
+
+### Changed
+- The script to append the warp menu to each page is now hosted instead of inline (#49)
+- Use logging/root key
 
 ## [v1.17.10-7] - 2021-06-17
 ### Changed

@@ -1,6 +1,6 @@
 {
   "Name": "official/nginx",
-  "Version": "1.17.10-7",
+  "Version": "1.17.10-8",
   "DisplayName": "Nginx",
   "Description": "Nginx WebServer.",
   "Logo": "https://cloudogu.com/images/dogus/nginx.png",
@@ -17,9 +17,19 @@
   ],
   "Configuration": [
     {
-      "Name": "log_level",
-      "Description": "Detail level of logging (debug, info, notice, warn, error, crit, alert, or emerg)",
-      "Optional": true
+      "Name": "logging/root",
+      "Description": "Set the root log level to one of ERROR, WARN, INFO, DEBUG.",
+      "Optional": true,
+      "Default": "WARN",
+      "Validation": {
+        "Type": "ONE_OF",
+        "Values": [
+          "WARN",
+          "DEBUG",
+          "INFO",
+          "ERROR"
+        ]
+      }
     },
     {
       "Name": "disable_access_log",
