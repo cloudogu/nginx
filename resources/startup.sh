@@ -3,6 +3,30 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+echo "                                     ./////,                    "
+echo "                                 ./////==//////*                "
+echo "                                ////.  ___   ////.              "
+echo "                         ,**,. ////  ,////A,  */// ,**,.        "
+echo "                    ,/////////////*  */////*  *////////////A    "
+echo "                   ////'        \VA.   '|'   .///'       '///*  "
+echo "                  *///  .*///*,         |         .*//*,   ///* "
+echo "                  (///  (//////)**--_./////_----*//////)   ///) "
+echo "                   V///   '°°°°      (/////)      °°°°'   ////  "
+echo "                    V/////(////////\. '°°°' ./////////(///(/'   "
+echo "                       'V/(/////////////////////////////V'      "
+
+function export_log_level() {
+    ETCD_LOG_LEVEL="$(doguctl config logging/root --default "WARN")"
+    echo "Found etcd log level: ${ETCD_LOG_LEVEL}"
+
+    # The log level is exported for `doguctl template`
+    # The format is almost the same, except the case. The etcd-format is all uppercase, the configuration format
+    # is all lower case.
+    export LOG_LEVEL="${ETCD_LOG_LEVEL,,}"
+
+    echo "Set dogu log level to : ${LOG_LEVEL}"
+}
+
 echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
@@ -20,6 +44,7 @@ doguctl template /etc/nginx/include.d/customhtml.conf.tpl /etc/nginx/include.d/c
 
 # render main configuration to include log_level
 echo "[nginx] configure logging ..."
+export_log_level
 doguctl template /etc/nginx/nginx.conf.tpl /etc/nginx/nginx.conf
 
 # render analytics template
