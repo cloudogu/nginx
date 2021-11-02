@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.17.10-8] - 2021-11-02
+
 ### Changed
 - The script to append the warp menu to each page is now hosted instead of inline (#49)
 - Use logging/root key
