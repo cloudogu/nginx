@@ -3,33 +3,28 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+echo "                                     ./////,                    "
+echo "                                 ./////==//////*                "
+echo "                                ////.  ___   ////.              "
+echo "                         ,**,. ////  ,////A,  */// ,**,.        "
+echo "                    ,/////////////*  */////*  *////////////A    "
+echo "                   ////'        \VA.   '|'   .///'       '///*  "
+echo "                  *///  .*///*,         |         .*//*,   ///* "
+echo "                  (///  (//////)**--_./////_----*//////)   ///) "
+echo "                   V///   '°°°°      (/////)      °°°°'   ////  "
+echo "                    V/////(////////\. '°°°' ./////////(///(/'   "
+echo "                       'V/(/////////////////////////////V'      "
+
 function export_log_level() {
     ETCD_LOG_LEVEL="$(doguctl config logging/root --default "WARN")"
-    case "${ETCD_LOG_LEVEL}" in
+    echo "Found etcd log level: ${ETCD_LOG_LEVEL}"
 
-      DEBUG)
-        export LOG_LEVEL="debug"
-        ;;
+    # The log level is exported for `doguctl template`
+    # The format is almost the same, except the case. The etcd-format is all uppercase, the configuration format
+    # is all lower case.
+    export LOG_LEVEL="${ETCD_LOG_LEVEL,,}"
 
-      INFO)
-        export LOG_LEVEL="info"
-        ;;
-
-      WARN)
-        export LOG_LEVEL="warn"
-        echo -n "Lithuanian"
-        ;;
-
-      ERROR)
-        export LOG_LEVEL="error"
-        echo -n "Lithuanian"
-        ;;
-
-      *)
-        echo "WARNING: Unknown log level configured."
-        export LOG_LEVEL="warn"
-        ;;
-    esac
+    echo "Set dogu log level to : ${LOG_LEVEL}"
 }
 
 echo "[nginx] configure ssl and https ..."
