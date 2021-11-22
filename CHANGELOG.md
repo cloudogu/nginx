@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.17.10-9] - 2021-11-22
+### Changed
+- update warp menu to version 1.3.0
+
 ## [v1.17.10-8] - 2021-11-02
 
 ### Changed
