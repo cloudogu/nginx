@@ -22,12 +22,12 @@ RUN set -x \
 FROM registry.cloudogu.com/official/base:3.12.4-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.17.10-8"
+      VERSION="1.17.10-9"
 
 ENV CES_CONFD_VERSION=0.5.1 \
     CES_CONFD_TAR_SHA256="f8776bc473beeacda8ff502861906bb9ab6eeda365513290116697cc6f68eee8" \
-    WARP_MENU_VERSION=1.2.0 \
-    WARP_MENU_TAR_SHA256="6d2a44d09077ef04ab577cc946e60d1de79ed748a16b41df709d5958f2366fda" \
+    WARP_MENU_VERSION=1.3.0 \
+    WARP_MENU_TAR_SHA256="f1ebc305ac03a2b59d8eb9b5624a26a3e5803bb8b6969df271c702bdb257792c" \
     CES_ABOUT_VERSION=0.2.2 \
     CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
     CES_THEME_VERSION=0d20c1b1d5518af475cddb33713e58ebf57f5599 \
@@ -53,7 +53,7 @@ RUN set -x \
  && tar -xzvf ces-about-v${CES_ABOUT_VERSION}.tar.gz -C /var/www/html \
  && sed -i 's@base href=".*"@base href="/info/"@' /var/www/html/info/index.html \
  # install warp menu
- && curl -Lsk https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip -o /tmp/warp.zip \ 
+ && curl -Lsk https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip -o /tmp/warp.zip \
  && echo "${WARP_MENU_TAR_SHA256} */tmp/warp.zip" | sha256sum -c - \
  && unzip /tmp/warp.zip -d /var/www/html \
  # install custom error pages
