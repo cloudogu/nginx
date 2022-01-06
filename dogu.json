@@ -13,7 +13,10 @@
   "Url": "http://nginx.org/",
   "Image": "registry.cloudogu.com/official/nginx",
   "Dependencies": [
-    "registrator"
+    {
+      "type": "dogu",
+      "name": "registrator"
+    }
   ],
   "Configuration": [
     {
