@@ -10,7 +10,14 @@ node('vagrant') {
                 // Keep only the last x builds to preserve space
                 buildDiscarder(logRotator(numToKeepStr: '10')),
                 // Don't run concurrent builds for a branch, because they use the same workspace directory
-                disableConcurrentBuilds()
+                disableConcurrentBuilds(),
+                // Parameter to activate dogu upgrade test on demand
+                parameters([
+                        booleanParam(defaultValue: true, description: 'Enables cypress to record video of the integration tests.', name: 'EnableVideoRecording'),
+                        booleanParam(defaultValue: true, description: 'Enables cypress to take screenshots of failing integration tests.', name: 'EnableScreenshotRecording'),
+                        booleanParam(defaultValue: false, description: 'Test dogu upgrade from latest release or optionally from defined version below', name: 'TestDoguUpgrade'),
+                        string(defaultValue: '', description: 'Old Dogu version for the upgrade test (optional; e.g. 3.23.0-1)', name: 'OldDoguVersionForUpgradeTest')
+                ])
         ])
 
         EcoSystem ecoSystem = new EcoSystem(this, "gcloud-ces-operations-internal-packer", "jenkins-gcloud-ces-operations-internal")
@@ -52,6 +59,32 @@ node('vagrant') {
                 ecoSystem.verify("/dogu")
             }
 
+            stage('Integration tests') {
+                ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
+                                                      enableVideo      : params.EnableVideoRecording,
+                                                      enableScreenshots: params.EnableScreenshotRecording])
+            }
+
+            if (params.TestDoguUpgrade != null && params.TestDoguUpgrade) {
+                stage('Upgrade dogu') {
+                    // Remove new dogu that has been built and tested above
+                    ecoSystem.purgeDogu(doguName)
+
+                    if (params.OldDoguVersionForUpgradeTest != '' && !params.OldDoguVersionForUpgradeTest.contains('v')) {
+                        println "Installing user defined version of dogu: " + params.OldDoguVersionForUpgradeTest
+                        ecoSystem.installDogu("testing/" + doguName + " " + params.OldDoguVersionForUpgradeTest)
+                    } else {
+                        println "Installing latest released version of dogu..."
+                        ecoSystem.installDogu("testing/" + doguName)
+                    }
+                    ecoSystem.startDogu(doguName)
+                    ecoSystem.waitForDogu(doguName)
+                    ecoSystem.upgradeDogu(ecoSystem)
+
+                    // Wait for upgraded dogu to get healthy
+                    ecoSystem.waitForDogu(doguName)
+                }
+            }
             if (gitflow.isReleaseBranch()) {
                 String releaseVersion = git.getSimpleBranchName();
 
