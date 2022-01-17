@@ -55,6 +55,10 @@ node('vagrant') {
                 ecoSystem.build("/dogu")
             }
 
+            stage('FileTransfer') {
+                ecoSystem.vagrant.ssh "cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/cutomhtml/"
+            }
+
             stage('Verify') {
                 ecoSystem.verify("/dogu")
             }
