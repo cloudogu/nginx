@@ -47,16 +47,14 @@ node('vagrant') {
             }
 
             stage('Setup') {
+                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
+                ecoSystem.vagrant.ssh "etcdctl set config/nginx/externals/privacy_policies '{"DisplayName":"Privacy Policies","Description":"Contains information about the privacy policies enforced by our company","Category":"Information","URL":"/static/privacy_policies.html"}'"
                 ecoSystem.loginBackend('cesmarvin-setup')
                 ecoSystem.setup()
             }
 
             stage('Build') {
                 ecoSystem.build("/dogu")
-            }
-
-            stage('TestFixtures') {
-                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
             }
 
             stage('Verify') {
