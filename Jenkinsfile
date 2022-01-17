@@ -55,8 +55,8 @@ node('vagrant') {
                 ecoSystem.build("/dogu")
             }
 
-            stage('FileTransfer') {
-                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/cutomhtml/"
+            stage('TestFixtures') {
+                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
             }
 
             stage('Verify') {
