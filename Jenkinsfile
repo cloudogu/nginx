@@ -56,6 +56,7 @@ node('vagrant') {
             }
 
             stage('FileTransfer') {
+                ecoSystem.vagrant.ssh "mkdir /var/lib/ces/nginx/volumes/cutomhtml/"
                 ecoSystem.vagrant.ssh "cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/cutomhtml/"
             }
 
