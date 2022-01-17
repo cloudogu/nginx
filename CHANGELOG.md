@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Add integration tests for custom static HTML page #51
 - Upgrade to nginx 1.21.5; #51
 
 ## [v1.17.10-9] - 2021-11-22
