@@ -37,7 +37,7 @@ node('vagrant') {
         }
 
         stage('Shellcheck'){
-            shellCheck()
+            shellCheck('./resources/startup.sh ./nginx-build/build.sh')
         }
 
         try {
