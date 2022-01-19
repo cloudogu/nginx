@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://192.168.56.2",
+  "env": {
+    "casPath": "/cas",
+    "nameOfCustomPageLinkInWarpMenu": "Privacy Policies",
+    "customHTMLPath": "/static/privacy_policies.html"
+  },
+  "videoCompression": false,
+  "nonGlobalStepBaseDir": false,
+  "experimentalSessionSupport": true
+}
