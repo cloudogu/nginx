@@ -6,13 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Add integration tests for custom static HTML page #51
+- Upgrade to nginx 1.21.5; #51
 
 ## [v1.17.10-9] - 2021-11-22
 ### Changed
 - update warp menu to version 1.3.0
 
 ## [v1.17.10-8] - 2021-11-02
-
 ### Changed
 - The script to append the warp menu to each page is now hosted instead of inline (#49)
 - Use logging/root key

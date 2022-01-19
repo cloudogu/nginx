@@ -1,10 +1,10 @@
 FROM registry.cloudogu.com/official/base:3.11.6-3 as builder
-LABEL maintainer="michael.behlendorf@cloudogu.com"
+LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.17.10
-ENV NGINX_TAR_SHA256="a9aa73f19c352a6b166d78e2a664bb3ef1295bbe6d3cc5aa7404bd4664ab4b83"
+ENV NGINX_VERSION 1.21.5
+ENV NGINX_TAR_SHA256="b20f3bf533a518a6f0f3a7967dfeed872d268d31e4cc121a0001329602ddcfbb"
 
 COPY nginx-build /
 RUN set -x \
