@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.11.6-3 as builder
+FROM registry.cloudogu.com/official/base:3.14.2-2 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -19,7 +19,7 @@ RUN set -x \
     && rm -rf /var/cache/apk/* /build
 
 
-FROM registry.cloudogu.com/official/base:3.12.4-1
+FROM registry.cloudogu.com/official/base:3.14.2-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.21.5-1"
