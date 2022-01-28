@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-2] - 2022-01-28
 ### Changed
 - Upgrade to ces-theme v0.7.0
 
