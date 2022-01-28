@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.11.6-3 as builder
+FROM registry.cloudogu.com/official/base:3.14.2-2 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -19,7 +19,7 @@ RUN set -x \
     && rm -rf /var/cache/apk/* /build
 
 
-FROM registry.cloudogu.com/official/base:3.12.4-1
+FROM registry.cloudogu.com/official/base:3.14.2-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.21.5-1"
@@ -30,8 +30,8 @@ ENV CES_CONFD_VERSION=0.5.1 \
     WARP_MENU_TAR_SHA256="f1ebc305ac03a2b59d8eb9b5624a26a3e5803bb8b6969df271c702bdb257792c" \
     CES_ABOUT_VERSION=0.2.2 \
     CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
-    CES_THEME_VERSION=0d20c1b1d5518af475cddb33713e58ebf57f5599 \
-    CES_THEME_TAR_SHA256="a2ae6ab465b629f59814d3898abdab45119e2de7ef44fcac2b054debbcb1c66a" \
+    CES_THEME_VERSION=v0.7.0 \
+    CES_THEME_TAR_SHA256="d3c8ba654cdaccff8fa3202f3958ac0c61156fb25a288d6008354fae75227941" \
     CES_MAINTENANCE_MODE=false
 
 RUN set -x \

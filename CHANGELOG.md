@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgrade to ces-theme v0.7.0
+
 ## [v1.21.5-1] - 2022-01-19
 ### Changed
 - Add integration tests for custom static HTML page #51
