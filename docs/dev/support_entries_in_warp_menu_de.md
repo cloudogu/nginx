@@ -1,4 +1,4 @@
-#Support-Einträge für das Warp-Menü konfigurieren
+# Support-Einträge für das Warp-Menü konfigurieren
 
 Das warp-menu generiert die Einträge im Menü über eine sogenannte menu.json.
 Diese wird in der ces-confd erstellt. In dieser sind die dynamischen dogu-Einträge und die Support-Einträge enthalten.

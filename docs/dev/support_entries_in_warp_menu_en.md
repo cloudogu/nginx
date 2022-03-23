@@ -1,4 +1,4 @@
-#Configure support entries for the warp menu
+# Configure support entries for the warp menu
 
 The warp-menu generates the entries in the menu via a so-called menu.json. 
 This is built in the ces-confd. In this the dynamic dogu entries and the support entries are contained. 
@@ -22,5 +22,5 @@ warp:
       href: https://path/to/extern/site.com
 ```
 
-and the first two should NOT be displayed than you can set the etcd-key to sth like:
+and the first two should NOT be displayed than you can set the etcd-key to sth. like:
 `etcdctl set /config/_global/disabled_warpmenu_support_entries '["docsCloudoguComUrl", "aboutCloudoguToken"]'`.
