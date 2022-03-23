@@ -3,7 +3,7 @@ const {
 } = require("cypress-cucumber-preprocessor/steps");
 
 Then(/^the user opens the warp menu$/, function () {
-   cy.get('*[class^=" warp-menu-column-toggle"]').children('*[id^="warp-menu-warpbtn"]').click();
+    cy.get('*[class^=" warp-menu-column-toggle"]').children('*[id^="warp-menu-warpbtn"]').click();
 });
 
 Then(/^the user checks link corresponding to the custom page$/, function () {
@@ -15,4 +15,13 @@ Then(/^the user checks link corresponding to the custom page$/, function () {
 
 Then("a static HTML custom page gets displayed", function () {
     cy.visit(Cypress.config().baseUrl + Cypress.env('customHTMLPath'));
+});
+
+Then(/^the warp menu category 'Support' contains a link to docs and no link to mycloudogu or the about page$/, function () {
+
+    cy.get('[id^=warpc][id$=support]').parent().children('ul').children().should('have.length', 2)
+
+    cy.get('*[class^=" warp-menu-shift-container"]')
+        .children('*[class^=" warp-menu-category-list"]')
+        .contains("Cloudogu EcoSystem Docs")
 });
