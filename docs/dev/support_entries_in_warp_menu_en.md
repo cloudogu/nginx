@@ -1,10 +1,10 @@
 #Configure support entries for the warp menu
 
-The warpmenu generates the entries in the menu via a so-called menu.json. 
+The warp-menu generates the entries in the menu via a so-called menu.json. 
 This is built in the ces-confd. In this the dynamic dogu entries and the support entries are contained. 
 The support entries can be changed via the configuration.yaml.tpl in this repository.
 
-If entries in the warpmenu should not be rendered the etcd key `/config/_global/disabled_warpmenu_support_entries` can be provided with a list of keys which will not be rendered.
+If entries in the warp-menu should not be rendered the etcd key `/config/_global/disabled_warpmenu_support_entries` can be provided with a list of keys which will not be rendered.
 
 For example, if the following entries are specified in the configuration.yaml under the key `support`:
 ```

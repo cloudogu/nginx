@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - changed config.yaml.tpl to support support-entries from ces-confd
 - update ces-confd to version v0.6.0
-- updatet warp-menu to version v1.4.0
+- update warp-menu to version v1.4.0
 
 ## [v1.21.5-2] - 2022-01-28
 ### Changed
