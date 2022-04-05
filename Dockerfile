@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.14.2-2 as builder
+FROM registry.cloudogu.com/official/base:3.15.3-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -19,7 +19,7 @@ RUN set -x \
     && rm -rf /var/cache/apk/* /build
 
 
-FROM registry.cloudogu.com/official/base:3.14.2-2
+FROM registry.cloudogu.com/official/base:3.15.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.21.5-3"
@@ -34,7 +34,11 @@ ENV CES_CONFD_VERSION=0.6.0 \
     CES_THEME_TAR_SHA256="d3c8ba654cdaccff8fa3202f3958ac0c61156fb25a288d6008354fae75227941" \
     CES_MAINTENANCE_MODE=false
 
-RUN set -x \
+RUN set -x -o errexit \
+ && set -o nounset \
+ && set -o pipefail \
+ && apk update \
+ && apk upgrade \
  # install required packages
  && apk --update add openssl pcre zlib \
  # add nginx user

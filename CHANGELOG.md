@@ -5,7 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+##[unreleased]
+### Changed
+- Upgrade base image to 3.15.3-1; #56
+
+### Fixed
+- Upgrade zlib to fix CVE-2018-25032; #56
 
 ## [v1.21.5-3] - 2022-03-23
 ### Changed
