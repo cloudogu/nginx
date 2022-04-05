@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Upgrade zlib to fix CVE-2018-25032; #56
+- Upgrade ssl libraries to 1.1-1.1.1n-r0 and fix [CVE-2022-0778](https://security.alpinelinux.org/vuln/CVE-2022-0778)
 
 ## [v1.21.5-3] - 2022-03-23
 ### Changed
