@@ -7,7 +7,11 @@ ENV NGINX_VERSION 1.21.5
 ENV NGINX_TAR_SHA256="b20f3bf533a518a6f0f3a7967dfeed872d268d31e4cc121a0001329602ddcfbb"
 
 COPY nginx-build /
-RUN set -x \
+RUN set -x -o errexit \
+    && set -o nounset \
+    && set -o pipefail \
+    && apk update \
+    && apk upgrade \
     && apk --update add openssl-dev pcre-dev zlib-dev wget build-base \
     && mkdir /build \
     && cd /build \
