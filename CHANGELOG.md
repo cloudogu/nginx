@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-6] - 2022-06-07
+
 ### Changed
 - Update warp-menu to v1.6.0
 
