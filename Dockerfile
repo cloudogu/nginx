@@ -26,12 +26,12 @@ RUN set -x -o errexit \
 FROM registry.cloudogu.com/official/base:3.15.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.21.5-5"
+      VERSION="1.21.5-6"
 
 ENV CES_CONFD_VERSION=0.6.0 \
     CES_CONFD_TAR_SHA256="069d45503149d67585e7ff15ce5cb1fe125c4cda4f69230dbf65851ccd88ad58" \
-    WARP_MENU_VERSION=1.5.0 \
-    WARP_MENU_TAR_SHA256="cfdd504a03aab8e5e4a33135d953b10aeba4816da5f549ddb1eb6ee593399826" \
+    WARP_MENU_VERSION=1.6.0 \
+    WARP_MENU_TAR_SHA256="297c910ce2287e5322e3f447408e1ccfbc835874983dbab347b21892c74c8a5f" \
     CES_ABOUT_VERSION=0.2.2 \
     CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
     CES_THEME_VERSION=v0.7.0 \
