@@ -15,7 +15,8 @@
   "Dependencies": [
     {
       "type": "dogu",
-      "name": "registrator"
+      "name": "registrator",
+      "version": ">=0.10.0-1"
     }
   ],
   "Configuration": [
