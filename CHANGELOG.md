@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-7] - 2022-09-20
+### Changed
+- Update ces-confd to 0.7.0 #61
+
 ## [v1.21.5-6] - 2022-06-07
 
 ### Changed
