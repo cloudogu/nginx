@@ -26,7 +26,7 @@ RUN set -x -o errexit \
 FROM registry.cloudogu.com/official/base:3.15.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.21.5-6"
+      VERSION="1.21.5-7"
 
 ENV CES_CONFD_VERSION=0.7.0 \
     CES_CONFD_TAR_SHA256="21568a5293208e8d806382087640418fb593bffec52587bb6669efd2ae561d41" \
