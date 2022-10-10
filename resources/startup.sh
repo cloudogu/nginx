@@ -28,6 +28,8 @@ function export_log_level() {
 }
 
 echo "[nginx] configure ssl and https ..."
+doguctl --log-level debug config --global certificate/server.crt || true
+sleep 15
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
 

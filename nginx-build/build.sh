@@ -12,6 +12,7 @@ CFLAGS="-g -O0" ./configure \
     --prefix=/etc/nginx \
     --http-log-path=/var/log/nginx/access.log \
     --error-log-path=/var/log/nginx/error.log \
-    --sbin-path=/usr/sbin/nginx
+    --sbin-path=/usr/sbin/nginx \
+    --with-ipv6
 make
 make install
