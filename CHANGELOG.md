@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-7] - 2022-09-20
+### Changed
+- Update ces-confd to 0.7.0 #61
+
+## [v1.21.5-6] - 2022-06-07
+
+### Changed
+- Update warp-menu to v1.6.0
+
+## [v1.21.5-5] - 2022-05-25
+### Changed
+- Update warp-menu to v1.5.0 
+
 ## [v1.21.5-4] - 2022-04-06
 ### Changed
 - Upgrade base image to 3.15.3-1; #56

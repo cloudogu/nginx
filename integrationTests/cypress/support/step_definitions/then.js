@@ -19,7 +19,7 @@ Then("a static HTML custom page gets displayed", function () {
 
 Then(/^the warp menu category 'Support' contains a link to docs and no link to mycloudogu or the about page$/, function () {
 
-    cy.get('[id^=warpc][id$=support]').parent().children('ul').children().should('have.length', 2)
+    cy.get('[id^=warpc][id$=support]').parent().children('ul').children().should('have.length', 1)
 
     cy.get('*[class^=" warp-menu-shift-container"]')
         .children('*[class^=" warp-menu-category-list"]')
