@@ -1,3 +1,4 @@
+listen [::]:443 ipv6only=on ssl http2;
 listen 443 ssl http2;
 server_name {{ .GlobalConfig.Get "fqdn" }};
 

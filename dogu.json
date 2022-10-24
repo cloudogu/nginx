@@ -90,6 +90,16 @@
     }
   ],
   "ExposedPorts": [
+    {
+      "Type": "tcp",
+      "Host": 80,
+      "Container": 80
+    },
+    {
+      "Type": "tcp",
+      "Host": 443,
+      "Container": 443
+    }
   ],
   "HealthChecks": [
     {
