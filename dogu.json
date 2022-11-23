@@ -74,7 +74,7 @@
     },
     {
       "Name": "proxy_max_temp_file_size",
-      "Description": "proxy_max_temp_file_size. Use zero or a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). [default: 32768m]",
+      "Description": "The size of the temporary file which saves all responses. Useful to improve performance for slow internet connections. Use zero or a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). [default: 32768m]",
       "Default": "32768m",
       "Optional": true,
       "Validation": {
