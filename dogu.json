@@ -71,6 +71,15 @@
       "Validation": {
         "Type": "BINARY_MEASUREMENT"
       }
+    },
+    {
+      "Name": "proxy_max_temp_file_size",
+      "Description": "proxy_max_temp_file_size. Use zero or a positive integer value followed by one of these units [b,k,m,g] (byte, kibibyte, mebibyte, gibibyte). [default: 32768m]",
+      "Default": "32768m",
+      "Optional": true,
+      "Validation": {
+        "Type": "BINARY_MEASUREMENT"
+      }
     }
   ],
   "Volumes": [
@@ -87,6 +96,13 @@
       "Owner": "1000",
       "Group": "1000",
       "NeedsBackup": true
+    },
+    {
+      "Name": "proxy_temp",
+      "Path": "/etc/nginx/proxy_temp",
+      "Owner": "1000",
+      "Group": "1000",
+      "NeedsBackup": false
     }
   ],
   "ExposedPorts": [

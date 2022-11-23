@@ -23,7 +23,8 @@ http {
   default_type  application/octet-stream;
 
   # Limit download size to 32gb
-  proxy_max_temp_file_size 32768m;
+  proxy_max_temp_file_size {{ .Config.GetOrDefault "proxy_max_temp_file_size" "32768m" }};
+  proxy_temp_path          /etc/nginx/proxy_temp;
 
   # if the request wants to ugrade to websocket we map the header and set the Upgrade header
   map $http_upgrade $connection_upgrade {
