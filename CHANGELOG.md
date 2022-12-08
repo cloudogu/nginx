@@ -8,8 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Upgrade to nginx 1.23.2; #64
-- Upgrade ces-build-lib to v1.60.1
-- Upgrade dogu-build-lib to v1.10.0
 
 ## [v1.21.5-7] - 2022-09-20
 ### Changed
