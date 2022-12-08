@@ -68,7 +68,7 @@ node('vagrant') {
             }
 
             stage('Integration tests') {
-                ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.7.0",
+                ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
                                                       enableVideo      : params.EnableVideoRecording,
                                                       enableScreenshots: params.EnableScreenshotRecording])
             }
@@ -78,7 +78,7 @@ node('vagrant') {
                     ecoSystem.upgradeFromPreviousRelease(params.OldDoguVersionForUpgradeTest, doguName)
                 }
                 stage('Integration tests - After upgrade') {
-                    ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.7.0",
+                    ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
                                                           enableVideo      : params.EnableVideoRecording,
                                                           enableScreenshots: params.EnableScreenshotRecording])
                 }
