@@ -79,7 +79,9 @@ node('vagrant') {
                 }
                 stage('Integration Tests - After Upgrade'){
                     // Run integration tests again to verify that the upgrade was successful
-                    runIntegrationTests(ecoSystem, params.EnableVideoRecording, params.EnableScreenshotRecording)
+                    ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
+                                                          enableVideo      : params.EnableVideoRecording,
+                                                          enableScreenshots: params.EnableScreenshotRecording])
                 }
             }
             if (gitflow.isReleaseBranch()) {

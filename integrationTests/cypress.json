@@ -3,7 +3,8 @@
   "env": {
     "casPath": "/cas",
     "nameOfCustomPageLinkInWarpMenu": "Privacy Policies",
-    "customHTMLPath": "/static/privacy_policies.html"
+    "customHTMLPath": "/static/privacy_policies.html",
+    "AdminGroup":  "CesAdministrators"
   },
   "videoCompression": false,
   "nonGlobalStepBaseDir": false,
