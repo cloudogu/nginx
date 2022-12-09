@@ -22,8 +22,8 @@ http {
   include       /etc/nginx/include.d/mime.types;
   default_type  application/octet-stream;
 
-  proxy_cache_path /etc/nginx/proxy_temp_path levels=1:2 keys_zone=dogu_request_cache:10m max_size={{ .Config.GetOrDefault "proxy_max_temp_file_size" "32768m" }} inactive=10m use_temp_path=off;
-  proxy_cache dogu_request_cache;
+  # Limit download size to 32gb
+  proxy_max_temp_file_size 32768m;
 
   # if the request wants to ugrade to websocket we map the header and set the Upgrade header
   map $http_upgrade $connection_upgrade {
