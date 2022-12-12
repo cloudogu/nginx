@@ -45,8 +45,7 @@ server {
         {{ if .Rewrite }}
         rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
         {{end}}
-        {{ if eq .ProxyBuffering "off" }} proxy_buffering off; {{ end }}
-        {{ if eq .ProxyCache "off" }} proxy_cache off; {{ end }}
+        {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
         proxy_pass {{.URL}};
       {{else}}
         error_page 503 /errors/starting.html;
