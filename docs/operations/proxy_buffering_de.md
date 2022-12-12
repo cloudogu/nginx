@@ -8,3 +8,5 @@ Das Buffering kann für einzelne Dogus aktiviert/deaktiviert werden. Dafür muss
 /config/nginx/buffering/<doguname> = on|off
 ```
 Ist kein Wert gesetzt, ist das Buffering immer aktiviert.
+
+Nachdem der Key in der Registry gesetzt wurde, muss nginx und das Dogu, für das der Key gesetzt wurde, neu gestartet werden.

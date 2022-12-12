@@ -8,3 +8,5 @@ Buffering can be enabled/disabled for individual dogus. To do this, a registry k
 /config/nginx/buffering/<doguname> = on|off
 ```
 If no value is set, buffering is always enabled.
+
+After the key is set in the registry, nginx and the dogu for which the key was set must be restarted.
