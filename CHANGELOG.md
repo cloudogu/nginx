@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- volume which stores the request buffer tempfile (#63)
-- registry key to configure request buffer tempfile size (#63)
+- Update ces-confd to 0.8.0 (#63)
+- Add possibility to disable request buffer by setting registry key `config/nginx/buffering/<doguname>` to `off` (#63)
 
 ## [v1.21.5-7] - 2022-09-20
 ### Changed
