@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-8] - 2022-12-13
+### Added
+- Update ces-confd to 0.8.0 (#63)
+- Add possibility to disable request buffer by setting registry key `config/nginx/buffering/<doguname>` to `off` (#63)
+
 ## [v1.21.5-7] - 2022-09-20
 ### Changed
 - Update ces-confd to 0.7.0 #61
@@ -18,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.21.5-5] - 2022-05-25
 ### Changed
-- Update warp-menu to v1.5.0 
+- Update warp-menu to v1.5.0
 
 ## [v1.21.5-4] - 2022-04-06
 ### Changed
@@ -104,7 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SHA256 checks for all manual downloads in the dockerfile
 
 ### Changed
-- Update of the base image to v3.11.6-3 
+- Update of the base image to v3.11.6-3
 - Update warp-menu version to v1.0.4
 
 ## [v1.17.8-5] - 2020-07-20
