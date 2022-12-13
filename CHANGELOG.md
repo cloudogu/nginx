@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.21.5-8] - 2022-12-13
 ### Added
 - Update ces-confd to 0.8.0 (#63)
 - Add possibility to disable request buffer by setting registry key `config/nginx/buffering/<doguname>` to `off` (#63)
