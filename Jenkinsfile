@@ -67,6 +67,12 @@ node('vagrant') {
                 ecoSystem.verify("/dogu")
             }
 
+            stage('Wait for dependencies') {
+                timeout(15) {
+                    ecoSystem.waitForDogu("cas")
+                }
+            }
+
             stage('Integration tests') {
                 ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
                                                       enableVideo      : params.EnableVideoRecording,
@@ -77,6 +83,14 @@ node('vagrant') {
                 stage('Upgrade dogu') {
                     ecoSystem.upgradeFromPreviousRelease(params.OldDoguVersionForUpgradeTest, doguName)
                 }
+
+
+                stage('Wait for dependencies - After Upgrade') {
+                    timeout(15) {
+                        ecoSystem.waitForDogu("cas")
+                    }
+                }
+
                 stage('Integration Tests - After Upgrade'){
                     // Run integration tests again to verify that the upgrade was successful
                     ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
