@@ -56,11 +56,7 @@ node('vagrant') {
             }
 
             stage('Prepare integration tests') {
-                // static HTML config
-                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
-                ecoSystem.vagrant.ssh '''etcdctl set config/nginx/externals/privacy_policies '{\\"DisplayName\\":\\"Privacy Policies\\",\\"Description\\":\\"Contains information about the privacy policies enforced by our company\\",\\"Category\\":\\"Information\\",\\"URL\\":\\"/static/privacy_policies.html\\"}' '''
-                // etcd key for support entries
-                ecoSystem.vagrant.ssh '''etcdctl set /config/_global/disabled_warpmenu_support_entries '[\\"myCloudogu\\", \\"aboutCloudoguToken\\"]' '''
+                setIntegrationTestKeys(ecoSystem)
             }
 
             stage('Verify') {
@@ -84,6 +80,10 @@ node('vagrant') {
                     ecoSystem.upgradeFromPreviousRelease(params.OldDoguVersionForUpgradeTest, doguName)
                 }
 
+                stage('Prepare integration tests - After Upgrade') {
+                  setIntegrationTestKeys(ecoSystem)
+                  ecoSystem.restartDogu("nginx")
+                }
 
                 stage('Wait for dependencies - After Upgrade') {
                     timeout(15) {
@@ -120,4 +120,12 @@ node('vagrant') {
             }
         }
     }
+}
+
+void setIntegrationTestKeys(ecoSystem){
+  // static HTML config
+  ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
+  ecoSystem.vagrant.ssh '''etcdctl set config/nginx/externals/privacy_policies '{\\"DisplayName\\":\\"Privacy Policies\\",\\"Description\\":\\"Contains information about the privacy policies enforced by our company\\",\\"Category\\":\\"Information\\",\\"URL\\":\\"/static/privacy_policies.html\\"}' '''
+  // etcd key for support entries
+  ecoSystem.vagrant.ssh '''etcdctl set /config/_global/disabled_warpmenu_support_entries '[\\"myCloudogu\\", \\"aboutCloudoguToken\\"]' '''
 }
