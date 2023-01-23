@@ -1,10 +1,10 @@
 #!groovy
-@Library(['github.com/cloudogu/dogu-build-lib@v1.4.1', 'github.com/cloudogu/ces-build-lib@1.48.0']) _
+@Library(['github.com/cloudogu/dogu-build-lib@v1.10.0', 'github.com/cloudogu/ces-build-lib@1.60.1']) _
 import com.cloudogu.ces.dogubuildlib.*
 import com.cloudogu.ces.cesbuildlib.*
 
 node('vagrant') {
-
+    String doguName = "nginx"
     timestamps{
         properties([
                 // Keep only the last x builds to preserve space
@@ -56,15 +56,17 @@ node('vagrant') {
             }
 
             stage('Prepare integration tests') {
-                // static HTML config
-                ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
-                ecoSystem.vagrant.ssh '''etcdctl set config/nginx/externals/privacy_policies '{\\"DisplayName\\":\\"Privacy Policies\\",\\"Description\\":\\"Contains information about the privacy policies enforced by our company\\",\\"Category\\":\\"Information\\",\\"URL\\":\\"/static/privacy_policies.html\\"}' '''
-                // etcd key for support entries
-                ecoSystem.vagrant.ssh '''etcdctl set /config/_global/disabled_warpmenu_support_entries '[\\"myCloudogu\\", \\"aboutCloudoguToken\\"]' '''
+                setIntegrationTestKeys(ecoSystem)
             }
 
             stage('Verify') {
                 ecoSystem.verify("/dogu")
+            }
+
+            stage('Wait for dependencies') {
+                timeout(15) {
+                    ecoSystem.waitForDogu("cas")
+                }
             }
 
             stage('Integration tests') {
@@ -75,22 +77,25 @@ node('vagrant') {
 
             if (params.TestDoguUpgrade != null && params.TestDoguUpgrade) {
                 stage('Upgrade dogu') {
-                    // Remove new dogu that has been built and tested above
-                    ecoSystem.purgeDogu(doguName)
+                    ecoSystem.upgradeFromPreviousRelease(params.OldDoguVersionForUpgradeTest, doguName)
+                }
 
-                    if (params.OldDoguVersionForUpgradeTest != '' && !params.OldDoguVersionForUpgradeTest.contains('v')) {
-                        println "Installing user defined version of dogu: " + params.OldDoguVersionForUpgradeTest
-                        ecoSystem.installDogu("testing/" + doguName + " " + params.OldDoguVersionForUpgradeTest)
-                    } else {
-                        println "Installing latest released version of dogu..."
-                        ecoSystem.installDogu("testing/" + doguName)
+                stage('Prepare integration tests - After Upgrade') {
+                  setIntegrationTestKeys(ecoSystem)
+                  ecoSystem.restartDogu("nginx")
+                }
+
+                stage('Wait for dependencies - After Upgrade') {
+                    timeout(15) {
+                        ecoSystem.waitForDogu("cas")
                     }
-                    ecoSystem.startDogu(doguName)
-                    ecoSystem.waitForDogu(doguName)
-                    ecoSystem.upgradeDogu(ecoSystem)
+                }
 
-                    // Wait for upgraded dogu to get healthy
-                    ecoSystem.waitForDogu(doguName)
+                stage('Integration Tests - After Upgrade'){
+                    // Run integration tests again to verify that the upgrade was successful
+                    ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
+                                                          enableVideo      : params.EnableVideoRecording,
+                                                          enableScreenshots: params.EnableScreenshotRecording])
                 }
             }
             if (gitflow.isReleaseBranch()) {
@@ -115,4 +120,12 @@ node('vagrant') {
             }
         }
     }
+}
+
+void setIntegrationTestKeys(ecoSystem){
+  // static HTML config
+  ecoSystem.vagrant.ssh "sudo cp /dogu/integrationTests/privacy_policies.html /var/lib/ces/nginx/volumes/customhtml/"
+  ecoSystem.vagrant.ssh '''etcdctl set config/nginx/externals/privacy_policies '{\\"DisplayName\\":\\"Privacy Policies\\",\\"Description\\":\\"Contains information about the privacy policies enforced by our company\\",\\"Category\\":\\"Information\\",\\"URL\\":\\"/static/privacy_policies.html\\"}' '''
+  // etcd key for support entries
+  ecoSystem.vagrant.ssh '''etcdctl set /config/_global/disabled_warpmenu_support_entries '[\\"myCloudogu\\", \\"aboutCloudoguToken\\"]' '''
 }
