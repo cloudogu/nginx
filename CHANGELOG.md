@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade to nginx 1.23.2; #64
 - Upgrade ces-build-lib to v1.60.1
 - Upgrade dogu-build-lib to v1.10.0
+- Upgrade warp menu version to 1.7.0 (#67)
 
 ## [v1.21.5-7] - 2022-09-20
 ### Changed
@@ -22,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.21.5-5] - 2022-05-25
 ### Changed
-- Update warp-menu to v1.5.0 
+- Update warp-menu to v1.5.0
 
 ## [v1.21.5-4] - 2022-04-06
 ### Changed
@@ -108,7 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SHA256 checks for all manual downloads in the dockerfile
 
 ### Changed
-- Update of the base image to v3.11.6-3 
+- Update of the base image to v3.11.6-3
 - Update warp-menu version to v1.0.4
 
 ## [v1.17.8-5] - 2020-07-20
