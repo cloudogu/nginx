@@ -22,7 +22,7 @@ server {
   # https://github.com/cloudogu/ecosystem/issues/298
   # https://stackoverflow.com/questions/28347184/upstream-timed-out-110-connection-timed-out-for-static-content
   proxy_http_version 1.1;
-  
+
   # nginx.conf map handles connection_upgrade http_upgrade
   proxy_set_header Connection $connection_upgrade;
   proxy_set_header Upgrade $http_upgrade;
@@ -35,7 +35,7 @@ server {
 
   include /etc/nginx/include.d/info.conf;
   include /etc/nginx/include.d/subfilters.conf;
-  include /etc/nginx/include.d/default-dogu.conf;  
+  include /etc/nginx/include.d/default-dogu.conf;
   include /etc/nginx/include.d/customhtml.conf;
 
   # services
@@ -45,6 +45,7 @@ server {
         {{ if .Rewrite }}
         rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
         {{end}}
+        {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
         proxy_pass {{.URL}};
       {{else}}
         error_page 503 /errors/starting.html;

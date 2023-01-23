@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade dogu-build-lib to v1.10.0
 - Upgrade warp menu version to 1.7.0 (#67)
 
+## [v1.21.5-8] - 2022-12-13
+### Added
+- Update ces-confd to 0.8.0 (#63)
+- Add possibility to disable request buffer by setting registry key `config/nginx/buffering/<doguname>` to `off` (#63)
+
 ## [v1.21.5-7] - 2022-09-20
 ### Changed
 - Update ces-confd to 0.7.0 #61
