@@ -3,8 +3,8 @@ LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION 1.21.5
-ENV NGINX_TAR_SHA256="b20f3bf533a518a6f0f3a7967dfeed872d268d31e4cc121a0001329602ddcfbb"
+ENV NGINX_VERSION 1.23.2
+ENV NGINX_TAR_SHA256="a80cc272d3d72aaee70aa8b517b4862a635c0256790434dbfc4d618a999b0b46"
 
 COPY nginx-build /
 RUN set -x -o errexit \
@@ -26,12 +26,12 @@ RUN set -x -o errexit \
 FROM registry.cloudogu.com/official/base:3.15.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.21.5-8"
+      VERSION="1.23.2-1"
 
 ENV CES_CONFD_VERSION=0.8.0 \
     CES_CONFD_TAR_SHA256="365a4033e80af6953d5b6513296a828dfd772a6640533bb51dd9abd34a1e53e8" \
-    WARP_MENU_VERSION=1.6.0 \
-    WARP_MENU_TAR_SHA256="297c910ce2287e5322e3f447408e1ccfbc835874983dbab347b21892c74c8a5f" \
+    WARP_MENU_VERSION=1.7.0 \
+    WARP_MENU_TAR_SHA256="2e2284244a6d06fbba8ae87818038976bb157314a4eb510f8b17cb338db13d6c" \
     CES_ABOUT_VERSION=0.2.2 \
     CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
     CES_THEME_VERSION=v0.7.0 \
@@ -90,7 +90,7 @@ VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 # Define working directory.
 WORKDIR /etc/nginx
 
-HEALTHCHECK CMD doguctl healthy nginx || exit 1
+HEALTHCHECK --interval=5s CMD doguctl healthy nginx || exit 1
 
 # Define default command.
 ENTRYPOINT ["/startup.sh"]

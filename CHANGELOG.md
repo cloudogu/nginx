@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.23.2-1] - 2023-01-23
+### Changed
+- Upgrade to nginx 1.23.2; #64
+- Upgrade ces-build-lib to v1.60.1
+- Upgrade dogu-build-lib to v1.10.0
+- Upgrade warp menu version to 1.7.0 (#67)
+
 ## [v1.21.5-8] - 2022-12-13
 ### Added
 - Update ces-confd to 0.8.0 (#63)
