@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.23.2-2] - 2023-02-02
+### Changed
+- Update warp-menu to v1.7.1 (#68)
+  - This will fix the bug where the warp menu was visible in print view
+
 ## [v1.23.2-1] - 2023-01-23
 ### Changed
 - Upgrade to nginx 1.23.2; #64
