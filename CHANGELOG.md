@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.23.2-4] - 2023-03-31
+### Added
+- Add automatic refresh (every 10 seconds) of the dogu-is-starting-page (#72)
+
 ## [v1.23.2-3] - 2023-02-17
 ### Changed
 - Update warp-menu to v1.7.2 (#70)
