@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.15.3-1 as builder
+FROM registry.cloudogu.com/official/base:3.17.3-2 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -19,11 +19,10 @@ RUN set -x -o errexit \
     && echo "${NGINX_TAR_SHA256} *nginx-${NGINX_VERSION}.tar.gz" | sha256sum -c - \
     && tar -zxvf nginx-${NGINX_VERSION}.tar.gz \
     && cd /build/nginx-${NGINX_VERSION} \
-    && /build.sh \
-    && rm -rf /var/cache/apk/* /build
+    && /build.sh
 
 
-FROM registry.cloudogu.com/official/base:3.15.3-1
+FROM registry.cloudogu.com/official/base:3.17.3-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.23.2-4"
@@ -44,7 +43,7 @@ RUN set -x -o errexit \
  && apk update \
  && apk upgrade \
  # install required packages
- && apk --update add openssl pcre zlib \
+ && apk --update add --no-cache openssl pcre zlib curl \
  # add nginx user
  && adduser nginx -D \
  # install ces-confd
@@ -59,11 +58,13 @@ RUN set -x -o errexit \
  && curl -Lsk https://github.com/cloudogu/ces-about/releases/download/v${CES_ABOUT_VERSION}/ces-about-v${CES_ABOUT_VERSION}.tar.gz -o ces-about-v${CES_ABOUT_VERSION}.tar.gz \
  && echo "${CES_ABOUT_TAR_SHA256} *ces-about-v${CES_ABOUT_VERSION}.tar.gz" | sha256sum -c - \
  && tar -xzvf ces-about-v${CES_ABOUT_VERSION}.tar.gz -C /var/www/html \
+ && rm -rf ces-about-v${CES_ABOUT_VERSION}.tar.gz \
  && sed -i 's@base href=".*"@base href="/info/"@' /var/www/html/info/index.html \
  # install warp menu
  && curl -Lsk https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip -o /tmp/warp.zip \
  && echo "${WARP_MENU_TAR_SHA256} */tmp/warp.zip" | sha256sum -c - \
  && unzip /tmp/warp.zip -d /var/www/html \
+ && rm -rf /tmp/warp.zip \
  # install custom error pages
  && curl -Lsk https://github.com/cloudogu/ces-theme/archive/${CES_THEME_VERSION}.zip -o /tmp/theme.zip \
  && echo "${CES_THEME_TAR_SHA256} */tmp/theme.zip" | sha256sum -c - \
@@ -74,8 +75,7 @@ RUN set -x -o errexit \
  # redirect logs
  && ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log \
- # cleanup apk cache
- && rm -rf /var/cache/apk/*
+ && apk del curl
 
 # copy files
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
