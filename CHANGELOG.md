@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.23.2-5] - 2023-04-24
+### Changed
+- [#20] Upgrade Base Image to 3.17.3-2
+
+### Security
+- [#20] Fixed CVE-2023-27536, CVE-2023-27536 and some others
+
 ## [v1.23.2-4] - 2023-03-31
 ### Added
 - Add automatic refresh (every 10 seconds) of the dogu-is-starting-page (#72)
