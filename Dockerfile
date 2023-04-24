@@ -64,7 +64,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 FROM registry.cloudogu.com/official/base:3.17.3-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.23.2-4"
+      VERSION="1.23.2-5"
 
 ENV CES_MAINTENANCE_MODE=false
 
