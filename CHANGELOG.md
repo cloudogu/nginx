@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- [#76] redirect errors to stderr and accesses to stdout again
 
 ## [v1.23.2-5] - 2023-04-24
 ### Changed
