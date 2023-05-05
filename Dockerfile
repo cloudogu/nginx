@@ -56,15 +56,10 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
     && unzip /tmp/theme.zip -d /tmp/theme \
     && cp -r /tmp/theme/ces-theme-${CES_THEME_VERSION}/dist/errors /build/var/www/html
 
-# redirect logs
-RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
-
-
 FROM registry.cloudogu.com/official/base:3.17.3-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.23.2-5"
+      VERSION="1.23.2-6"
 
 ENV CES_MAINTENANCE_MODE=false
 
@@ -82,6 +77,11 @@ RUN set -x -o errexit \
 COPY resources /
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY --from=builder /build /
+
+# redirect logs
+# cannot be done via builder container as symlinks cannot get copied
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Volumes are used to avoid writing to containers writable layer https://docs.docker.com/storage/
 # Compared to the bind mounted volumes we declare in the dogu.json,
