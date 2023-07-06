@@ -15,9 +15,9 @@ warp:
       - identifier: aboutCloudoguToken
         external: false
         href: /info/about
-      - identifier: myCloudogu
+      - identifier: platform
         external: true
-        href: https://my.cloudogu.com/
+        href: https://platform.cloudogu.com
 
 service:
   source:

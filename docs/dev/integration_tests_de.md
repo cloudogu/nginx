@@ -9,7 +9,7 @@ Außerdem muss der etcd Key `privacy_policies` gesetzt werden
 `etcdctl set config/nginx/externals/privacy_policies '{"DisplayName":"Privacy Policies","Description":"Contains information about the privacy policies enforced by our company","Category":"Information","URL":"/static/privacy_policies.html"}'`
 
 Anschließend muss noch der Key zum Entfernen bestimmter Links aus dem Warp-Menü gesetzt werden:
-`etcdctl set /config/_global/disabled_warpmenu_support_entries '["myCloudogu", "aboutCloudoguToken"]'`
+`etcdctl set /config/_global/disabled_warpmenu_support_entries '["platform", "aboutCloudoguToken"]'`
 
 Danach können die Tests mit:
 ```bash
