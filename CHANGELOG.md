@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.23.2-7] - 2023-07-10
+### Changed
+- [#78] replaced all references to myCloudogu with references to the cloudogu platform
+
 ## [v1.23.2-6] - 2023-05-05
 ### Fixed
 - [#76] redirect errors to stderr and accesses to stdout again
