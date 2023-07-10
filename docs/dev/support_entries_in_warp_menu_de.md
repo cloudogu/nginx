@@ -17,7 +17,7 @@ warp:
     - Bezeichner: aboutCloudoguToken
       extern: falsch
       href: /pfad/zu/intern/site
-    - Bezeichner: myCloudogu
+    - Bezeichner: platform
       extern: wahr
       href: https://path/to/extern/site.com
 ```

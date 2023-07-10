@@ -17,7 +17,7 @@ warp:
     - identifier: aboutCloudoguToken
       external: false
       href: /pfad/to/intern/site
-    - identifier: myCloudogu
+    - identifier: platform
       external: true
       href: https://path/to/extern/site.com
 ```

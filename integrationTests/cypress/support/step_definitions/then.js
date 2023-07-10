@@ -17,7 +17,7 @@ Then("a static HTML custom page gets displayed", function () {
     cy.visit(Cypress.config().baseUrl + Cypress.env('customHTMLPath'));
 });
 
-Then(/^the warp menu category 'Support' contains a link to docs and no link to mycloudogu or the about page$/, function () {
+Then(/^the warp menu category 'Support' contains a link to docs and no link to platform or the about page$/, function () {
 
     cy.get('[id^=warpc][id$=support]').parent().children('ul').children().should('have.length', 1)
 
