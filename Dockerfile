@@ -9,8 +9,8 @@ ENV NGINX_VERSION=1.23.2 \
     CES_CONFD_TAR_SHA256="365a4033e80af6953d5b6513296a828dfd772a6640533bb51dd9abd34a1e53e8" \
     WARP_MENU_VERSION=1.7.3 \
     WARP_MENU_TAR_SHA256="b3ed4b50b1b9a739a4430d88975b5e3030c5e542c0739ed6b72d7eb8fd9a7b18" \
-    CES_ABOUT_VERSION=0.2.2 \
-    CES_ABOUT_TAR_SHA256="9926649be62d8d4667b2e7e6d1e3a00ebec1c4bbc5b80a0e830f7be21219d496" \
+    CES_ABOUT_VERSION="0.4.0" \
+    CES_ABOUT_TAR_SHA256="553624d9dec8f2d7158014680c983e9b431d85d8c7fd59b5f96a1061863cdbf6" \
     CES_THEME_VERSION=0.7.0 \
     CES_THEME_TAR_SHA256="d3c8ba654cdaccff8fa3202f3958ac0c61156fb25a288d6008354fae75227941"
 
@@ -40,10 +40,12 @@ RUN wget --progress=bar:force:noscroll -O "/tmp/ces-confd-${CES_CONFD_VERSION}.t
     && mkdir -p /build/var/www/customhtml
 
 # install ces-about page
-RUN wget --progress=bar:force:noscroll -O /tmp/ces-about-v${CES_ABOUT_VERSION}.tar.gz https://github.com/cloudogu/ces-about/releases/download/v${CES_ABOUT_VERSION}/ces-about-v${CES_ABOUT_VERSION}.tar.gz \
+RUN wget --progress=bar:force:noscroll -O /tmp/ces-about-v${CES_ABOUT_VERSION}.tar.gz https://github.com/cloudogu/ces-about/releases/download/v${CES_ABOUT_VERSION}/ces-about_v${CES_ABOUT_VERSION}.tar.gz \
     && echo "${CES_ABOUT_TAR_SHA256} */tmp/ces-about-v${CES_ABOUT_VERSION}.tar.gz" | sha256sum -c - \
     && tar -xzvf /tmp/ces-about-v${CES_ABOUT_VERSION}.tar.gz -C /build/var/www/html \
-    && sed -i 's@base href=".*"@base href="/info/"@' /build/var/www/html/info/index.html
+    && mkdir -p /build/etc/nginx/include.d/ \
+    && cp /build/var/www/html/routes/ces-about-routes.conf /build/etc/nginx/include.d/ \
+    && rm -rf /build/var/www/html/routes
 
 # install warp menu
 RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip \
@@ -59,7 +61,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
 FROM registry.cloudogu.com/official/base:3.17.3-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.23.2-7"
+      VERSION="1.23.2-8"
 
 ENV CES_MAINTENANCE_MODE=false
 
