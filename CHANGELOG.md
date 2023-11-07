@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [v1.23.2-8] - 2023-11-07
 ### Changed
 - Update `ces-about` to `0.4.0` (#80)
 - Use additional routes provided by `ces-about` (#80)
