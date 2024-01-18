@@ -5,8 +5,8 @@ LABEL maintainer="hello@cloudogu.com"
 
 ENV NGINX_VERSION=1.23.2 \
     NGINX_TAR_SHA256="a80cc272d3d72aaee70aa8b517b4862a635c0256790434dbfc4d618a999b0b46" \
-    CES_CONFD_VERSION=0.8.0 \
-    CES_CONFD_TAR_SHA256="365a4033e80af6953d5b6513296a828dfd772a6640533bb51dd9abd34a1e53e8" \
+    CES_CONFD_VERSION=0.8.2 \
+    CES_CONFD_TAR_SHA256="46078ac99e01ce89834e80c76441c85801937c1290ba3bb1344954f5d569142f" \
     WARP_MENU_VERSION=1.7.3 \
     WARP_MENU_TAR_SHA256="b3ed4b50b1b9a739a4430d88975b5e3030c5e542c0739ed6b72d7eb8fd9a7b18" \
     CES_ABOUT_VERSION="0.4.0" \
@@ -61,7 +61,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
 FROM registry.cloudogu.com/official/base:3.17.3-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.23.2-8"
+      VERSION="1.23.2-9"
 
 ENV CES_MAINTENANCE_MODE=false
 
