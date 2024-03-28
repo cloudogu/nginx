@@ -3,8 +3,8 @@ LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION=1.23.2 \
-    NGINX_TAR_SHA256="a80cc272d3d72aaee70aa8b517b4862a635c0256790434dbfc4d618a999b0b46" \
+ENV NGINX_VERSION=1.25.4 \
+    NGINX_TAR_SHA256="760729901acbaa517996e681ee6ea259032985e37c2768beef80df3a877deed9" \
     CES_CONFD_VERSION=0.9.0 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
     WARP_MENU_VERSION=1.7.3 \
