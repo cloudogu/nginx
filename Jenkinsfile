@@ -16,7 +16,10 @@ node('vagrant') {
                         booleanParam(defaultValue: true, description: 'Enables cypress to record video of the integration tests.', name: 'EnableVideoRecording'),
                         booleanParam(defaultValue: true, description: 'Enables cypress to take screenshots of failing integration tests.', name: 'EnableScreenshotRecording'),
                         booleanParam(defaultValue: false, description: 'Test dogu upgrade from latest release or optionally from defined version below', name: 'TestDoguUpgrade'),
-                        string(defaultValue: '', description: 'Old Dogu version for the upgrade test (optional; e.g. 3.23.0-1)', name: 'OldDoguVersionForUpgradeTest')
+                        booleanParam(defaultValue: false, description: 'Execute extended integration tests, e.g. admin group change', name: 'TestExtendedIntegrationTests'),
+                        string(defaultValue: '', description: 'Old Dogu version for the upgrade test (optional; e.g. 3.23.0-1)', name: 'OldDoguVersionForUpgradeTest'),
+                        choice(name: 'TrivyScanLevels', choices: [TrivyScanLevel.CRITICAL, TrivyScanLevel.HIGH, TrivyScanLevel.MEDIUM, TrivyScanLevel.ALL], description: 'The levels to scan with trivy'),
+                        choice(name: 'TrivyStrategy', choices: [TrivyScanStrategy.UNSTABLE, TrivyScanStrategy.FAIL, TrivyScanStrategy.IGNORE], description: 'Define whether the build should be unstable, fail or whether the error should be ignored if any vulnerability was found.'),
                 ])
         ])
 
@@ -27,6 +30,7 @@ node('vagrant') {
         GitFlow gitflow = new GitFlow(this, git)
         GitHub github = new GitHub(this, git)
         Changelog changelog = new Changelog(this)
+        Trivy trivy = new Trivy(this, ecoSystem)
 
         stage('Checkout') {
             checkout scm
@@ -103,6 +107,29 @@ node('vagrant') {
                                                           enableScreenshots: params.EnableScreenshotRecording])
                 }
             }
+            if (gitflow.isReleaseBranch() || params.TestExtendedIntegrationTests) {
+                stage('Test: Change Global Admin Group') {
+                    ecoSystem.changeGlobalAdminGroup("newAdminGroup")
+
+                    // this waits until the dogu is up and running
+                    ecoSystem.restartDogu(doguName)
+
+                    // ... run integration tests again to check successful behaviour of dogu after changing the global admin group
+                    stage('Integration Tests - After Upgrade'){
+                        // Run integration tests again to verify that the upgrade was successful
+                        ecoSystem.runCypressIntegrationTests([cypressImage     : "cypress/included:8.6.0",
+                                                              enableVideo      : params.EnableVideoRecording,
+                                                              enableScreenshots: params.EnableScreenshotRecording])
+                    }
+                }
+            }
+
+            stage('Trivy scan') {
+                trivy.scanDogu("/dogu", TrivyScanFormat.HTML, params.TrivyScanLevels, params.TrivyStrategy)
+                trivy.scanDogu("/dogu", TrivyScanFormat.JSON,  params.TrivyScanLevels, params.TrivyStrategy)
+                trivy.scanDogu("/dogu", TrivyScanFormat.PLAIN, params.TrivyScanLevels, params.TrivyStrategy)
+            }
+
             if (gitflow.isReleaseBranch()) {
                 String releaseVersion = git.getSimpleBranchName();
 
