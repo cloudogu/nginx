@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.17.3-2 as builder
+FROM registry.cloudogu.com/official/base:3.18.3-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -58,7 +58,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
     && unzip /tmp/theme.zip -d /tmp/theme \
     && cp -r /tmp/theme/ces-theme-${CES_THEME_VERSION}/dist/errors /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.17.3-2
+FROM registry.cloudogu.com/official/base:3.18.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.23.2-10"
