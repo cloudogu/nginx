@@ -22,6 +22,12 @@ http {
   include       /etc/nginx/include.d/mime.types;
   default_type  application/octet-stream;
 
+  # Increase proxy buffers to avoid 502 - bad gateway errors in e.g. EasyRedmine.
+  # These are caused by long headers which do not fit into the default buffer size.
+  proxy_busy_buffers_size   512k;
+  proxy_buffers   4 512k;
+  proxy_buffer_size   256k;
+
   # Limit download size to 32gb
   proxy_max_temp_file_size 32768m;
 
