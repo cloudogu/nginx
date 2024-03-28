@@ -1,18 +1,18 @@
-FROM registry.cloudogu.com/official/base:3.17.3-2 as builder
+FROM registry.cloudogu.com/official/base:3.18.3-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION=1.23.2 \
-    NGINX_TAR_SHA256="a80cc272d3d72aaee70aa8b517b4862a635c0256790434dbfc4d618a999b0b46" \
+ENV NGINX_VERSION=1.24.0 \
+    NGINX_TAR_SHA256="77a2541637b92a621e3ee76776c8b7b40cf6d707e69ba53a940283e30ff2f55d" \
     CES_CONFD_VERSION=0.9.0 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
     WARP_MENU_VERSION=1.7.3 \
     WARP_MENU_TAR_SHA256="b3ed4b50b1b9a739a4430d88975b5e3030c5e542c0739ed6b72d7eb8fd9a7b18" \
     CES_ABOUT_VERSION="0.4.0" \
     CES_ABOUT_TAR_SHA256="553624d9dec8f2d7158014680c983e9b431d85d8c7fd59b5f96a1061863cdbf6" \
-    CES_THEME_VERSION=0.7.0 \
-    CES_THEME_TAR_SHA256="d3c8ba654cdaccff8fa3202f3958ac0c61156fb25a288d6008354fae75227941"
+    CES_THEME_VERSION=0.7.2 \
+    CES_THEME_TAR_SHA256="b2d1cc2aced2be3ab040198e39a554d7b02f4e44989bc26e6305e3d6e3ab07f9"
 
 WORKDIR /build
 
@@ -58,7 +58,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
     && unzip /tmp/theme.zip -d /tmp/theme \
     && cp -r /tmp/theme/ces-theme-${CES_THEME_VERSION}/dist/errors /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.17.3-2
+FROM registry.cloudogu.com/official/base:3.18.3-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.23.2-10"
