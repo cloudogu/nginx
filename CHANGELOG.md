@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Update nginx version to `1.25.4`
+- Update ces-theme to `0.7.2`
 - Increase proxy buffer size to accomodate large headers. (#86)
 
 ## [v1.23.2-10] - 2024-01-29
