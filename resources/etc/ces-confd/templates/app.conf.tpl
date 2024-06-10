@@ -1,4 +1,6 @@
 server {
+  ssl_verify_client optional;
+  ssl_client_certificate /etc/nginx/ssl/ca.crt;
   include /etc/nginx/include.d/ssl.conf;
   include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/warp.conf;
@@ -47,6 +49,7 @@ server {
         {{end}}
         {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
         proxy_pass {{.URL}};
+        proxy_set_header X-SSL-Client-Cert $ssl_client_escaped_cert;
       {{else}}
         error_page 503 /errors/starting.html;
         return 503;
