@@ -1,6 +1,7 @@
 server {
   ssl_verify_client optional;
   ssl_client_certificate /etc/nginx/ssl/ca.crt;
+
   include /etc/nginx/include.d/ssl.conf;
   include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/warp.conf;
@@ -43,6 +44,11 @@ server {
   # services
   {{range .Services}}
     location /{{.Location}} {
+      {{ if ne .Location "cas" }}
+        if ($ssl_client_verify != SUCCESS) {
+            return 403;
+        }
+      {{end}}
       {{if eq .HealthStatus "healthy" "" }}
         {{ if .Rewrite }}
         rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
@@ -50,6 +56,7 @@ server {
         {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
         proxy_pass {{.URL}};
         proxy_set_header X-SSL-Client-Cert $ssl_client_escaped_cert;
+        proxy_set_header Remote-Adress $remote_addr;
       {{else}}
         error_page 503 /errors/starting.html;
         return 503;
