@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update nginx to 1.26.1 (#88)
 - Update base image to Alpine 3.19.1
 
+### Security
+- Fixed medium CVEs:
+    - CVE-2023-42366
+    - CVE-2024-4603
+- Fixed low CVE: CVE-2024-2511
+   
 ## [v1.23.2-10] - 2024-01-29
 ### Changed
 - Update `ces-confd` to `0.9.0` (#84)
