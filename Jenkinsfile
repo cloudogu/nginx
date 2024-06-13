@@ -1,5 +1,5 @@
 #!groovy
-@Library(['github.com/cloudogu/dogu-build-lib@v2.0.0', 'github.com/cloudogu/ces-build-lib@1.64.1']) _
+@Library(['github.com/cloudogu/dogu-build-lib@v2.3.1', 'github.com/cloudogu/ces-build-lib@2.2.1']) _
 import com.cloudogu.ces.dogubuildlib.*
 import com.cloudogu.ces.cesbuildlib.*
 
@@ -33,7 +33,8 @@ node('vagrant') {
         }
 
         stage('Lint') {
-            lintDockerfile()
+            Dockerfile dockerfile = new Dockerfile(this)
+            dockerfile.lint()
         }
 
         stage('Check Markdown Links') {
