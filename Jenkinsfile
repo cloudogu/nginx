@@ -49,7 +49,7 @@ node('vagrant') {
         try {
 
             stage('Provision') {
-                ecoSystem.provision("/dogu");
+                ecoSystem.provision("/dogu")
             }
 
             stage('Setup') {
@@ -105,7 +105,7 @@ node('vagrant') {
                 }
             }
             if (gitflow.isReleaseBranch()) {
-                String releaseVersion = git.getSimpleBranchName();
+                String releaseVersion = git.getSimpleBranchName()
 
                 stage('Finish Release') {
                     gitflow.finishRelease(releaseVersion)
