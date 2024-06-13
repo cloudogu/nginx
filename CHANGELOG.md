@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Update nginx to 1.26.1 (#88)
+- Update base image to Alpine 3.19.1
 
 ## [v1.23.2-10] - 2024-01-29
 ### Changed
