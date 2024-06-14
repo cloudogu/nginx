@@ -85,11 +85,10 @@ COPY --from=builder /build /
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-# Volumes are used to avoid writing to containers writable layer https://docs.docker.com/storage/
 # Compared to the bind mounted volumes we declare in the dogu.json,
 # the volumes declared here are not mounted to the dogu if the container is destroyed/recreated,
 # e.g. after a dogu upgrade
-VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+VOLUME ["/var/nginx/conf.d/", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
 WORKDIR /etc/nginx

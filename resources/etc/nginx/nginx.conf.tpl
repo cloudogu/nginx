@@ -54,4 +54,5 @@ http {
 
 	# include app configuration
   include /etc/nginx/conf.d/*.conf;
+  include {{ .Env.Get "APPCONF_VOL_DIR" }}/*.conf;
 }

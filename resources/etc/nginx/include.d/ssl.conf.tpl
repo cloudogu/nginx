@@ -1,4 +1,5 @@
-listen 443 ssl http2;
+listen 443 ssl;
+http2 on;
 server_name {{ .GlobalConfig.Get "fqdn" }};
 
 ssl_certificate /etc/ssl/server.crt;

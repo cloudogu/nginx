@@ -87,6 +87,13 @@
       "Owner": "1000",
       "Group": "1000",
       "NeedsBackup": true
+    },
+    {
+      "Name": "appconf",
+      "Path": "/var/nginx/conf.d/",
+      "Owner": "0",
+      "Group": "0",
+      "NeedsBackup": true
     }
   ],
   "ExposedPorts": [

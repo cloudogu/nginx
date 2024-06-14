@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Write app.conf into volume instead of the container file system (#90)
+   - this should make nginx more robust against container re-creations
+- replace deprecated `http2` option against the current directive 
 - Update nginx to 1.26.1 (#88)
 - Update base image to Alpine 3.19.1
 
@@ -51,11 +54,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.23.2-3] - 2023-02-17
 ### Changed
 - Update warp-menu to v1.7.2 (#70)
-  
+
 ## [v1.23.2-2] - 2023-02-02
 ### Changed
 - Update warp-menu to v1.7.1 (#68)
-  - This will fix the bug where the warp menu was visible in print view
+   - This will fix the bug where the warp menu was visible in print view
 
 ## [v1.23.2-1] - 2023-01-23
 ### Changed
