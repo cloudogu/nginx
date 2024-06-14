@@ -1,5 +1,5 @@
 file:
-  /etc/nginx/conf.d/app.conf:
+  /var/nginx/conf.d/app.conf:
     exists: true
     owner: root
     group: root

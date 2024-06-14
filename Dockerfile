@@ -3,8 +3,8 @@ LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 
-ENV NGINX_VERSION=1.23.2 \
-    NGINX_TAR_SHA256="a80cc272d3d72aaee70aa8b517b4862a635c0256790434dbfc4d618a999b0b46" \
+ENV NGINX_VERSION=1.26.1 \
+    NGINX_TAR_SHA256="f9187468ff2eb159260bfd53867c25ff8e334726237acf227b9e870e53d3e36b" \
     CES_CONFD_VERSION=0.9.0 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
     WARP_MENU_VERSION=1.7.3 \
@@ -58,10 +58,10 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
     && unzip /tmp/theme.zip -d /tmp/theme \
     && cp -r /tmp/theme/ces-theme-${CES_THEME_VERSION}/dist/errors /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.17.3-2
+FROM registry.cloudogu.com/official/base:3.19.1-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.23.2-10"
+      VERSION="1.26.1-1"
 
 ENV CES_MAINTENANCE_MODE=false
 
@@ -85,11 +85,10 @@ COPY --from=builder /build /
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-# Volumes are used to avoid writing to containers writable layer https://docs.docker.com/storage/
 # Compared to the bind mounted volumes we declare in the dogu.json,
 # the volumes declared here are not mounted to the dogu if the container is destroyed/recreated,
 # e.g. after a dogu upgrade
-VOLUME ["/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+VOLUME ["/var/nginx/conf.d/", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # Define working directory.
 WORKDIR /etc/nginx
