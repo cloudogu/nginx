@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- replace depricated http2 option against the current alternative 
+- Write app.conf into volume instead of the container file system (#90)
+   - this should make nginx more robust against container re-creations
+- replace deprecated `http2` option against the current directive 
 - Update nginx to 1.26.1 (#88)
 - Update base image to Alpine 3.19.1
 

@@ -22,7 +22,7 @@ warp:
 service:
   source:
     path: /services
-  target: /etc/nginx/conf.d/app.conf
+  target: {{ .Env.Get "APPCONF_VOL_DIR" }}/app.conf
   template: /etc/ces-confd/templates/app.conf.tpl
   maintenance-mode: /config/_global/maintenance
   tag: webapp

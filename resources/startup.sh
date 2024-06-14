@@ -15,6 +15,8 @@ echo "                   V///   '°°°°      (/////)      °°°°'   ////  "
 echo "                    V/////(////////\. '°°°' ./////////(///(/'   "
 echo "                       'V/(/////////////////////////////V'      "
 
+export APPCONF_VOL_DIR=/var/nginx/conf.d
+
 function export_log_level() {
     ETCD_LOG_LEVEL="$(doguctl config logging/root --default "WARN")"
     echo "Found etcd log level: ${ETCD_LOG_LEVEL}"
