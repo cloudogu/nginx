@@ -53,5 +53,6 @@ http {
 	gzip_types text/plain text/css application/json application/x-javascript application/javascript text/xml application/xml application/xml+rss text/javascript;
 
 	# include app configuration
+  include /etc/nginx/conf.d/*.conf;
   include {{ .Env.Get "APPCONF_VOL_DIR" }}/*.conf;
 }
