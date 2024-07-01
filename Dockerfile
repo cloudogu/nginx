@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.17.3-2 as builder
+FROM registry.cloudogu.com/official/base:3.20.1-2 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
@@ -9,8 +9,8 @@ ENV NGINX_VERSION=1.26.1 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
     WARP_MENU_VERSION=1.7.3 \
     WARP_MENU_TAR_SHA256="b3ed4b50b1b9a739a4430d88975b5e3030c5e542c0739ed6b72d7eb8fd9a7b18" \
-    CES_ABOUT_VERSION="0.4.0" \
-    CES_ABOUT_TAR_SHA256="553624d9dec8f2d7158014680c983e9b431d85d8c7fd59b5f96a1061863cdbf6" \
+    CES_ABOUT_VERSION="0.5.0" \
+    CES_ABOUT_TAR_SHA256="c4664340a248d9c2d9333a9a9df7aa9141ebeb40c051d65f78c57f2439b6f07d" \
     CES_THEME_VERSION=0.7.0 \
     CES_THEME_TAR_SHA256="d3c8ba654cdaccff8fa3202f3958ac0c61156fb25a288d6008354fae75227941"
 
@@ -58,10 +58,10 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
     && unzip /tmp/theme.zip -d /tmp/theme \
     && cp -r /tmp/theme/ces-theme-${CES_THEME_VERSION}/dist/errors /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.19.1-2
+FROM registry.cloudogu.com/official/base:3.20.1-2
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.26.1-1"
+      VERSION="1.26.1-2"
 
 ENV CES_MAINTENANCE_MODE=false
 
