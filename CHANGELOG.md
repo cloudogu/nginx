@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Update base image to Version 3.20.1-2 (#92)
+- Update `ces-about` to `0.5.0` (#94)
 
 ## [v1.26.1-1] - 2024-06-14
 ### Changed
