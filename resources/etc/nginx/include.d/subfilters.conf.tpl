@@ -1,5 +1,5 @@
 # warp menu
-set $scripts '<script type="text/javascript" src="/warpmenu/add-warp-menu.js"></script></body>';
+set $scripts '${scripts} <script type="text/javascript" src="/warpmenu/add-warp-menu.js"></script></body>';
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
@@ -28,7 +28,15 @@ if ($http_x_requested_with ~ XMLHttpRequest) {
 sub_filter '</body>' $scripts;
 sub_filter_once on;
 
+# whitelabeling
+set $scripts '<script type="text/javascript" src="/styles/add-whitelabeling-styles.js"></script>';
+
 # warp menu
 location /warp {
+	root /var/www/html;
+}
+
+# default styles
+location /styles {
 	root /var/www/html;
 }
