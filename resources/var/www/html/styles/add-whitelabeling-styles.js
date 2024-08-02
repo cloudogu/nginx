@@ -3,21 +3,19 @@ const addWhitelabelClassToRoot = function () {
 }
 
 const addDefaultStyles = function () {
-    var link = document.createElement("link");
+    const link = document.createElement("link");
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = "/styles/default.css"
-    var element = document.getElementsByTagName("link")[0];
-    element.parentNode.insertBefore(link, element);
+    document.head.appendChild(link);
 }
 
 const addWhitelabelingStyles = function(){
-    var link = document.createElement("link");
+    const link = document.createElement("link");
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = "/whitelabeling/main.css"
-    var element = document.getElementsByTagName("link")[1];
-    element.parentNode.insertBefore(link, element);
+    document.head.appendChild(link);
 }
 
 addWhitelabelClassToRoot();
