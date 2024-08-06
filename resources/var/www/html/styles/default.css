@@ -1,0 +1,37 @@
+:root {
+    --ces-brand-stronger: #003250;
+    --ces-brand-strong: #00426B;
+    --ces-brand: #00629E;
+    --ces-brand-weak: #9EDAFF;
+    --ces-brand-weaker: #D4EDFC;
+
+    --ces-success-stronger: #0A2913;
+    --ces-success-strong: #145226;
+    --ces-success: #1F7A38;
+    --ces-success-weak: #85E09E;
+    --ces-success-weaker: #EBFAEF;
+
+    --ces-danger-stronger: #521414;
+    --ces-danger-strong: #7A1F1F;
+    --ces-danger: #CC3333;
+    --ces-danger-weak: #EBADAD;
+    --ces-danger-weaker: #F8EDED;
+
+    --ces-warning-stronger: #3D3700;
+    --ces-warning-strong: #574E00;
+    --ces-warning: #707600;
+    --ces-warning-weak: #FFE500;
+    --ces-warning-weaker: #FFFACC;
+
+    --ces-neutral-stronger: #333333;
+    --ces-neutral-strong: #4D4D4D;
+    --ces-neutral: #666666;
+    --ces-neutral-weak: #CCCCCC;
+    --ces-neutral-weaker: #F5F5F5;
+
+    --ces-default-background: #FFFFFF;
+    --ces-default-focus-inner: #FFFFFF;
+    --ces-default-focus-outer: #CC14CC;
+    --ces-default-text: #0D1C26;
+    --ces-inverted-text: #FCFCFD;
+}
