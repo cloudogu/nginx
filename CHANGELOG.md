@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - [#98] Upgrade base-image to v3.20.2-1
 
+### Security
+- close CVE-2024-41110 
+
 ## [v1.26.1-3] - 2024-08-06
 ### Added
 - Default CSS Styles and Whitelabeling CSS Styles are being loaded now (#96)
