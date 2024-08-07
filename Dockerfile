@@ -61,7 +61,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/theme.zip https://github.com/clou
 FROM registry.cloudogu.com/official/base:3.20.2-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.26.1-3"
+      VERSION="1.26.1-4"
 
 ENV CES_MAINTENANCE_MODE=false
 
