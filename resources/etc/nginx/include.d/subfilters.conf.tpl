@@ -7,8 +7,6 @@ set $analytics '<script> var disableStr = "ga-disable-{{ .Config.Get "google_tra
 set $scripts '$analytics $scripts';
 {{ end }}
 
-sub_filter '<html>' '<html class="ces-whitelabel">';
-
 # add closing body-tag
 set $scripts '$scripts </body>';
 
@@ -32,7 +30,8 @@ if ($http_x_requested_with ~ XMLHttpRequest) {
 # replace </body> with $scripts for html pages
 sub_filter '</body>' $scripts;
 
-set $whitelabelStyles '<link rel="stylesheet" type="text/css" href="/styles/default.css"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css"></head>';
+set $whitelabelClassScript '<script type="text/javascript">document.documentElement.classList.add("ces-whitelabel");</script>';
+set $whitelabelStyles '$whitelabelClassScript <link rel="stylesheet" type="text/css" href="/styles/default.css"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css"></head>';
 sub_filter '</head>' $whitelabelStyles;
 
 sub_filter_once on;
