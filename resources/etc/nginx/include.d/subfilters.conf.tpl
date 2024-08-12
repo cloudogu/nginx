@@ -7,9 +7,7 @@ set $analytics '<script> var disableStr = "ga-disable-{{ .Config.Get "google_tra
 set $scripts '$analytics $scripts';
 {{ end }}
 
-# include whitelabeling
-set $whitelabeling '<script type="text/javascript" src="/styles/add-whitelabeling-styles.js"></script>';
-set $scripts '$scripts $whitelabeling';
+sub_filter '<html>' '<html class="ces-whitelabel">';
 
 # add closing body-tag
 set $scripts '$scripts </body>';
