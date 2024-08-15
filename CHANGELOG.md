@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.1-5] - 2024-08-15
+### Changed
+- Include whitelabeling-styles in html, instead of js [#100]
+- Rename whitelabeling variables to new schema
+
 ## [v1.26.1-4] - 2024-08-07
 ### Changed
 - [#98] Upgrade base-image to v3.20.2-1

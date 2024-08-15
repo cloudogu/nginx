@@ -7,12 +7,17 @@ set $analytics '<script> var disableStr = "ga-disable-{{ .Config.Get "google_tra
 set $scripts '$analytics $scripts';
 {{ end }}
 
-# include whitelabeling
-set $whitelabeling '<script type="text/javascript" src="/styles/add-whitelabeling-styles.js"></script>';
-set $scripts '$scripts $whitelabeling';
-
 # add closing body-tag
 set $scripts '$scripts </body>';
+
+
+# html-head filters
+set $whitelabelClassScript '<script type="text/javascript">document.documentElement.classList.add("ces-whitelabel");</script>';
+set $whitelabelStyles '<link rel="stylesheet" type="text/css" href="/styles/default.css"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css">';
+
+# add closing head-tag
+set $headFilters '$whitelabelClassScript $whitelabelStyles</head>';
+
 
 # apply scripts only on GET or POST requests
 set $allowed_method 0;
@@ -24,15 +29,20 @@ if ($request_method = POST){
 }
 if ($allowed_method != 1){
 	set $scripts '</body>';
+	set $headFilters '</head>';
 }
 
-# do not apply warp menu on ajax requests
+# do not apply on ajax requests
 if ($http_x_requested_with ~ XMLHttpRequest) {
 	set $scripts '</body>';
+	set $headFilters '</head>';
 }
 
 # replace </body> with $scripts for html pages
 sub_filter '</body>' $scripts;
+
+# replace </head> with $headFilters for html pages
+sub_filter '</head>' $headFilters;
 
 sub_filter_once on;
 
