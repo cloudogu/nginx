@@ -3,7 +3,7 @@
 
     --ces-dogu-starting-color: var(--ces-color-brand, #00629E);
     --ces-dogu-starting-button-color-bg: var(--ces-dogu-starting-color, #00629E);
-    --ces-dogu-starting-button-color-text: var(--ces-color-color-inverted-text, #FCFCFD);
+    --ces-dogu-starting-button-color-text: var(--ces-color-inverted-text, #FCFCFD);
     --ces-dogu-starting-button-color-hover: var(--ces-color-brand-strong, #00426B);
     --ces-dogu-starting-button-color-active: var(--ces-color-brand-stronger, #003250);
 
