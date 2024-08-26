@@ -8,7 +8,7 @@
     --ces-dogu-starting-button-color-active: var(--ces-color-brand-stronger, #003250);
 
     --ces-dogu-starting-logo: url("../img/dogu-starting.svg");
-    --ces-dogu-starting-logo-with: 20rem;
+    --ces-dogu-starting-logo-width: 20rem;
     --ces-dogu-starting-logo-height-mobile: 12rem;
 
     --ces-dogu-starting-docs-visibility: visible;
@@ -31,7 +31,7 @@ body {
 }
 
 .dogu-starting .logo {
-    width: var(--ces-dogu-starting-logo-with);
+    width: var(--ces-dogu-starting-logo-width);
     content: var(--ces-dogu-starting-logo);
 }
 
