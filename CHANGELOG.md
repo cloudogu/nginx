@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.1-6] - 2024-08-27
+### Changed
+- [#102] Redesign dogu-starting-page
+- Change UI language of the dogu-starting-page to german
+
+
 ## [v1.26.1-5] - 2024-08-15
 ### Changed
 - Include whitelabeling-styles in html, instead of js [#100]
