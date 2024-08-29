@@ -2,13 +2,12 @@ FROM registry.cloudogu.com/official/base:3.20.2-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-
 ENV NGINX_VERSION=1.26.1 \
     NGINX_TAR_SHA256="f9187468ff2eb159260bfd53867c25ff8e334726237acf227b9e870e53d3e36b" \
     CES_CONFD_VERSION=0.9.0 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
-    WARP_MENU_VERSION=1.7.3 \
-    WARP_MENU_TAR_SHA256="b3ed4b50b1b9a739a4430d88975b5e3030c5e542c0739ed6b72d7eb8fd9a7b18" \
+    WARP_MENU_VERSION=2.0.0 \
+    WARP_MENU_TAR_SHA256="51a1010ec0f82b634999e48976d7fec98e6eb574a4401a841cd53f8cd0e14040" \
     CES_ABOUT_VERSION="0.5.0" \
     CES_ABOUT_TAR_SHA256="c4664340a248d9c2d9333a9a9df7aa9141ebeb40c051d65f78c57f2439b6f07d" \
     CES_THEME_VERSION=0.7.0 \
@@ -63,7 +62,9 @@ LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.26.1-6"
 
-ENV CES_MAINTENANCE_MODE=false
+ENV CES_MAINTENANCE_MODE=false \
+    # Used in template to invalidate caches - do not remove. The release script will auto update this line
+    VERSION="1.26.1-6"
 
 RUN set -x -o errexit \
  && set -o nounset \

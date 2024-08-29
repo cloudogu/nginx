@@ -64,6 +64,8 @@ else
   echo "[nginx] ces-confd is listening for changes on etcd..."
 fi
 
+doguctl template "/var/www/html/warpmenu/add-warp-menu.js.tpl" "/var/www/html/warpmenu/add-warp-menu.js"
+
 # Start nginx
 echo "[nginx] starting nginx service..."
 exec /usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"

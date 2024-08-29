@@ -13,7 +13,7 @@ set $scripts '$scripts </body>';
 
 # html-head filters
 set $whitelabelClassScript '<script type="text/javascript">document.documentElement.classList.add("ces-whitelabel");</script>';
-set $whitelabelStyles '<link rel="stylesheet" type="text/css" href="/styles/default.css"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css">';
+set $whitelabelStyles '<link rel="stylesheet" type="text/css" href="/styles/default.css?nginx={{ .Env.Get "VERSION" }}"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css">';
 
 # add closing head-tag
 set $headFilters '$whitelabelClassScript $whitelabelStyles</head>';
