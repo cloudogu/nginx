@@ -2,7 +2,6 @@ FROM registry.cloudogu.com/official/base:3.20.2-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-
 ENV NGINX_VERSION=1.26.1 \
     NGINX_TAR_SHA256="f9187468ff2eb159260bfd53867c25ff8e334726237acf227b9e870e53d3e36b" \
     CES_CONFD_VERSION=0.9.0 \
@@ -63,7 +62,11 @@ LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.26.1-6"
 
-ENV CES_MAINTENANCE_MODE=false
+ARG WARP_MENU_VERSION
+ENV CES_MAINTENANCE_MODE=false \
+    WARP_MENU_VERSION=${WARP_MENU_VERSION} \
+    # Used in template to invalidate caches - do not remove. The release script will auto update this line
+    VERSION="1.26.1-6"
 
 RUN set -x -o errexit \
  && set -o nounset \
