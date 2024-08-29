@@ -5,5 +5,5 @@ const {
 
 Given(/^the warp menu is open$/, function () {
     cy.visit(Cypress.config().baseUrl + Cypress.env('casPath'));
-    cy.get('*[class^=" warp-menu-column-toggle"]').children('*[id^="warp-menu-warpbtn"]').click();
+    cy.get("#warp-menu-shadow-host").shadow().find("#warp-toggle").click({force: true});
 });
