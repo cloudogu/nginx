@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.1-7] - 2024-08-29
+### Changed
+- Update warp menu to v2.0.0 (#104)
+- Make static asset urls dependent of the current warp menu version to invalidate caches
+
 ## [v1.26.1-6] - 2024-08-27
 ### Changed
 - [#102] Redesign dogu-starting-page
