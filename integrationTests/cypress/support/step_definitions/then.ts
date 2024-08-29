@@ -16,5 +16,5 @@ Then("a static HTML custom page gets displayed", function () {
 
 Then(/^the warp menu category 'Support' contains a link to docs and no link to platform or the about page$/, function () {
     cy.get("#warp-menu-shadow-host").shadow().find('[id^=warpc][id$=support]').parent().children('ul').children().should('have.length', 1)
-    cy.get("#warp-menu-shadow-host").shadow().find('[id^=warpc][id$=support]').parent().children('ul').children('li').contains("Cloudogu EcoSystem Docs")
+    cy.get("#warp-menu-shadow-host").shadow().find('[id^=warpc][id$=support]').parent().children('ul').children('li').contains("Cloudogu EcoSystem documentation")
 });
