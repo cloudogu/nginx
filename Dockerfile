@@ -62,9 +62,7 @@ LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.26.1-6"
 
-ARG WARP_MENU_VERSION
 ENV CES_MAINTENANCE_MODE=false \
-    WARP_MENU_VERSION=${WARP_MENU_VERSION} \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
     VERSION="1.26.1-6"
 
