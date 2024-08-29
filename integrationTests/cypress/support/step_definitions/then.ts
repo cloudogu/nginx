@@ -1,6 +1,4 @@
-const {
-    Then
-} = require("cypress-cucumber-preprocessor/steps");
+import {Then} from "@badeball/cypress-cucumber-preprocessor";
 
 Then(/^the user opens the warp menu$/, function () {
     cy.get("#warp-menu-shadow-host").shadow().find("#warp-toggle").click({force: true});

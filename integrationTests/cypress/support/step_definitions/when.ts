@@ -1,6 +1,4 @@
-const {
-    When
-} = require("cypress-cucumber-preprocessor/steps");
+import {When} from "@badeball/cypress-cucumber-preprocessor";
 
 When(/^the user opens the always existing cas ui$/, function () {
     cy.visit(Cypress.config().baseUrl + Cypress.env('casPath'));

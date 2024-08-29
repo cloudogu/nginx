@@ -1,7 +1,4 @@
-const {
-    Given
-} = require("cypress-cucumber-preprocessor/steps");
-
+import {Given} from "@badeball/cypress-cucumber-preprocessor";
 
 Given(/^the warp menu is open$/, function () {
     cy.visit(Cypress.config().baseUrl + Cypress.env('casPath'));
