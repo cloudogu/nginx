@@ -10,5 +10,7 @@ const addWarpMenu = function(){
     firstScriptTag.parentNode.insertBefore(warpScript, firstScriptTag);
 }
 
+// This variable is used inside the warp menu script
+// Update this version whenever warp menu is updated
 const cesWarpMenuWarpCssUrl = "/warp/warp.css?nginx={{ .Env.Get "VERSION"}}";
 addWarpMenu();
