@@ -5,8 +5,6 @@ const addWarpMenu = function(){
     warpScript.src = "/warp/warp.js?nginx={{ .Env.Get "VERSION"}}";
 
     const urlScript = document.createElement("script");
-    // This variable is used inside the warp menu script
-    // Update this version whenever warp menu is updated
 
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(warpScript, firstScriptTag);
