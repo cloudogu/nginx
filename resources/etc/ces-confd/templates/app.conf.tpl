@@ -2,6 +2,7 @@ server {
   include /etc/nginx/include.d/ssl.conf;
   include /etc/nginx/include.d/errors.conf;
   include /etc/nginx/include.d/warp.conf;
+  include /etc/nginx/include.d/whitelabel.conf;
   include /etc/nginx/include.d/robots.conf;
   include /etc/nginx/app.conf.d/*.conf;
 

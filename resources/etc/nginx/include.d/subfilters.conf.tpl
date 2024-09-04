@@ -1,5 +1,5 @@
 # warp menu
-set $scripts '<script type="text/javascript" src="/warpmenu/add-warp-menu.js"></script>';
+set $scripts '<script type="text/javascript" src="/warpmenu/add-warp-menu.js?nginx={{ .Env.Get "VERSION"}}"></script>';
 
 # Include google analytics scripts if a tracking id is set
 {{ if .Config.Exists "google_tracking_id" }}
@@ -12,7 +12,7 @@ set $scripts '$scripts </body>';
 
 
 # html-head filters
-set $whitelabelClassScript '<script type="text/javascript">document.documentElement.classList.add("ces-whitelabel");</script>';
+set $whitelabelClassScript '<script type="text/javascript" src="/whitelabeljs/add-whitelabeling.js?nginx={{ .Env.Get "VERSION"}}"></script>';
 set $whitelabelStyles '<link rel="stylesheet" type="text/css" href="/styles/default.css?nginx={{ .Env.Get "VERSION" }}"><link rel="stylesheet" type="text/css" href="/whitelabeling/main.css">';
 
 # add closing head-tag
