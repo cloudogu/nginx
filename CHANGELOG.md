@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Fix problems with CORS policies caused by whitelabeling
+- Fix problems with content security policies (CSP) caused by whitelabeling
 
 ## [v1.26.1-7] - 2024-08-29
 ### Changed
