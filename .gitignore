@@ -128,3 +128,5 @@ modules.xml
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,go,intellij+all
+
+theme-build/node_modules
