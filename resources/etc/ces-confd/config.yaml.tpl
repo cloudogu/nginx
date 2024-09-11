@@ -37,5 +37,5 @@ maintenance:
     title: Maintenance
     text: The EcoSystem is currently in maintenance mode
   target: /var/www/html/errors/503.html
-  template: /etc/ces-confd/templates/maintenance.html.tpl
+  template: /var/www/html/errors/maintenance.html.tpl
   

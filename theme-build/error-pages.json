@@ -25,9 +25,9 @@
     "subtitle": "Seite nicht gefunden"
   },
   {
-    "name": "503.html",
-    "title": "503",
-    "subtitle": "Seite nicht gefunden"
+    "name": "maintenance.html.tpl",
+    "title": "{{.Title}}",
+    "subtitle": "{{.Text}}"
   },
   {
     "name": "504.html",
