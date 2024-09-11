@@ -1,0 +1,197 @@
+:root {
+    font-family: Calibri, Gill Sans, Gill Sans MT, Liberation Sans, Carlito, -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+
+    /* errors defaults */
+    --ces-error-color: var(--ces-color-brand, #00629E);
+    --ces-error-button-color-bg: var(--ces-error-color, #00629E);
+    --ces-error-button-color-text: var(--ces-color-inverted-text, #FCFCFD);
+    --ces-error-button-color-hover: var(--ces-color-brand-strong, #00426B);
+    --ces-error-button-color-active: var(--ces-color-brand-stronger, #003250);
+    --ces-error-logo: url("../img/forbidden.svg");
+    --ces-error-logo-width: 20rem;
+    --ces-error-logo-height-mobile: 12rem;
+    --ces-error-docs-visibility: visible;
+
+    /* dogu starting page */
+    --ces-dogu-starting-color: var(--ces-error-color);
+    --ces-dogu-starting-button-color-bg: var(--ces-error-button-color-bg);
+    --ces-dogu-starting-button-color-text: var(--ces-error-button-color-text);
+    --ces-dogu-starting-button-color-hover: var(--ces-error-button-color-hover);
+    --ces-dogu-starting-button-color-active: var(--ces-error-button-color-active);
+
+    --ces-dogu-starting-logo: url("../img/dogu-starting.svg");
+    --ces-dogu-starting-logo-width: var(--ces-error-logo-width);
+    --ces-dogu-starting-logo-height-mobile: var(--ces-error-logo-height-mobile);
+
+    --ces-dogu-starting-docs-visibility: var(--ces-error-docs-visibility);
+
+    color: var(--ces-dogu-starting-color);
+
+    /* maintenance page */
+    --ces-maintenance-logo: url("../img/maintenance.svg");
+    --ces-maintenance-logo-width: var(--ces-error-logo-width);
+    --ces-maintenance-logo-height-mobile: var(--ces-error-logo-height-mobile);
+
+    /* not found page */
+    --ces-not-found-logo: url("../img/not-found.svg");
+}
+
+body {
+    margin: 0;
+}
+
+.dogu-error {
+    margin: 2rem;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.dogu-error .logo {
+    width: var(--ces-error-logo-width);
+    content: var(--ces-error-logo);
+}
+
+.dogu-error h1 {
+    font-size: 8.5rem;
+    font-weight: 400;
+    line-height: 9rem;
+    margin: 0;
+}
+
+.dogu-error h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 4rem;
+    margin: 0;
+}
+
+.dogu-error .actions {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.dogu-error .actions .docs-link{
+    visibility: var(--ces-error-docs-visibility);
+}
+
+.dogu-error button {
+    cursor: pointer;
+    padding: .5rem .625rem;
+    border: 0;
+    border-radius: 2.5rem;
+    background-color: var(--ces-error-button-color-bg);
+    color: var(--ces-error-button-color-text);
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.dogu-error button:hover {
+    background-color: var(--ces-error-button-color-hover);
+}
+
+.dogu-error button:active {
+    background-color: var(--ces-error-button-color-active);
+}
+
+.dogu-error button:focus-visible, a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ces-color-default-focus-inner), 0 0 0 4px var(--ces-color-default-focus-outer);
+}
+
+.dogu-error button svg {
+    margin-left: .375rem;
+    vertical-align: text-bottom;
+}
+
+.dogu-error a, .dogu-error a:visited {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--ces-error-color);
+    color: var(--ces-error-color);
+    font-weight: 700;
+}
+
+.dogu-error a:hover {
+    text-decoration-style: solid;
+}
+
+
+/* dogu starting page */
+
+.dogu-error.dogu-starting .logo {
+    width: var(--ces-dogu-starting-logo-width);
+    content: var(--ces-dogu-starting-logo);
+}
+
+.dogu-error.dogu-starting .actions .docs-link{
+    visibility: var(--ces-dogu-starting-docs-visibility);
+}
+
+.dogu-error.dogu-starting button {
+    background-color: var(--ces-dogu-starting-button-color-bg);
+    color: var(--ces-dogu-starting-button-color-text);
+}
+
+.dogu-error.dogu-starting  button:hover {
+    background-color: var(--ces-dogu-starting-button-color-hover);
+}
+
+.dogu-error.dogu-starting button:active {
+    background-color: var(--ces-dogu-starting-button-color-active);
+}
+
+.dogu-error.dogu-starting a, .dogu-error.dogu-starting a:visited {
+    text-decoration-color: var(--ces-dogu-starting-color);
+    color: var(--ces-dogu-starting-color);
+}
+
+/* not found page */
+.dogu-error.not-found .logo {
+    content: var(--ces-not-found-logo);
+}
+
+/* maintenance page */
+
+.dogu-error.dogu-maintenance .logo {
+    content: var(--ces-maintenance-logo);
+}
+
+
+@media (max-width: 767px) {
+    .dogu-error {
+        flex-flow: column;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    .dogu-error .logo {
+        width: unset;
+        height: var(--ces-error-logo-height-mobile);
+    }
+
+    .dogu-error h1 {
+        font-size: 4.25rem;
+        line-height: 4.5rem;
+    }
+
+    .dogu-error h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .dogu-error .actions {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .dogu-error.dogu-starting .logo {
+        height: var(--ces-dogu-starting-logo-height-mobile);
+    }
+}
