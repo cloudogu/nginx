@@ -13,8 +13,8 @@
         <img alt="" class="logo " />
     </div>
     <div>
-        <h1>Dogu startet</h1>
-        <h2>Bitte haben Sie Geduld.</h2>
+        <h1>${title}</h1>
+        <h2>${subtitle}</h2>
         <div class="actions">
             <button onClick="window.location.reload();">
                 Dogu neu laden

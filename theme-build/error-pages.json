@@ -1,0 +1,42 @@
+[
+  {
+    "name": "starting.html",
+    "title": "Dogu startet",
+    "subtitle": "Bitte haben Sie Geduld."
+  },
+  {
+    "name": "404.html",
+    "title": "404",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "401.html",
+    "title": "401",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "408.html",
+    "title": "408",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "502.html",
+    "title": "502",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "503.html",
+    "title": "503",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "504.html",
+    "title": "504",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "504.html",
+    "title": "504",
+    "subtitle": "Toller Text: {{ maintance/text }}"
+  }
+]
