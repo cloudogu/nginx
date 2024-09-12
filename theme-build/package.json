@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "@cloudogu/ces-theme-tailwind": "0.7.2-alpha.2"
+    "@cloudogu/ces-theme-tailwind": "1.0.0"
   }
 }

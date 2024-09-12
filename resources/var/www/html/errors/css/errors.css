@@ -74,6 +74,20 @@ body {
     visibility: var(--ces-error-docs-visibility);
 }
 
+/* hide home-page-button for dogu-starting- and maintenance-page */
+.dogu-error.dogu-starting .actions .home-page-button, .dogu-error.maintenance .actions .home-page-button {
+    display: none;
+}
+
+/* hide reload-button for all pages but dogu-starting- and maintenance-page */
+.dogu-error .actions .reload-button {
+    display: none;
+}
+
+.dogu-error.dogu-starting .actions .reload-button, .dogu-error.maintenance .actions .reload-button {
+    display: initial;
+}
+
 .dogu-error button {
     cursor: pointer;
     padding: .5rem .625rem;

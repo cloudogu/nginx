@@ -15,6 +15,12 @@
     "name": "401.html",
     "pageType": "error",
     "title": "401",
+    "subtitle": "Nicht authentifiziert"
+  },
+  {
+    "name": "403.html",
+    "pageType": "error",
+    "title": "403",
     "subtitle": "Kein Zugriff"
   },
   {
@@ -22,6 +28,12 @@
     "pageType": "error",
     "title": "408",
     "subtitle": "Request Timeout"
+  },
+  {
+    "name": "500.html",
+    "pageType": "error",
+    "title": "500",
+    "subtitle": "Internal Server Error"
   },
   {
     "name": "502.html",
