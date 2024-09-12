@@ -1,42 +1,44 @@
 [
   {
     "name": "starting.html",
+    "pageType": "dogu-starting",
     "title": "Dogu startet",
     "subtitle": "Bitte haben Sie Geduld."
   },
   {
     "name": "404.html",
+    "pageType": "not-found",
     "title": "404",
     "subtitle": "Seite nicht gefunden"
   },
   {
     "name": "401.html",
+    "pageType": "error",
     "title": "401",
-    "subtitle": "Seite nicht gefunden"
+    "subtitle": "Kein Zugriff"
   },
   {
     "name": "408.html",
+    "pageType": "error",
     "title": "408",
-    "subtitle": "Seite nicht gefunden"
+    "subtitle": "Request Timeout"
   },
   {
     "name": "502.html",
+    "pageType": "error",
     "title": "502",
-    "subtitle": "Seite nicht gefunden"
+    "subtitle": "Bad Gateway"
   },
   {
     "name": "maintenance.html.tpl",
+    "pageType": "maintenance",
     "title": "{{.Title}}",
     "subtitle": "{{.Text}}"
   },
   {
     "name": "504.html",
+    "pageType": "error",
     "title": "504",
-    "subtitle": "Seite nicht gefunden"
-  },
-  {
-    "name": "504.html",
-    "title": "504",
-    "subtitle": "Toller Text: {{ maintance/text }}"
+    "subtitle": "Gateway Timeout"
   }
 ]

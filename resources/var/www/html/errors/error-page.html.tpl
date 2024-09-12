@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="refresh" content="10" />
-    <title>Dogu startet</title>
-    <link rel="stylesheet" href="/errors/css/dogu-starting.css">
+    <title>${title}</title>
+    <link rel="stylesheet" href="/errors/css/errors.css">
 </head>
 <body>
-<div class="dogu-starting">
+<div class="dogu-error ${pageType}">
     <div>
         <img alt="" class="logo " />
     </div>

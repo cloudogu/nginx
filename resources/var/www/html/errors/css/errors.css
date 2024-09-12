@@ -13,19 +13,9 @@
     --ces-error-docs-visibility: visible;
 
     /* dogu starting page */
-    --ces-dogu-starting-color: var(--ces-error-color);
-    --ces-dogu-starting-button-color-bg: var(--ces-error-button-color-bg);
-    --ces-dogu-starting-button-color-text: var(--ces-error-button-color-text);
-    --ces-dogu-starting-button-color-hover: var(--ces-error-button-color-hover);
-    --ces-dogu-starting-button-color-active: var(--ces-error-button-color-active);
-
     --ces-dogu-starting-logo: url("../img/dogu-starting.svg");
     --ces-dogu-starting-logo-width: var(--ces-error-logo-width);
     --ces-dogu-starting-logo-height-mobile: var(--ces-error-logo-height-mobile);
-
-    --ces-dogu-starting-docs-visibility: var(--ces-error-docs-visibility);
-
-    color: var(--ces-dogu-starting-color);
 
     /* maintenance page */
     --ces-maintenance-logo: url("../img/maintenance.svg");
@@ -34,6 +24,10 @@
 
     /* not found page */
     --ces-not-found-logo: url("../img/not-found.svg");
+    --ces-not-found-logo-width: var(--ces-error-logo-width);
+    --ces-not-found-logo-height-mobile: var(--ces-error-logo-height-mobile);
+
+    color: var(--ces-error-color);
 }
 
 body {
@@ -124,42 +118,20 @@ body {
 
 
 /* dogu starting page */
-
 .dogu-error.dogu-starting .logo {
     width: var(--ces-dogu-starting-logo-width);
     content: var(--ces-dogu-starting-logo);
 }
 
-.dogu-error.dogu-starting .actions .docs-link{
-    visibility: var(--ces-dogu-starting-docs-visibility);
-}
-
-.dogu-error.dogu-starting button {
-    background-color: var(--ces-dogu-starting-button-color-bg);
-    color: var(--ces-dogu-starting-button-color-text);
-}
-
-.dogu-error.dogu-starting  button:hover {
-    background-color: var(--ces-dogu-starting-button-color-hover);
-}
-
-.dogu-error.dogu-starting button:active {
-    background-color: var(--ces-dogu-starting-button-color-active);
-}
-
-.dogu-error.dogu-starting a, .dogu-error.dogu-starting a:visited {
-    text-decoration-color: var(--ces-dogu-starting-color);
-    color: var(--ces-dogu-starting-color);
-}
-
 /* not found page */
 .dogu-error.not-found .logo {
+    width: var(--ces-not-found-logo-width);
     content: var(--ces-not-found-logo);
 }
 
 /* maintenance page */
-
-.dogu-error.dogu-maintenance .logo {
+.dogu-error.maintenance .logo {
+    width: var(--ces-maintenance-logo-width);
     content: var(--ces-maintenance-logo);
 }
 
@@ -191,7 +163,18 @@ body {
         align-items: center;
     }
 
+    /* dogu starting page */
     .dogu-error.dogu-starting .logo {
         height: var(--ces-dogu-starting-logo-height-mobile);
+    }
+
+    /* not found page */
+    .dogu-error.not-found .logo {
+        height: var(--ces-not-found-logo-height-mobile);
+    }
+
+    /* maintenance page */
+    .dogu-error.maintenance .logo {
+        height: var(--ces-maintenance-logo-height-mobile);
     }
 }
