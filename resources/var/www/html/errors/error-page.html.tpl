@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="refresh" content="10" />
     <title>${title}</title>
-    <link rel="stylesheet" href="/errors/css/errors.css">
+    <link rel="stylesheet" href="/errors/css/errors.css?v=${version}">
 </head>
 <body>
 <div class="dogu-error ${pageType}">

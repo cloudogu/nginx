@@ -12,6 +12,8 @@ function createErrorPages() {
         return
     }
 
+    const version = process.env.VERSION?? "v0";
+
     const template = args[0];
     const dstDir = args[1];
 
@@ -23,7 +25,7 @@ function createErrorPages() {
 
     // template pages
     for (const page of pages) {
-        const renderedPage = compiledTemplate(page)
+        const renderedPage = compiledTemplate({version: version, ...page})
 
         const pageFile = `${dstDir}/${page.name}`;
         console.log("creating page", pageFile);
