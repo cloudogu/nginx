@@ -15,31 +15,31 @@
     "name": "401.html",
     "pageType": "error",
     "title": "401",
-    "subtitle": "Nicht authentifiziert"
+    "subtitle": "Nicht authentifiziert - Bitte einloggen"
   },
   {
     "name": "403.html",
     "pageType": "error",
     "title": "403",
-    "subtitle": "Kein Zugriff"
+    "subtitle": "Kein Zugriff - Bitte an Admin wenden"
   },
   {
     "name": "408.html",
     "pageType": "error",
     "title": "408",
-    "subtitle": "Request Timeout"
+    "subtitle": "Zeitüberschreitung der Anfrage"
   },
   {
     "name": "500.html",
     "pageType": "error",
     "title": "500",
-    "subtitle": "Internal Server Error"
+    "subtitle": "Interner Serverfehler - Bitte an Admin wenden"
   },
   {
     "name": "502.html",
     "pageType": "error",
     "title": "502",
-    "subtitle": "Bad Gateway"
+    "subtitle": "Dogu nicht erreichbar - Bitte an Admin wenden"
   },
   {
     "name": "maintenance.html.tpl",
@@ -51,6 +51,6 @@
     "name": "504.html",
     "pageType": "error",
     "title": "504",
-    "subtitle": "Gateway Timeout"
+    "subtitle": "Dogu nicht erreichbar - Bitte an Admin wenden"
   }
 ]
