@@ -1,0 +1,56 @@
+[
+  {
+    "name": "starting.html",
+    "pageType": "dogu-starting",
+    "title": "Dogu startet",
+    "subtitle": "Bitte haben Sie Geduld."
+  },
+  {
+    "name": "404.html",
+    "pageType": "not-found",
+    "title": "404",
+    "subtitle": "Seite nicht gefunden"
+  },
+  {
+    "name": "401.html",
+    "pageType": "error",
+    "title": "401",
+    "subtitle": "Nicht authentifiziert - Bitte einloggen"
+  },
+  {
+    "name": "403.html",
+    "pageType": "error",
+    "title": "403",
+    "subtitle": "Kein Zugriff - Bitte an Admin wenden"
+  },
+  {
+    "name": "408.html",
+    "pageType": "error",
+    "title": "408",
+    "subtitle": "Zeitüberschreitung der Anfrage"
+  },
+  {
+    "name": "500.html",
+    "pageType": "error",
+    "title": "500",
+    "subtitle": "Interner Serverfehler - Bitte an Admin wenden"
+  },
+  {
+    "name": "502.html",
+    "pageType": "error",
+    "title": "502",
+    "subtitle": "Dogu nicht erreichbar - Bitte an Admin wenden"
+  },
+  {
+    "name": "maintenance.html.tpl",
+    "pageType": "maintenance",
+    "title": "{{.Title}}",
+    "subtitle": "{{.Text}}"
+  },
+  {
+    "name": "504.html",
+    "pageType": "error",
+    "title": "504",
+    "subtitle": "Dogu nicht erreichbar - Bitte an Admin wenden"
+  }
+]

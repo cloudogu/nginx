@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.1-9] - 2024-09-13
+### Changed
+- [#107] Redesign error-pages
+  - Change UI language of the error-pages to german
+
 ## [v1.26.1-8] - 2024-09-04
 ### Fixed
 - Fix problems with content security policies (CSP) caused by whitelabeling

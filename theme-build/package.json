@@ -1,0 +1,15 @@
+{
+  "name": "theme-build",
+  "version": "0.0.1",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "template-default-css-dev": "node template-colors.js ../resources/var/www/html/styles/default.css.tpl ./out/default.css",
+    "template-default-css": "node template-colors.js ../resources/var/www/html/styles/default.css.tpl ../resources/var/www/html/styles/default.css",
+    "template-error-pages-dev": "node template-error-pages.js ../resources/var/www/html/errors/error-page.html.tpl ./out",
+    "template-error-pages": "node template-error-pages.js ../resources/var/www/html/errors/error-page.html.tpl ../resources/var/www/html/errors"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "@cloudogu/ces-theme-tailwind": "1.0.0"
+  }
+}
