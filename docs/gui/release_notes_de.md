@@ -4,6 +4,9 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
+## Release 1.26.1-10
+- Die Cloudogu-eigenen Quellen werden von der MIT-Lizenz auf die AGPL-3.0-only relizensiert.
+
 ## Release 1.26.1-9
 
 * Verbesserung der Barrierefreiheit der Fehlerseiten durch Hinzufügen des neuen Designs
