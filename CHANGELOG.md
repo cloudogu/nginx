@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.1-11] - 2024-09-26
+### Added
+- Animated image for dogu-starting-page
+
+### Changed
+- [#111] Use animation to show automatic reload of Dogu
+
 ## [v1.26.1-10] - 2024-09-18
 ### Changed
 - Relicense to AGPL-3.0-only

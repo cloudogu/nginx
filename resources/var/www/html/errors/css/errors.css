@@ -14,6 +14,7 @@
 
     /* dogu starting page */
     --ces-dogu-starting-logo: url("../img/dogu-starting.svg");
+    --ces-dogu-starting-logo-animated: url("../img/dogu-starting-animated.svg");
     --ces-dogu-starting-logo-width: var(--ces-error-logo-width);
     --ces-dogu-starting-logo-height-mobile: var(--ces-error-logo-height-mobile);
 
@@ -136,6 +137,13 @@ body {
 .dogu-error.dogu-starting .logo {
     width: var(--ces-dogu-starting-logo-width);
     content: var(--ces-dogu-starting-logo);
+}
+/* use animated image for clients NOT prefering reduces motion */
+@media (prefers-reduced-motion: no-preference) {
+    .dogu-error.dogu-starting .logo {
+        width: var(--ces-dogu-starting-logo-width);
+        content: var(--ces-dogu-starting-logo-animated);
+    }
 }
 
 /* not found page */
