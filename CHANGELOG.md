@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.2-1] - 2024-11-19
+- Upgrade dogu-build-lib to v2.5.0 
+- Upgrade ces-build-lib to v3.0.0
+- Upgrade base-image to v3.20.3-3
+- Upgrade nginx Version to v1.26.2
+
 ## [v1.26.1-11] - 2024-09-26
 ### Added
 - Animated image for dogu-starting-page
