@@ -2,7 +2,7 @@ FROM node:lts-alpine as templating
 
 ENV WORKDIR=/template \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.26.2-1"
+    VERSION="1.26.2-2"
 
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
@@ -24,8 +24,8 @@ ENV NGINX_VERSION=1.26.2 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
     WARP_MENU_VERSION=2.0.0 \
     WARP_MENU_TAR_SHA256="51a1010ec0f82b634999e48976d7fec98e6eb574a4401a841cd53f8cd0e14040" \
-    CES_ABOUT_VERSION="0.5.0" \
-    CES_ABOUT_TAR_SHA256="c4664340a248d9c2d9333a9a9df7aa9141ebeb40c051d65f78c57f2439b6f07d"
+    CES_ABOUT_VERSION="0.7.0" \
+    CES_ABOUT_TAR_SHA256="fcfdfb86dac75d5ae751cc0e8c3436ecee12f0d5ed830897c4f61029ae1df27e"
 
 WORKDIR /build
 
@@ -68,11 +68,11 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
 FROM registry.cloudogu.com/official/base:3.20.3-3
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.26.2-1"
+      VERSION="1.26.2-2"
 
 ENV CES_MAINTENANCE_MODE=false \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.26.2-1"
+    VERSION="1.26.2-2"
 
 RUN set -x -o errexit \
  && set -o nounset \
