@@ -4,6 +4,10 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
+## [Unreleased]
+### Fixed
+- Der Font-Stack des Warp-Menüs wurde an das ces-theme-tailwind angepasst
+
 ## Release 1.26.2-2
 - Es wird nun eine aktualisierte Liste der zugrunde liegenden Lizenzen im Warp-Menüpunkt "Über Cloudogu" angezeigt.
 
