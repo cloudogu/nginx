@@ -7,6 +7,7 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 ## [Unreleased]
 ### Fixed
 - Der Font-Stack des Warp-Menüs wurde an das ces-theme-tailwind angepasst
+- Besserer Support für Screenreader beim Auflösen von Unter-Menüpunkten als Link
 
 ## Release 1.26.2-2
 - Es wird nun eine aktualisierte Liste der zugrunde liegenden Lizenzen im Warp-Menüpunkt "Über Cloudogu" angezeigt.

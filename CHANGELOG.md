@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - adapt font stack for warp menu to ces-theme-tailwind
+- better screenreader support for submenus as links
 
 ## [v1.26.2-2] - 2024-12-06
 ### Changed

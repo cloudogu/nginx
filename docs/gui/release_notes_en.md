@@ -7,6 +7,7 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 ## [Unreleased]
 ### Fixed
 - adapt font stack for warp menu to ces-theme-tailwind
+- better screenreader support for submenus as links
 
 ## Release 1.26.2-2
 - The warp menu entry "About Cloudogu" contains now an updated list of licenses.

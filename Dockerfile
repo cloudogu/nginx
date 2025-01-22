@@ -22,8 +22,8 @@ ENV NGINX_VERSION=1.26.2 \
     NGINX_TAR_SHA256="627fe086209bba80a2853a0add9d958d7ebbdffa1a8467a5784c9a6b4f03d738" \
     CES_CONFD_VERSION=0.9.0 \
     CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
-    WARP_MENU_VERSION=2.0.2 \
-    WARP_MENU_TAR_SHA256="bb0a248366f4f892e8e031dbbaf467953f89ec9e1dd2bc9e0c3446b98e7f7dda" \
+    WARP_MENU_VERSION=2.0.3 \
+    WARP_MENU_ZIP_SHA256="8dfd023579728b6786bdb4664fb6d3e629717d9d2d27cdd4b365f9a844f1858c" \
     CES_ABOUT_VERSION="0.7.0" \
     CES_ABOUT_TAR_SHA256="fcfdfb86dac75d5ae751cc0e8c3436ecee12f0d5ed830897c4f61029ae1df27e"
 
@@ -62,7 +62,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/ces-about-v${CES_ABOUT_VERSION}.t
 
 # install warp menu
 RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip \
-    && echo "${WARP_MENU_TAR_SHA256} */tmp/warp.zip" | sha256sum -c - \
+    && echo "${WARP_MENU_ZIP_SHA256} */tmp/warp.zip" | sha256sum -c - \
     && unzip /tmp/warp.zip -d /build/var/www/html
 
 FROM registry.cloudogu.com/official/base:3.21.0-1
