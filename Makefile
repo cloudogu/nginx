@@ -5,6 +5,7 @@ MAKEFILES_VERSION=9.5.3
 include build/make/variables.mk
 include build/make/self-update.mk
 include build/make/release.mk
+include build/make/prerelease.mk
 include build/make/version-sha.mk
 include build/make/prerelease.mk
 
