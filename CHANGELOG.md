@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.2-3] - 2025-01-28
+### Changed
+- update Makefiles to 9.5.3
+
+### Fixed
+- adapt font stack for warp menu to ces-theme-tailwind
+- better screenreader support for submenus as links
+
 ## [v1.26.2-2] - 2024-12-06
 ### Changed
 - Update ces-about to v0.7.0 for updated license information
