@@ -14,16 +14,16 @@ RUN yarn install
 RUN node template-colors.js  ${WORKDIR}/resources/var/www/html/styles/default.css.tpl ${WORKDIR}/build/default.css
 RUN node template-error-pages.js ${WORKDIR}/resources/var/www/html/errors/error-page.html.tpl ${WORKDIR}/build/errors
 
-FROM registry.cloudogu.com/official/base:3.20.3-3 as builder
+FROM registry.cloudogu.com/official/base:3.21.0-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 ENV NGINX_VERSION=1.26.2 \
     NGINX_TAR_SHA256="627fe086209bba80a2853a0add9d958d7ebbdffa1a8467a5784c9a6b4f03d738" \
-    CES_CONFD_VERSION=0.9.0 \
-    CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
-    WARP_MENU_VERSION=2.0.0 \
-    WARP_MENU_TAR_SHA256="51a1010ec0f82b634999e48976d7fec98e6eb574a4401a841cd53f8cd0e14040" \
+    CES_CONFD_VERSION=0.11.0 \
+    CES_CONFD_TAR_SHA256="85809a3e9e0b56d58c53f958872809eab1026124a73a06eedfcdeba9ca73ec9a" \
+    WARP_MENU_VERSION=2.0.3 \
+    WARP_MENU_ZIP_SHA256="8dfd023579728b6786bdb4664fb6d3e629717d9d2d27cdd4b365f9a844f1858c" \
     CES_ABOUT_VERSION="0.7.0" \
     CES_ABOUT_TAR_SHA256="fcfdfb86dac75d5ae751cc0e8c3436ecee12f0d5ed830897c4f61029ae1df27e"
 
@@ -62,10 +62,10 @@ RUN wget --progress=bar:force:noscroll -O /tmp/ces-about-v${CES_ABOUT_VERSION}.t
 
 # install warp menu
 RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloudogu/warp-menu/releases/download/v${WARP_MENU_VERSION}/warp-v${WARP_MENU_VERSION}.zip \
-    && echo "${WARP_MENU_TAR_SHA256} */tmp/warp.zip" | sha256sum -c - \
+    && echo "${WARP_MENU_ZIP_SHA256} */tmp/warp.zip" | sha256sum -c - \
     && unzip /tmp/warp.zip -d /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.20.3-3
+FROM registry.cloudogu.com/official/base:3.21.0-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.26.2-2"
