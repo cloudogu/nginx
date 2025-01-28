@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- update Makefiles to 9.5.2
+- update Makefiles to 9.5.3
 
 ### Fixed
 - adapt font stack for warp menu to ces-theme-tailwind

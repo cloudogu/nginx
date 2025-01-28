@@ -5,7 +5,7 @@ Then(/^the user opens the warp menu$/, function () {
 });
 
 Then(/^the user checks link corresponding to the custom page$/, function () {
-    cy.get("#warp-menu-shadow-host").shadow().find(`a[class=text-warp-text][href="${Cypress.env('customHTMLPath')}"]`)
+    cy.get("#warp-menu-shadow-host").shadow().find(`a[href="${Cypress.env('customHTMLPath')}"]`)
         .should('have.attr', 'target', '_blank')
         .contains(Cypress.env('nameOfCustomPageLinkInWarpMenu'));
 });
