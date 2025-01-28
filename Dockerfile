@@ -20,8 +20,8 @@ LABEL maintainer="hello@cloudogu.com"
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
 ENV NGINX_VERSION=1.26.2 \
     NGINX_TAR_SHA256="627fe086209bba80a2853a0add9d958d7ebbdffa1a8467a5784c9a6b4f03d738" \
-    CES_CONFD_VERSION=0.9.0 \
-    CES_CONFD_TAR_SHA256="8507f40824562b8d2c1f32afb43ce1aad576a82febd2f97bd2cf31b0753a8cbd" \
+    CES_CONFD_VERSION=0.11.0 \
+    CES_CONFD_TAR_SHA256="85809a3e9e0b56d58c53f958872809eab1026124a73a06eedfcdeba9ca73ec9a" \
     WARP_MENU_VERSION=2.0.3 \
     WARP_MENU_ZIP_SHA256="8dfd023579728b6786bdb4664fb6d3e629717d9d2d27cdd4b365f9a844f1858c" \
     CES_ABOUT_VERSION="0.7.0" \
