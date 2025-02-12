@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v1.26.2-4] - 2025-02-12
+- Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+
 ## [v1.26.2-3] - 2025-01-28
 - Der Font-Stack des Warp-Menüs wurde an das ces-theme-tailwind angepasst
 - Besserer Support für Screenreader beim Auflösen von Unter-Menüpunkten als Link

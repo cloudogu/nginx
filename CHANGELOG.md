@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.2-4] - 2025-02-12
+### Added
+- Add missing container configuration keys for resource limits and requests (#117)
+
 ## [v1.26.2-3] - 2025-01-28
 ### Changed
 - update Makefiles to 9.5.3

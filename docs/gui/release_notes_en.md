@@ -6,6 +6,9 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.26.2-4] - 2025-02-12
+- We have only made technical changes. You can find more details in the changelogs.
+- 
 ## [v1.26.2-3] - 2025-01-28
 - adapt font stack for warp menu to ces-theme-tailwind
 - better screenreader support for submenus as links
