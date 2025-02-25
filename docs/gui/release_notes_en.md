@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.26.3-1] - 2025-02-25
+- Security update: Fix for a vulnerability in SSL session reuse (CVE-2025-23419).
+- nginx was updated with a patch version.
+
 ## [v1.26.2-4] - 2025-02-12
 - We have only made technical changes. You can find more details in the changelogs.
 - 

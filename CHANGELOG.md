@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.3-1] - 2025-02-25
+### Changed
+- [#119] Upgrade nginx Version to v1.26.3
+### Security
+- [#119] Fix [CVE-2025-23419](https://mailman.nginx.org/pipermail/nginx-announce/2025/NYEUJX7NCBCGJGXDFVXNMAAMJDFSE45G.html)
+
 ## [v1.26.2-4] - 2025-02-12
 ### Added
 - Add missing container configuration keys for resource limits and requests (#117)

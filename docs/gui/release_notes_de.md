@@ -6,6 +6,10 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v1.26.3-1] - 2025-02-25
+- Sicherheitsupdate: Behebung einer Schwachstelle in der SSL-Sitzungswiederverwendung (CVE-2025-23419).
+- Update auf eine Patch-Version
+
 ## [v1.26.2-4] - 2025-02-12
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
