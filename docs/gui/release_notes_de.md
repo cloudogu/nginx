@@ -5,10 +5,10 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v1.26.3-1] - 2025-02-25
 - Sicherheitsupdate: Behebung einer Schwachstelle in der SSL-Sitzungswiederverwendung (CVE-2025-23419).
-- Stabilitätsverbesserung: Fehlerbehebung beim Lesen des PROXY-Protokolls Version 2.
-- Bugfix: Vermeidung eines möglichen Segmentierungsfehlers bei SSL-Proxying mit image_filter.
-- Verbesserungen im HTTP/3-Modul für stabilere Verbindungen.
+- Update auf eine Patch-Version
 
 ## [v1.26.2-4] - 2025-02-12
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
