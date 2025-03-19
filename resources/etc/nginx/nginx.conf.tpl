@@ -52,6 +52,17 @@ http {
 	gzip_http_version 1.1;
 	gzip_types text/plain text/css application/json application/x-javascript application/javascript text/xml application/xml application/xml+rss text/javascript;
 
+# proxy buffers
+  {{ if  (.Config.Exists "buffer/proxy_buffer_size") }}
+    proxy_buffer_size   {{ .Config.GetOrDefault "buffer/proxy_buffer_size" "4k" }};
+  {{end}}
+  {{ if  (.Config.Exists "buffer/proxy_buffers") }}
+    proxy_buffers   {{ .Config.GetOrDefault "buffer/proxy_buffers" "8 8k" }};
+  {{end}}
+  {{ if  (.Config.Exists "buffer/proxy_busy_buffers_size") }}
+    proxy_busy_buffers_size   {{ .Config.GetOrDefault "buffer/proxy_busy_buffers_size" "32k" }};
+  {{end}}
+
 	# include app configuration
   include /etc/nginx/conf.d/*.conf;
   include {{ .Env.Get "APPCONF_VOL_DIR" }}/*.conf;

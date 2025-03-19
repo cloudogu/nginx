@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+### Added
+- Die Größen der Proxy-Buffer können jetzt über die Dogu-Konfiguration angepasst werden, wenn Requests wegen zu großen Headern fehlschlagen
 
 ## [v1.26.3-1] - 2025-02-25
 - Sicherheitsupdate: Behebung einer Schwachstelle in der SSL-Sitzungswiederverwendung (CVE-2025-23419).
