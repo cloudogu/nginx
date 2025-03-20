@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.3-2] - 2025-03-20
+### Added
+- [#121] configurable proxy buffer sizes in the dogu config
+  - this config can be used if requests fail because of large headers
+
 ## [v1.26.3-1] - 2025-02-25
 ### Changed
 - [#119] Upgrade nginx Version to v1.26.3

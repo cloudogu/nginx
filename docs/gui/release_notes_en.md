@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.26.3-2] - 2025-03-20
+### Added
+- The proxy buffer sizes can now be configured in the dogu config if requests keep failing because of header sizes
+
 ## [v1.26.3-1] - 2025-02-25
 - Security update: Fix for a vulnerability in SSL session reuse (CVE-2025-23419).
 - nginx was updated with a patch version.
