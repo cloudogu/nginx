@@ -64,6 +64,10 @@ node('vagrant') {
             }
 
             stage('Build') {
+                // purge nginx from official namespace to prevent conflicts while building prerelease_official/nginx
+                if (gitflow.isPreReleaseBranch()) {
+                    ecoSystem.purgeDogu("nginx")
+                }
                 ecoSystem.build("/dogu")
             }
 
