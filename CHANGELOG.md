@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- [#121] configurable proxy buffer sizes in the dogu config
+  - this config can be used if requests fail because of large headers
 
 ## [v1.26.3-1] - 2025-02-25
 ### Changed
