@@ -7,9 +7,26 @@ server {
   include /etc/nginx/app.conf.d/*.conf;
 
 {{if .Maintenance}}
-  location / {
+    {{range .Services}}
+        {{if eq .Location "ces-exporter" }}
+            # allow ces-exporter access in maintenance mode
+            location /{{.Location}} {
+                {{ if .Rewrite }}
+                    rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
+                {{end}}
+
+                {{ if eq .ProxyBuffering "off" }}
+                    proxy_buffering off;
+                {{ end }}
+
+                proxy_pass {{.URL}};
+            }
+        {{end}}
+    {{end}}
+
+    location / {
     return 503;
-  }
+    }
 {{else}}
 
   # default proxy settings
