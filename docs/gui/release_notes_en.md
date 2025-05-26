@@ -6,6 +6,9 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.26.3-3] - 2025-05-26
+- We have only made technical changes. You can find more details in the changelogs.
+
 ## [v1.26.3-2] - 2025-03-20
 ### Added
 - The proxy buffer sizes can now be configured in the dogu config if requests keep failing because of header sizes

@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v1.26.3-3] - 2025-05-26
+- Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+
 ## [v1.26.3-2] - 2025-03-20
 ### Added
 - Die Größen der Proxy-Buffer können jetzt über die Dogu-Konfiguration angepasst werden, wenn Requests wegen zu großen Headern fehlschlagen

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.3-3] - 2025-05-26
+### Added
+- [#123] allow ces-exporter access in maintenance mode 
+
 ## [v1.26.3-2] - 2025-03-20
 ### Added
 - [#121] configurable proxy buffer sizes in the dogu config
