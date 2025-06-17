@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.28.0-2] - 2025-06-17
+### Fixed
+- [#127] Include default configuration for ces-exporter access in maintenance mode
+
 ## [v1.28.0-1] - 2025-06-10
 ### Changed
 - [#125] Upgrade nginx to v1.28.0
