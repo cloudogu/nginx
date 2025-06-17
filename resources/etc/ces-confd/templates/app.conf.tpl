@@ -1,3 +1,18 @@
+{{define "service-block"}}
+    location /{{.Location}} {
+    {{if eq .HealthStatus "healthy" "" }}
+        {{ if .Rewrite }}
+            rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
+        {{end}}
+        {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
+        proxy_pass {{.URL}};
+    {{else}}
+        error_page 503 /errors/starting.html;
+        return 503;
+    {{end}}
+    }
+{{end}}
+
 server {
   include /etc/nginx/include.d/ssl.conf;
   include /etc/nginx/include.d/errors.conf;
@@ -5,29 +20,6 @@ server {
   include /etc/nginx/include.d/whitelabel.conf;
   include /etc/nginx/include.d/robots.conf;
   include /etc/nginx/app.conf.d/*.conf;
-
-{{if .Maintenance}}
-    {{range .Services}}
-        {{if eq .Location "ces-exporter" }}
-            # allow ces-exporter access in maintenance mode
-            location /{{.Location}} {
-                {{ if .Rewrite }}
-                    rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
-                {{end}}
-
-                {{ if eq .ProxyBuffering "off" }}
-                    proxy_buffering off;
-                {{ end }}
-
-                proxy_pass {{.URL}};
-            }
-        {{end}}
-    {{end}}
-
-    location / {
-    return 503;
-    }
-{{else}}
 
   # default proxy settings
   proxy_set_header Host $http_host;
@@ -47,9 +39,22 @@ server {
 
   proxy_read_timeout 1d;
 
-
   # disable gzip encoding for proxy applications
   proxy_set_header Accept-Encoding identity;
+
+{{if .Maintenance}}
+    {{range .Services}}
+        {{if eq .Location "ces-exporter" }}
+            # allow ces-exporter access in maintenance mode
+            {{template "service-block" .}}
+        {{end}}
+    {{end}}
+
+    # show 503 for all other services in maintenance mode
+    location / {
+      return 503;
+    }
+{{else}}
 
   include /etc/nginx/include.d/info.conf;
   include /etc/nginx/include.d/subfilters.conf;
@@ -58,18 +63,7 @@ server {
 
   # services
   {{range .Services}}
-    location /{{.Location}} {
-      {{if eq .HealthStatus "healthy" "" }}
-        {{ if .Rewrite }}
-        rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
-        {{end}}
-        {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
-        proxy_pass {{.URL}};
-      {{else}}
-        error_page 503 /errors/starting.html;
-        return 503;
-      {{end}}
-    }
+      {{template "service-block" .}}
   {{end}}
   # end of services
 
