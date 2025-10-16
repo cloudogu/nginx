@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- [#129] new Nginx script `clear-cookies-on-logout.conf`
+  - clears browser cookies and storage on CAS logout to prevent session reuse and automatic re-authentication
 
 ## [v1.26.3-2] - 2025-03-20
 ### Added

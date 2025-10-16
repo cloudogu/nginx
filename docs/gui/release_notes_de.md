@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+### Added
+- Nginx-Skript `clear-cookies-on-logout.conf` hinzugefügt, das beim CAS-Logout Browser-Cookies und lokalen Speicher löscht, um Sitzungswiederverwendung oder automatische Re-Authentifizierung zu verhindern.
 
 ## [v1.26.3-2] - 2025-03-20
 ### Added

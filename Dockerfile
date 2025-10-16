@@ -9,6 +9,7 @@ WORKDIR ${WORKDIR}
 
 COPY theme-build ${WORKDIR}/
 COPY resources ${WORKDIR}/resources
+COPY custom_scripts ${WORKDIR}/resources/custom_scripts
 
 RUN yarn install
 RUN node template-colors.js  ${WORKDIR}/resources/var/www/html/styles/default.css.tpl ${WORKDIR}/build/default.css
@@ -92,6 +93,7 @@ COPY --from=builder /build /
 # copy templated files
 COPY --from=templating /template/build/default.css /var/www/html/styles/default.css
 COPY --from=templating /template/build/errors /var/www/html/errors
+COPY --from=templating /template/resources/custom_scripts /custom_scripts
 
 # redirect logs
 # cannot be done via builder container as symlinks cannot get copied

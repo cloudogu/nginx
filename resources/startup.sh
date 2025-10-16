@@ -66,6 +66,8 @@ fi
 
 doguctl template "/var/www/html/warpmenu/add-warp-menu.js.tpl" "/var/www/html/warpmenu/add-warp-menu.js"
 
+cp -r /custom_scripts/*.conf /etc/nginx/app.conf.d/
+
 # Start nginx
 echo "[nginx] starting nginx service..."
 exec /usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"
