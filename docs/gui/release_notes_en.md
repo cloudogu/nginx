@@ -5,6 +5,8 @@ Below you will find the release notes for the Nginx-Dogu.
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+- Nginx supports TLS v1.3
+- For TLS v1.2 and v1.3 only ciphers that are recommended by the BSI Guidelines are used
 
 ## [v1.28.0-2] - 2025-06-17
 - We have only made technical changes. You can find more details in the changelogs.
