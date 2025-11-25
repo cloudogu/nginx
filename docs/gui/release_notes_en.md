@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.28.0-3] - 2025-11-25
+- Nginx supports TLS v1.3
+- For TLS v1.2 and v1.3 only ciphers that are recommended by the BSI Guidelines are used
+
 ## [v1.28.0-2] - 2025-06-17
 - We have only made technical changes. You can find more details in the changelogs.
 
