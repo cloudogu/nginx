@@ -9,7 +9,7 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     shellScripts        : '''
                             ./resources/startup.sh 
                             ./nginx-build/build.sh
-                          '''
+                          ''',
     checkMarkdown       : true,
     cypressImage        : 'cypress/included:13.14.0',
     runIntegrationTests : true,
