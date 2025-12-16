@@ -5,7 +5,7 @@
 ]) _
 
 def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
-    doguName            : "portainer",
+    doguName            : "nginx",
     shellScripts        : '''
                             ./resources/startup.sh 
                             ./nginx-build/build.sh
