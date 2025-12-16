@@ -2,7 +2,7 @@ FROM node:lts-alpine as templating
 
 ENV WORKDIR=/template \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.28.0-3"
+    VERSION="1.29.4-0"
 
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
@@ -14,12 +14,12 @@ RUN yarn install
 RUN node template-colors.js  ${WORKDIR}/resources/var/www/html/styles/default.css.tpl ${WORKDIR}/build/default.css
 RUN node template-error-pages.js ${WORKDIR}/resources/var/www/html/errors/error-page.html.tpl ${WORKDIR}/build/errors
 
-FROM registry.cloudogu.com/official/base:3.22.0-2 as builder
+FROM registry.cloudogu.com/official/base:3.22.0-5 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-ENV NGINX_VERSION=1.28.0 \
-    NGINX_TAR_SHA256="c6b5c6b086c0df9d3ca3ff5e084c1d0ef909e6038279c71c1c3e985f576ff76a" \
+ENV NGINX_VERSION=1.29.4 \
+    NGINX_TAR_SHA256="5a7d37eee505866fbab5810fa9f78247d6d5d9157a595c4e7a72043141ddab25" \
     CES_CONFD_VERSION=0.11.0 \
     CES_CONFD_TAR_SHA256="85809a3e9e0b56d58c53f958872809eab1026124a73a06eedfcdeba9ca73ec9a" \
     WARP_MENU_VERSION=2.0.3 \
@@ -65,7 +65,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
     && echo "${WARP_MENU_ZIP_SHA256} */tmp/warp.zip" | sha256sum -c - \
     && unzip /tmp/warp.zip -d /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.22.0-2
+FROM registry.cloudogu.com/official/base:3.22.0-5
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.28.0-3"
