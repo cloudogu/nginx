@@ -2,7 +2,7 @@ FROM node:lts-alpine as templating
 
 ENV WORKDIR=/template \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.29.4-0"
+    VERSION="1.29.4-1"
 
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
@@ -68,11 +68,11 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
 FROM registry.cloudogu.com/official/base:3.22.0-5
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.28.0-3"
+      VERSION="1.29.4-1"
 
 ENV CES_MAINTENANCE_MODE=false \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.28.0-3"
+    VERSION="1.29.4-1"
 
 RUN set -x -o errexit \
  && set -o nounset \
