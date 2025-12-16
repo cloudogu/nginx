@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.29.4-1] - 2025-12-16
+### Changed
+- [#132] Upgrade nginx to v1.29.4
+- [#132] Upgrade base to 3.22.0-5
+- [#132] Added pipe-build-lib
+
 ## [v1.28.0-3] - 2025-11-25
 ### Fixed
 - [#130] TLS 1.3 Ciphers require a different configuration key in ssl.conf
