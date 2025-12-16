@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- [#132] Upgrade nginx to v1.29.4
+- [#132] Upgrade base to 3.22.0-5
+- [#132] Added pipe-build-lib
 
 ## [v1.28.0-3] - 2025-11-25
 ### Fixed
