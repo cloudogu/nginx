@@ -33,6 +33,11 @@ echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
 
+if [[ "$(doguctl config client_auth/enabled --default "false")" == "true" ]]; then
+    echo "[nginx] client authentication enabled, extracting CA certificate ..."
+    doguctl config --global certificate/client-ca.crt > "/etc/ssl/client-ca.crt"
+fi
+
 # render ssl configuration to include the correct fqdn
 doguctl template /etc/nginx/include.d/ssl.conf.tpl /etc/nginx/include.d/ssl.conf
 
