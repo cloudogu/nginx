@@ -15,5 +15,10 @@ ssl_prefer_server_ciphers on;
 
 {{- if eq (.Config.GetOrDefault "client_auth/enabled" "false") "true" -}}
 ssl_client_certificate /etc/ssl/client-ca.crt;
-ssl_verify_client on;
+ssl_verify_client optional;
+
+# check if access is allowed
+if ($access_allowed = 0) {
+  return 403;
+}
 {{- end -}}
