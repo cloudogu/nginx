@@ -6,7 +6,7 @@ Certificate Authority (CA).
 
 ## Konfiguration
 
-Die Konfiguration erfolgt über die Dogu-Konfiguration `client_auth/enabled`.
+Die Konfiguration erfolgt über die Dogu-Konfiguration `mutual_tls/enabled`.
 
 ### 1. CA Zertifikat hinterlegen
 
@@ -26,7 +26,7 @@ cat client-ca.crt | etcdctl set /config/_global/certificate/client-ca.crt
 Die Client-Authentifizierung ist standardmäßig deaktiviert. Sie über die Dogu-Config des nginx aktiviert werden:
 
 ```bash
-etcdctl set /config/nginx/client_auth/enabled true
+etcdctl set /config/nginx/mutual_tls/enabled true
 ```
 
 Nach der Änderung muss das Nginx-Dogu neu gestartet werden, damit das CA-Zertifikat aus der Registry geladen und die
@@ -34,7 +34,7 @@ Konfiguration neu generiert wird.
 
 ## Funktionsweise
 
-Sobald `client_auth/enabled` auf `true` gesetzt ist:
+Sobald `mutual_tls/enabled` auf `true` gesetzt ist:
 
 1. Extrahiert das `startup.sh` Skript das CA-Zertifikat aus der globalen Registry nach `/etc/ssl/client-ca.crt`.
 2. Aktiviert die `ssl.conf` die Nginx-Direktiven `ssl_client_certificate` und `ssl_verify_client on`.

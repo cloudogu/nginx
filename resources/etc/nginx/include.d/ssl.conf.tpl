@@ -13,7 +13,7 @@ ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECD
 ssl_conf_command Ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384;
 ssl_prefer_server_ciphers on;
 
-{{- if eq (.Config.GetOrDefault "client_auth/enabled" "false") "true" -}}
+{{- if eq (.Config.GetOrDefault "mutual_tls/enabled" "false") "true" -}}
 ssl_client_certificate /etc/ssl/client-ca.crt;
 ssl_verify_client optional;
 

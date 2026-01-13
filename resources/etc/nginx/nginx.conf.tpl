@@ -67,7 +67,7 @@ http {
   include /etc/nginx/conf.d/*.conf;
   include {{ .Env.Get "APPCONF_VOL_DIR" }}/*.conf;
 
-  {{- if eq (.Config.GetOrDefault "client_auth/enabled" "false") "true" -}}
+  {{- if eq (.Config.GetOrDefault "mutual_tls/enabled" "false") "true" -}}
     # mark internal requests coming from the docker network
     geo $is_internal {
       default 0;

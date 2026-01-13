@@ -122,8 +122,8 @@
       "Optional": true
     },
     {
-      "Name": "client_auth/enabled",
-      "Description": "Enables client authentication. If enabled, the certificate of the client must be provided in the request to the server. Format: 'true' or 'false'. Ensure the CA certificate used to sign client certificates is stored in the global configuration at 'certificate/client-ca.crt'",
+      "Name": "mutual_tls/enabled",
+      "Description": "Enables mutual TLS. If enabled, the certificate of the client must be provided in the request to the server. Format: 'true' or 'false'. Ensure the CA certificate used to sign client certificates is stored in the global configuration at 'certificate/client-ca.crt'",
       "Default": "false",
       "Validation": {
         "Type": "ONE_OF",

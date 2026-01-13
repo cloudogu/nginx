@@ -33,8 +33,8 @@ echo "[nginx] configure ssl and https ..."
 doguctl config --global certificate/server.crt > "/etc/ssl/server.crt"
 doguctl config --global certificate/server.key > "/etc/ssl/server.key"
 
-if [[ "$(doguctl config client_auth/enabled --default "false")" == "true" ]]; then
-    echo "[nginx] client authentication enabled, extracting CA certificate ..."
+if [[ "$(doguctl config mutual_tls/enabled --default "false")" == "true" ]]; then
+    echo "[nginx] mutual tls enabled, extracting CA certificate ..."
     doguctl config --global certificate/client-ca.crt > "/etc/ssl/client-ca.crt"
 fi
 
