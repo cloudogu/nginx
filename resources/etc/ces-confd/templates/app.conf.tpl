@@ -28,6 +28,9 @@ server {
   proxy_set_header X-Real-IP $remote_addr;
   proxy_set_header X-Scheme $scheme;
 
+  proxy_set_header X-Client-S-DN $ssl_client_s_dn;
+  proxy_set_header X-Client-Verify $ssl_client_verify;
+
   # proxy keep alive settings
   # https://github.com/cloudogu/ecosystem/issues/298
   # https://stackoverflow.com/questions/28347184/upstream-timed-out-110-connection-timed-out-for-static-content
