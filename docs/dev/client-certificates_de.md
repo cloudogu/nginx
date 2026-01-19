@@ -8,6 +8,10 @@ Certificate Authority (CA).
 
 Die Konfiguration erfolgt über die Dogu-Konfiguration `mutual_tls/enabled`.
 
+> [!IMPORTANT]  
+> Damit die Authentifizierung mit Client-Zertifikaten funktioniert, muss Split-DNS konfiguriert sein.
+> Siehe [Split-DNS](#split-dns)
+
 ### 1. CA Zertifikat hinterlegen
 
 Damit Nginx die Client-Zertifikate validieren kann, muss das öffentliche Zertifikat der CA global im CES bekannt sein.
@@ -43,6 +47,7 @@ Sobald `mutual_tls/enabled` auf `true` gesetzt ist:
 Damit Dogus auch ohne Client-Zertifikat Requests an andere Dogus stellen können (z.B. zur Validierung der CAS-Session),
 wird in der `nginx.conf` eine Ausnahme für alle Requests erstellt, die aus dem internen Docker-Netzwerk (`172.18.0.1/32`) stammen.
 
+#### Split-DNS
 Damit das funktioniert, muss Split-DNS entsprechend konfiguriert sein.
 Bei der Installation des CES kann dies in der setup.json unter `useInternalIp` bzw. `internalIp` konfiguriert werden. Siehe: https://docs.cloudogu.com/de/docs/system-components/ces-setup/operations/setup-json/#useinternalip
 
@@ -71,6 +76,7 @@ Folgende Schritte sind nötig um ein Client-Zertifikat zu erzeugen:
      EOF
    ```
 4. CSR signieren: `openssl x509 -req -in client1.csr -CA client-ca.crt -CAkey client-ca.key -CAcreateserial -out client1.crt -days 365 -sha256 -extfile client.ext`
-5. Client-Zertifikat und exportierem: `openssl pkcs12 -export -inkey client1.key -in client1.crt -certfile client-ca.crt -name "client1" -out client1.p12`
+5. Client-Zertifikat exportieren: `openssl pkcs12 -export -inkey client1.key -in client1.crt -certfile client-ca.crt -name "client1" -out client1.p12`
+    > Hinweis: Beim Exportieren muss ein Passwort angegeben werden.
 
 Das exportierte Zertifikat kann nun im Browser importiert werden.
