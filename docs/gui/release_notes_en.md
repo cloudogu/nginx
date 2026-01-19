@@ -6,6 +6,9 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.29.4-2] - 2026-01-19
+- Adds support for Mutual TLS certificates
+
 ## [v1.29.4-1] - 2025-12-16
 - We have only made technical changes. You can find more details in the changelogs.
 

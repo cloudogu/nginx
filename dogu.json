@@ -1,6 +1,6 @@
 {
   "Name": "official/nginx",
-  "Version": "1.29.4-1",
+  "Version": "1.29.4-2",
   "DisplayName": "Nginx",
   "Description": "Nginx WebServer.",
   "Logo": "https://cloudogu.com/images/dogus/nginx.png",
@@ -119,6 +119,19 @@
     {
       "Name": "buffer/proxy_busy_buffers_size",
       "Description": "When buffering of responses from the proxied server is enabled, limits the total size of buffers that can be busy sending a response to the client while the response is not yet fully read. In the meantime, the rest of the buffers can be used for reading the response and, if needed, buffering part of the response to a temporary file. By default, size is limited by the size of two buffers set by the proxy_buffer_size and proxy_buffers directives. The default value is 8k/16k (depending on the platform). Format: '{buffer size}k' ",
+      "Optional": true
+    },
+    {
+      "Name": "mutual_tls/enabled",
+      "Description": "Enables mutual TLS. If enabled, the certificate of the client must be provided in the request to the server. Format: 'true' or 'false'. Ensure the CA certificate used to sign client certificates is stored in the global configuration at 'certificate/client-ca.crt'",
+      "Default": "false",
+      "Validation": {
+        "Type": "ONE_OF",
+        "Values": [
+          "true",
+          "false"
+        ]
+      },
       "Optional": true
     }
   ],

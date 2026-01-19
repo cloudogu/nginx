@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.29.4-2] - 2026-01-19
+### Added
+- [#134] support mutual TLS with client certificates 
+
 ## [v1.29.4-1] - 2025-12-16
 ### Changed
 - [#132] Upgrade nginx to v1.29.4
