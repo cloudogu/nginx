@@ -66,4 +66,28 @@ http {
 	# include app configuration
   include /etc/nginx/conf.d/*.conf;
   include {{ .Env.Get "APPCONF_VOL_DIR" }}/*.conf;
+
+  {{- if eq (.Config.GetOrDefault "mutual_tls/enabled" "false") "true" -}}
+    # mark internal requests coming from the docker network
+    geo $is_internal {
+      default 0;
+      172.18.0.1/32 1;
+      127.0.0.1/32  1;
+    }
+
+    # allow only all internal requests or external requests if mTLS was successful
+    map "$is_internal:$ssl_client_verify" $access_allowed {
+      default 0;
+
+      # internal always allowed
+      "1:NONE"    1;
+      "1:FAILED"  1;
+      "1:SUCCESS" 1;
+
+      # external only allowed, if mTLS was successful
+      "0:SUCCESS" 1;
+    }
+
+  {{- end -}}
+
 }
