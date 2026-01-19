@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v1.29.4-2] - 2026-01-19
+- Fügt Mutual-TLS-Zertifikatsunterstützung hinzu
+
 ## [v1.29.4-1] - 2025-12-16
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
