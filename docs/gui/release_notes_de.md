@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+### Security
+- [#136] Sicherheitslücke geschlossen [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+
 ## [v1.29.4-2] - 2026-01-19
 - Fügt Mutual-TLS-Zertifikatsunterstützung hinzu
 
