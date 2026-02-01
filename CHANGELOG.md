@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.26.3-4] - 2026-02-01
+
+### Security
+- CVE fixed: [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+
+
 ## [v1.26.3-3] - 2025-05-26
 ### Added
 - [#123] allow ces-exporter access in maintenance mode 
