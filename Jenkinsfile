@@ -96,6 +96,12 @@ node('vagrant') {
                                                       enableScreenshots: params.EnableScreenshotRecording])
             }
 
+            stage('Finish Release') {
+                String releaseVersion = 'v1.26.3-4'
+                ecoSystem.push('/dogu')
+                github.createReleaseWithChangelog(releaseVersion, changelog, "main")
+            }
+
             if (params.TestDoguUpgrade != null && params.TestDoguUpgrade) {
                 stage('Upgrade dogu') {
                     ecoSystem.upgradeFromPreviousRelease(params.OldDoguVersionForUpgradeTest, doguName)

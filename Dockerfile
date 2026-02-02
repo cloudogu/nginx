@@ -2,7 +2,7 @@ FROM node:lts-alpine as templating
 
 ENV WORKDIR=/template \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.26.3-3"
+    VERSION="1.26.3-4"
 
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
