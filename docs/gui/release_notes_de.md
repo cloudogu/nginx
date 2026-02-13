@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v1.29.4-4] - 2026-02-13
 ### Security
 - Sicherheitslücke [CVE-2025-68121](https://avd.aquasec.com/nvd/2025/cve-2025-68121/) behoben
 
