@@ -1,4 +1,4 @@
-MAKEFILES_VERSION=10.1.1
+MAKEFILES_VERSION=10.6.0
 
 .DEFAULT_GOAL:=dogu-release
 
@@ -7,6 +7,7 @@ include build/make/self-update.mk
 include build/make/release.mk
 include build/make/prerelease.mk
 include build/make/version-sha.mk
+include build/make/trivyscan.mk
 
 NGINX_VERSION=$(shell grep NGINX_VERSION= Dockerfile | sed 's/.*NGINX_VERSION=\([^ ]*\).*/\1/g')
 CES_CONFD_VERSION=$(shell grep CES_CONFD_VERSION= Dockerfile | sed 's/.*CES_CONFD_VERSION=\([^ ]*\).*/\1/g')
