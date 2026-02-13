@@ -12,7 +12,7 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
                           ''',
     checkMarkdown       : true,
     cypressImage        : 'cypress/included:13.14.0',
-	defaultBranch       : "master"
+	defaultBranch       : "master",
     runIntegrationTests : true,
     dependedDogus       : ['cas']
 
