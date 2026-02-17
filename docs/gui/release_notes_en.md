@@ -5,6 +5,8 @@ Below you will find the release notes for the Nginx-Dogu.
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+### Changed
+- We have only made technical changes. You can find more details in the changelogs. 
 
 ## [v1.29.4-4] - 2026-02-13
 ### Security
