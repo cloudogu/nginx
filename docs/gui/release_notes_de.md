@@ -6,6 +6,10 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v1.29.4-5] - 2026-02-17
+### Changed
+- Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+
 ## [v1.29.4-4] - 2026-02-13
 ### Security
 - Sicherheitslücke [CVE-2025-68121](https://avd.aquasec.com/nvd/2025/cve-2025-68121/) behoben
