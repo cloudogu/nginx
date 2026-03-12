@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.29.4-6] - 2026-03-12
+### Changed
+- [#143] added custom 401 and 403 error pages for admin dogu
+
 ## [v1.29.4-5] - 2026-02-17
 ### Changed 
 - [#140] Update base image to version 3.23.3-4

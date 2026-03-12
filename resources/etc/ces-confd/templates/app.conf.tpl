@@ -5,6 +5,11 @@
             rewrite ^/{{ .Rewrite.Pattern }}(/|$)(.*) {{ .Rewrite.Rewrite }}/$2 break;
         {{end}}
         {{ if eq .ProxyBuffering "off" }}proxy_buffering off;{{ end }}
+        {{/* allow error pages redirects for admin dogu */}}
+                {{ if eq .Location "admin" }}
+                    proxy_intercept_errors on;
+                    recursive_error_pages on;
+                {{ end }}
         proxy_pass {{.URL}};
     {{else}}
         error_page 503 /errors/starting.html;
