@@ -18,8 +18,8 @@ FROM registry.cloudogu.com/official/base:3.23.3-3 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-ENV NGINX_VERSION=1.29.4 \
-    NGINX_TAR_SHA256="5a7d37eee505866fbab5810fa9f78247d6d5d9157a595c4e7a72043141ddab25" \
+ENV NGINX_VERSION=1.30.0 \
+    NGINX_TAR_SHA256="058188c64bf22baecaa72b809a6318a4f9ba623889c554feab03f7cb853ab31b" \
     CES_CONFD_VERSION=0.12.0 \
     CES_CONFD_TAR_SHA256="fb5ddd8aab1893d92c525b906e1a027b602b51cdf58fec0aff55f72c8a729b1a" \
     WARP_MENU_VERSION=2.0.3 \
@@ -68,7 +68,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
 FROM registry.cloudogu.com/official/base:3.23.3-4
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.29.4-6"
+      VERSION="1.30.0-0"
 
 ENV CES_MAINTENANCE_MODE=false \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
