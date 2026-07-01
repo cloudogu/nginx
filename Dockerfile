@@ -23,7 +23,7 @@ ENV NGINX_VERSION=1.30.0 \
     CES_CONFD_VERSION=0.12.0 \
     CES_CONFD_TAR_SHA256="fb5ddd8aab1893d92c525b906e1a027b602b51cdf58fec0aff55f72c8a729b1a" \
     WARP_MENU_VERSION=2.1.0 \
-    WARP_MENU_ZIP_SHA256="TODO" \
+    WARP_MENU_ZIP_SHA256="cd103aa5bf9eec48f2e29b6128b11de174f6db449d701ed07337769e0f93990d" \
     CES_ABOUT_VERSION="0.7.0" \
     CES_ABOUT_TAR_SHA256="fcfdfb86dac75d5ae751cc0e8c3436ecee12f0d5ed830897c4f61029ae1df27e"
 
@@ -70,9 +70,10 @@ LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.30.0-1"
 
-ENV CES_MAINTENANCE_MODE=false \
-    # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.30.0-1"
+ENV CES_MAINTENANCE_MODE=false
+
+# Used in template to invalidate caches - do not remove. The release script will auto update this line
+ENV VERSION="1.30.0-1"
 
 RUN set -x -o errexit \
  && set -o nounset \
