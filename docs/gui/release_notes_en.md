@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.30.3-1] - 2026-07-01
+### Changed
+- We have only made technical changes. You can find more details in the changelogs.
+
 ## [v1.30.0-1] - 2026-04-24
 ### Changed
 - We have only made technical changes. You can find more details in the changelogs.
