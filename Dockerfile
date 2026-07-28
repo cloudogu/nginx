@@ -18,8 +18,8 @@ FROM registry.cloudogu.com/official/base:3.24.1-2 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-ENV NGINX_VERSION=1.30.3 \
-    NGINX_TAR_SHA256="e5823dc6f45610993def93ebf6cfce68264af4958c77e874b7d20f3709001b8f" \
+ENV NGINX_VERSION=1.30.4 \
+    NGINX_TAR_SHA256="4261dc90e9e47c1c4041276e9aaa3d48ebe2e664f728e14fa95ae6c67d57a08b" \
     CES_CONFD_VERSION=0.12.0 \
     CES_CONFD_TAR_SHA256="fb5ddd8aab1893d92c525b906e1a027b602b51cdf58fec0aff55f72c8a729b1a" \
     WARP_MENU_VERSION=2.1.0 \
