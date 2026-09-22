@@ -30,10 +30,13 @@ module.exports = defineConfig({
         baseUrl: "https://192.168.56.10",
 
         env: {
+            AdminGroup: "CesAdministrators",
+        },
+
+        expose: {
             casPath: "/cas",
             nameOfCustomPageLinkInWarpMenu: "Privacy Policies",
             customHTMLPath: "/static/privacy_policies.html",
-            AdminGroup: "CesAdministrators",
         },
 
         videoCompression: false,
