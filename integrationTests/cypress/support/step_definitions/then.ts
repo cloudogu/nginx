@@ -5,13 +5,13 @@ Then(/^the user opens the warp menu$/, function () {
 });
 
 Then(/^the user checks link corresponding to the custom page$/, function () {
-    cy.get("#warp-menu-shadow-host").shadow().find(`a[href="${Cypress.env('customHTMLPath')}"]`)
+    cy.get("#warp-menu-shadow-host").shadow().find(`a[href="${Cypress.expose('customHTMLPath')}"]`)
         .should('have.attr', 'target', '_blank')
-        .contains(Cypress.env('nameOfCustomPageLinkInWarpMenu'));
+        .contains(Cypress.expose('nameOfCustomPageLinkInWarpMenu'));
 });
 
 Then("a static HTML custom page gets displayed", function () {
-    cy.visit(Cypress.config().baseUrl + Cypress.env('customHTMLPath'));
+    cy.visit(Cypress.config().baseUrl + Cypress.expose('customHTMLPath'));
 });
 
 Then(/^the warp menu category 'Support' contains a link to docs and no link to platform or the about page$/, function () {

@@ -14,12 +14,12 @@ RUN yarn install
 RUN node template-colors.js  ${WORKDIR}/resources/var/www/html/styles/default.css.tpl ${WORKDIR}/build/default.css
 RUN node template-error-pages.js ${WORKDIR}/resources/var/www/html/errors/error-page.html.tpl ${WORKDIR}/build/errors
 
-FROM registry.cloudogu.com/official/base:3.24.1-2 as builder
+FROM registry.cloudogu.com/official/base:3.24.1-3 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-ENV NGINX_VERSION=1.30.4 \
-    NGINX_TAR_SHA256="4261dc90e9e47c1c4041276e9aaa3d48ebe2e664f728e14fa95ae6c67d57a08b" \
+ENV NGINX_VERSION=1.30.5 \
+    NGINX_TAR_SHA256="6c20565aa2325cb82216ae804f4a4ff1875179014759a381c42ddc8e11c4906d" \
     CES_CONFD_VERSION=0.12.0 \
     CES_CONFD_TAR_SHA256="fb5ddd8aab1893d92c525b906e1a027b602b51cdf58fec0aff55f72c8a729b1a" \
     WARP_MENU_VERSION=2.1.0 \
@@ -65,7 +65,7 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
     && echo "${WARP_MENU_ZIP_SHA256} */tmp/warp.zip" | sha256sum -c - \
     && unzip /tmp/warp.zip -d /build/var/www/html
 
-FROM registry.cloudogu.com/official/base:3.24.1-2
+FROM registry.cloudogu.com/official/base:3.24.1-3
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
       VERSION="1.30.4-1"
