@@ -10,6 +10,7 @@ WORKDIR ${WORKDIR}
 COPY theme-build ${WORKDIR}/
 COPY resources ${WORKDIR}/resources
 
+RUN npm install -g yarn
 RUN yarn install
 RUN node template-colors.js  ${WORKDIR}/resources/var/www/html/styles/default.css.tpl ${WORKDIR}/build/default.css
 RUN node template-error-pages.js ${WORKDIR}/resources/var/www/html/errors/error-page.html.tpl ${WORKDIR}/build/errors
