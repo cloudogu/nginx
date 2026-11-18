@@ -15,7 +15,7 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     // cosmiconfig@10 (pulled in by @badeball/cypress-cucumber-preprocessor@28,
     // required for cypress@16 compatibility). Override to an image with a
     // newer bundled Node until the shared pipeline lib's own default catches up.
-    cypressImage        : 'cypress/included:16.1.0',
+    cypressImage        : 'cypress/included:16.2.0',
 	defaultBranch       : "master",
     runIntegrationTests : true,
     dependedDogus       : ['cas']
