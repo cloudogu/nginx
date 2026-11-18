@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.30.6-1] - 2026-11-18
+### Changed
+- [#156] Update nginx to v1.30.6
+- [#156] Update base image to v3.24.4-1
+- [#156] Switch theme-build from yarn to npm
+
 ## [v1.30.5-1] - 2026-09-22
 ### Changed
 - [#153] Update nginx to v1.30.5

@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v1.30.6-1] - 2026-11-18
+### Changed
+- We have only made technical changes. You can find more details in the changelogs.
+
 ## [v1.30.5-1] - 2026-09-22
 ### Security
 - Fix vulnerability [CVE-2026-56854](https://avd.aquasec.com/nvd/2026/cve-2026-56854/)
