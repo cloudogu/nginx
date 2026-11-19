@@ -6,6 +6,9 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+- Fix vulnerability [CVE-2026-123007](https://nvd.nist.gov/vuln/detail/cve-2026-123007)
+- Fix vulnerability [CVE-2026-118899](https://nvd.nist.gov/vuln/detail/cve-2026-118899)
+
 ## [v1.30.6-1] - 2026-11-18
 ### Changed
 - We have only made technical changes. You can find more details in the changelogs.
