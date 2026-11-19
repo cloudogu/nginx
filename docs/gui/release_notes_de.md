@@ -8,6 +8,12 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 ### Changed
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
+## [v1.30.7-1] - 2026-11-19
+
+### Security
+- Sicherheitslücke [CVE-2026-123007](https://nvd.nist.gov/vuln/detail/cve-2026-123007)
+- Sicherheitslücke [CVE-2026-118899](https://nvd.nist.gov/vuln/detail/cve-2026-118899)
+
 ## [v1.30.6-1] - 2026-11-18
 ### Changed
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
