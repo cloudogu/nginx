@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.31.9-1] - 2026-11-19
+### Changed
+- [#159] Update nginx to v1.31.9
+
 ## [v1.30.7-1] - 2026-11-19
 - [#158] Update nginx to v1.30.5
 
