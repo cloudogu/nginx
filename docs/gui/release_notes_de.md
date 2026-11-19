@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v1.31.9-1] - 2026-11-19
 ### Changed
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
