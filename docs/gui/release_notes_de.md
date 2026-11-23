@@ -5,9 +5,6 @@ Im Folgenden finden Sie die Release Notes für das Nginx-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/nginx/CHANGELOG/).
 
 ## [Unreleased]
-### Changed
-- Nginx wurde von der Mainline-Version v1.31.9 auf die stabile Version v1.30.8 zurückgestellt ([Änderungen](https://nginx.org/en/CHANGES-1.30))
-
 ### Security
 - Sicherheitslücke [CVE-2026-132779](https://nvd.nist.gov/vuln/detail/CVE-2026-132779) geschlossen
 
