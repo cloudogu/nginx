@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- [#162] Update nginx to v1.30.8 (back from mainline v1.31.9 to stable)
+
+### Security
+- [#162] Fix [CVE-2026-132779](https://nvd.nist.gov/vuln/detail/CVE-2026-132779)
 
 ## [v1.31.9-1] - 2026-11-19
 ### Changed
