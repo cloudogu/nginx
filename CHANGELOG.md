@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.30.8-1] - 2026-11-23
+### Security
+- [#162] Fix [CVE-2026-132779](https://nvd.nist.gov/vuln/detail/CVE-2026-132779)
+
 ## [v1.31.9-1] - 2026-11-19
 ### Changed
 - [#159] Update nginx to v1.31.9
 
 ## [v1.30.7-1] - 2026-11-19
-- [#158] Update nginx to v1.30.5
+### Changed
+- [#158] Update nginx to v1.30.7
 
 ## [v1.30.6-1] - 2026-11-18
 ### Changed

@@ -2,7 +2,7 @@ FROM node:lts-alpine as templating
 
 ENV WORKDIR=/template \
     # Used in template to invalidate caches - do not remove. The release script will auto update this line
-    VERSION="1.31.9-1"
+    VERSION="1.30.8-1"
 
 RUN mkdir -p ${WORKDIR}
 WORKDIR ${WORKDIR}
@@ -18,8 +18,8 @@ FROM registry.cloudogu.com/official/base:3.24.4-1 as builder
 LABEL maintainer="hello@cloudogu.com"
 
 # dockerfile is based on https://github.com/dockerfile/nginx and https://github.com/bellycard/docker-loadbalancer
-ENV NGINX_VERSION=1.31.9 \
-    NGINX_TAR_SHA256="a11c5eeee2e257f4478f0e649f84b0040787d277d2d3e5233952aa6b6dcb80ad" \
+ENV NGINX_VERSION=1.30.8 \
+    NGINX_TAR_SHA256="f867314ada32e717b949930859656c48a72dc6657aec598db58af2f98a40e1c1" \
     CES_CONFD_VERSION=0.12.0 \
     CES_CONFD_TAR_SHA256="fb5ddd8aab1893d92c525b906e1a027b602b51cdf58fec0aff55f72c8a729b1a" \
     WARP_MENU_VERSION=2.1.0 \
@@ -68,12 +68,12 @@ RUN wget --progress=bar:force:noscroll -O /tmp/warp.zip https://github.com/cloud
 FROM registry.cloudogu.com/official/base:3.24.4-1
 LABEL maintainer="hello@cloudogu.com" \
       NAME="official/nginx" \
-      VERSION="1.31.9-1"
+      VERSION="1.30.8-1"
 
 ENV CES_MAINTENANCE_MODE=false
 
 # Used in template to invalidate caches - do not remove. The release script will auto update this line
-ENV VERSION="1.31.9-1"
+ENV VERSION="1.30.8-1"
 
 RUN set -x -o errexit \
  && set -o nounset \
